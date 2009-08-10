@@ -1,0 +1,7 @@
+/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8/tests/samples/MyFirstGame/Classes/MyFirstGameAppDelegate.m: In function '-[MyFirstGameAppDelegate applicationDidFinishLaunching:]':
+/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8/tests/samples/MyFirstGame/Classes/MyFirstGameAppDelegate.m:43: error: 'KaragaSprite' undeclared (first use in this function)
+/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8/tests/samples/MyFirstGame/Classes/MyFirstGameAppDelegate.m:43: error: (Each undeclared identifier is reported only once
+/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8/tests/samples/MyFirstGame/Classes/MyFirstGameAppDelegate.m:43: error: for each function it appears in.)
+/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8/tests/samples/MyFirstGame/Classes/MyFirstGameAppDelegate.m:43: error: 'sprite' undeclared (first use in this function)
+/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8/tests/samples/MyFirstGame/Classes/MyFirstGameAppDelegate.m:43: error: expected expression before ')' token
+/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8/tests/samples/MyFirstGame/Classes/MyFirstGameAppDelegate.m:40: warning: unused variable 'mgr'
