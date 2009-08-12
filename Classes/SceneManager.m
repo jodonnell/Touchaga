@@ -8,7 +8,43 @@
 
 #import "SceneManager.h"
 
+#import "PlayerLayer.h"
+#import "BulletsLayer.h"
+#import "UIShootLayer.h"
+#import "defines.h"
 
 @implementation SceneManager
+
+-(id) init
+{
+	if( (self=[super init] )) {
+		Scene *scene = [Scene node];
+		
+		PlayerLayer *layer = [PlayerLayer node];
+		BulletsLayer *bulletsLayer = [BulletsLayer node];
+		UIShootLayer *uiShootLayer = [UIShootLayer node];
+		
+		[scene addChild:layer z:0 tag:kTagPlayerLayer];
+		[scene addChild:bulletsLayer z:0 tag:kTagBulletLayer];
+		[scene addChild:uiShootLayer z:0 tag:kTagShootLayer];
+		
+		[[Director sharedDirector] runWithScene: scene];
+		
+		// push on menu
+	}
+
+	return self;
+}
+
+
+- (void) dealloc
+{
+	[super dealloc];
+}
+
+-(void) makeGameCurrentScene: (int) level
+{
+	[[Director sharedDirector] popScene];
+}
 
 @end

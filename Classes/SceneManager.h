@@ -13,4 +13,5 @@
 
 }
 
+-(void) makeGameCurrentScene: (int) level;
 @end

@@ -4,9 +4,7 @@
 //
 
 #import "TouchagaAppDelegate.h"
-#import "PlayerLayer.h"
-#import "BulletsLayer.h"
-#import "UIShootLayer.h"
+#import "SceneManager.h"
 #import "defines.h"
 
 #define kTagPlayerSprite 1
@@ -38,18 +36,7 @@
 	[window makeKeyAndVisible];
 	
 	// Create and initialize parent and empty Scene
-	Scene *scene = [Scene node];
-
-	PlayerLayer *layer = [PlayerLayer node];
-	BulletsLayer *bulletsLayer = [BulletsLayer node];
-	UIShootLayer *uiShootLayer = [UIShootLayer node];
-
-	[scene addChild:layer z:0 tag:kTagPlayerLayer];
-	[scene addChild:bulletsLayer z:0 tag:kTagBulletLayer];
-	[scene addChild:uiShootLayer z:0 tag:kTagShootLayer];
-	
-	// Run!
-	[[Director sharedDirector] runWithScene: scene];
+	SceneManager *sceneManager = [SceneManager init];
 }
 
 - (void) dealloc
