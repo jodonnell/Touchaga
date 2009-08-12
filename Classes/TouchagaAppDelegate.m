@@ -6,6 +6,7 @@
 #import "TouchagaAppDelegate.h"
 #import "SceneManager.h"
 #import "defines.h"
+#import "cocos2d.h"
 
 #define kTagPlayerSprite 1
 
@@ -36,7 +37,8 @@
 	[window makeKeyAndVisible];
 	
 	// Create and initialize parent and empty Scene
-	SceneManager *sceneManager = [SceneManager init];
+	SceneManager *sceneManager = [SceneManager new];
+
 }
 
 - (void) dealloc

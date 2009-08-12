@@ -13,5 +13,6 @@
 
 }
 
+//-(void) initbaby;
 -(void) makeGameCurrentScene: (int) level;
 @end

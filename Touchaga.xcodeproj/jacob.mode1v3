@@ -228,8 +228,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -274,15 +272,14 @@
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
-								<string>1C08E77C0454961000C914BD</string>
 								<string>1C37FABC05509CD000000102</string>
 								<string>1CC0EA4004350EF90044410B</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>140</integer>
-									<integer>54</integer>
+									<integer>144</integer>
+									<integer>53</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -316,12 +313,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SceneManager.m</string>
+								<string>TouchagaAppDelegate.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SceneManager.m</string>
+										<string>TouchagaAppDelegate.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>16EB6FEF10325EAC00823433</string>
+										<string>16EB70041032666A00823433</string>
 										<key>history</key>
 										<array>
 											<string>1673CC5B102B51FA001142DC</string>
@@ -366,8 +365,8 @@
 											<string>16C2D0BC102FFE9E00AF0163</string>
 											<string>16EB6FE710325EAC00823433</string>
 											<string>16EB6FE810325EAC00823433</string>
+											<string>16EB6FF110325F4200823433</string>
 											<string>16EB6FE910325EAC00823433</string>
-											<string>16EB6FEA10325EAC00823433</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -405,6 +404,7 @@
 											<string>16EB6FEC10325EAC00823433</string>
 											<string>16EB6FED10325EAC00823433</string>
 											<string>16EB6FEE10325EAC00823433</string>
+											<string>16EB6FF210325F4200823433</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -598,6 +598,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>16EB6FFC1032600D00823433</string>
+		<string>16EB6FFD1032600D00823433</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>164A3ADA1029424000A5E5B6</string>
