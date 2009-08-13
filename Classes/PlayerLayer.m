@@ -1,6 +1,5 @@
 // Import the interfaces
 #import "PlayerLayer.h"
-#import "KaragaSprite.h"
 
 enum {
 	kTagPlayer = 1,
@@ -23,11 +22,12 @@ enum {
 		
 		AtlasSpriteManager *mgr = [AtlasSpriteManager spriteManagerWithFile:@"player.png" capacity:1];
 		[self addChild:mgr z:0 tag:kTagSpriteManager];
-		
-		AtlasSprite *sprite = (AtlasSprite *)[AtlasSprite spriteWithRect:CGRectMake(0,0,16,16) spriteManager:mgr];
+
+		PlayerSprite *sprite = [PlayerSprite spriteWithRect:CGRectMake(0,0,16,16) spriteManager:mgr];
 		sprite.position = ccp( 100, 150);
 		[mgr addChild:sprite z:0 tag:kTagPlayer];
 
+		[self schedule: @selector(regainEnergy:) interval:0];
 	}
 	return self;
 }
@@ -55,7 +55,7 @@ enum {
 		CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 		
 		AtlasSpriteManager *mgr= (AtlasSpriteManager *)[self getChildByTag:kTagSpriteManager];
-		AtlasSprite *sprite = (AtlasSprite *)[mgr getChildByTag:kTagPlayer];
+		PlayerSprite *sprite = (PlayerSprite *)[mgr getChildByTag:kTagPlayer];
 
 		sprite.position = convertedPoint;
 		
@@ -67,10 +67,10 @@ enum {
 	return kEventIgnored;
 }
 
-- (AtlasSprite *) getPlayer
+- (PlayerSprite *) getPlayer
 {
 	AtlasSpriteManager *mgr= (AtlasSpriteManager *)[self getChildByTag:kTagSpriteManager];
-	AtlasSprite *sprite = (AtlasSprite *)[mgr getChildByTag:kTagPlayer];
+	PlayerSprite *sprite = (PlayerSprite *)[mgr getChildByTag:kTagPlayer];
 	return sprite;
 }
 
@@ -86,7 +86,7 @@ enum {
 		CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 		
 		AtlasSpriteManager *mgr= (AtlasSpriteManager *)[self getChildByTag:kTagSpriteManager];
-		AtlasSprite *sprite = (AtlasSprite *)[mgr getChildByTag:kTagPlayer];
+		PlayerSprite *sprite = (PlayerSprite *)[mgr getChildByTag:kTagPlayer];
 		if (CGRectContainsPoint([sprite getSpriteRect], convertedPoint))
 			moving = NO;
 		else
@@ -112,7 +112,7 @@ enum {
 		CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 
 		AtlasSpriteManager *mgr= (AtlasSpriteManager *)[self getChildByTag:kTagSpriteManager];
-		AtlasSprite *sprite = (AtlasSprite *)[mgr getChildByTag:kTagPlayer];
+		PlayerSprite *sprite = (PlayerSprite *)[mgr getChildByTag:kTagPlayer];
 		if (CGRectContainsPoint([sprite getSpriteRect], convertedPoint))
 			moving = YES;
 		else 
@@ -126,5 +126,11 @@ enum {
 	return kEventIgnored;
 }
 
+-(void) regainEnergy: (ccTime) dt
+{
+    AtlasSpriteManager *mgr= (AtlasSpriteManager *)[self getChildByTag:kTagSpriteManager];
+    PlayerSprite *sprite = (PlayerSprite *)[mgr getChildByTag:kTagPlayer];
+    [sprite regainEnergy:1];
+}
 
 @end

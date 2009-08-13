@@ -10,9 +10,9 @@
 
 
 @interface Energy : NSObject {
-	int unchargedEnergy;
-	int chargedEnergy;
-	int maxEnergy;
+    int unchargedEnergy;
+    int chargedEnergy;
+    int maxEnergy;
 }
 
 @property (nonatomic) int unchargedEnergy;
@@ -20,5 +20,7 @@
 @property (nonatomic) int maxEnergy;
 
 -(int) getTotalEnergy;
+-(BOOL) hasEnoughEnergy: (int) charge;
+-(void) regainEnergy: (int) energyToRegain;
 
 @end

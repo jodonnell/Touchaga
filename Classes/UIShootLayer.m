@@ -17,78 +17,82 @@
 
 -(id) init
 {
-	if( (self=[super init] )) {
-		self.isTouchEnabled = YES;
+    if( (self=[super init] )) {
+	self.isTouchEnabled = YES;
 		
-		shootRect = CGRectMake(0, 0, 30, 200);
-	}
-	return self;
+	shootRect = CGRectMake(0, 0, 30, 200);
+    }
+    return self;
 }
 
 - (void) dealloc
 {
-	[super dealloc];
+    [super dealloc];
 }
 
 -(CocosNode *) getGamePlayScene
 {
-	return [self parent];
+    return [self parent];
 }
 
 
 - (BOOL)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch *touch = [touches anyObject];
+    UITouch *touch = [touches anyObject];
 	
-	if( touch ) {
-		CGPoint location = [touch locationInView: [touch view]];
+    if( touch ) {
+	CGPoint location = [touch locationInView: [touch view]];
 		
-		// IMPORTANT:
-		// The touches are always in "portrait" coordinates. You need to convert them to your current orientation
-		CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
+	// IMPORTANT:
+	// The touches are always in "portrait" coordinates. You need to convert them to your current orientation
+	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 		
-		if (CGRectContainsPoint(shootRect, convertedPoint))
-		{
-			PlayerLayer *playerLayer = (PlayerLayer *)[[self getGamePlayScene] getChildByTag:kTagPlayerLayer];
-			CocosNode *player = [playerLayer getPlayer];
+	if (CGRectContainsPoint(shootRect, convertedPoint))
+	{
+	    PlayerLayer *playerLayer = (PlayerLayer *)[[self getGamePlayScene] getChildByTag:kTagPlayerLayer];
+	    PlayerSprite *player = [playerLayer getPlayer];
+	    if ([player hasEnoughEnergy:20])
+	    {
+		[player depleteEnergy: 20];
 
-			BulletsLayer *bulletLayer = (BulletsLayer *)[[self getGamePlayScene] getChildByTag:kTagBulletLayer];
-			[bulletLayer addPlayerBullet:player.position andCharge: 0];
-		}
-		else
-			return kEventIgnored;
-		
-		// no other handlers will receive this event
-		return kEventHandled;
+		BulletsLayer *bulletLayer = (BulletsLayer *)[[self getGamePlayScene] getChildByTag:kTagBulletLayer];
+		[bulletLayer addPlayerBullet:player.position andCharge: 0];
+	    }
 	}
+	else
+	    return kEventIgnored;
+		
+	// no other handlers will receive this event
+	return kEventHandled;
+    }
 	
-	// we ignore the event. Other receivers will receive this event.
-	return kEventIgnored;
+    // we ignore the event. Other receivers will receive this event.
+    return kEventIgnored;
 }
 
 - (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch *touch = [touches anyObject];
+    UITouch *touch = [touches anyObject];
 	
-	if( touch ) {
-		CGPoint location = [touch locationInView: [touch view]];
+    if( touch ) {
+	CGPoint location = [touch locationInView: [touch view]];
 		
-		// IMPORTANT:
-		// The touches are always in "portrait" coordinates. You need to convert them to your current orientation
-		CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
+	// IMPORTANT:
+	// The touches are always in "portrait" coordinates. You need to convert them to your current orientation
+	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 
-		if (CGRectContainsPoint(shootRect, convertedPoint))
-		{
-		}
-		else 
-			return kEventIgnored;
-		
-		// no other handlers will receive this event
-		return kEventHandled;
+	if (CGRectContainsPoint(shootRect, convertedPoint))
+	{
 	}
+	else 
+	    return kEventIgnored;
+		
+	// no other handlers will receive this event
+	return kEventHandled;
+    }
 	
-	// we ignore the event. Other receivers will receive this event.
-	return kEventIgnored;
+    // we ignore the event. Other receivers will receive this event.
+    return kEventIgnored;
 }
 
 @end

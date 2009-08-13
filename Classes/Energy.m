@@ -8,7 +8,6 @@
 
 #import "Energy.h"
 
-
 @implementation Energy
 
 @synthesize unchargedEnergy;
@@ -17,23 +16,39 @@
 
 -(id) init
 {
-	if( (self=[super init] )) {
-		maxEnergy = 100;
-		unchargedEnergy = maxEnergy;
-	}
-
-	return self;
+    if( (self=[super init] )) {
+	maxEnergy = 100;
+	unchargedEnergy = maxEnergy;
+    }
+    
+    return self;
 }
 
 - (void) dealloc
 {
-	[super dealloc];
+    [super dealloc];
 }
 
 
+-(BOOL) hasEnoughEnergy: (int) charge
+{
+    NSLog(@"%i", unchargedEnergy - charge);
+    if (unchargedEnergy - charge > 0)
+	return YES;
+    return NO;
+}
+
 -(int) getTotalEnergy
 {
-	return unchargedEnergy + chargedEnergy;
+    return unchargedEnergy + chargedEnergy;
+}
+
+-(void) regainEnergy: (int) energyToRegain
+{
+    unchargedEnergy += energyToRegain;
+
+    if (unchargedEnergy > maxEnergy)
+	unchargedEnergy = maxEnergy;
 }
 
 @end

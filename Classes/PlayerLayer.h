@@ -1,16 +1,17 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
-#import "KaragaSprite.h"
+#import "PlayerSprite.h"
 
 // HelloWorld Layer
 @interface PlayerLayer : Layer
 {
-	BOOL moving;
+    BOOL moving;
 }
 
 @property (nonatomic) BOOL moving;
 
-- (AtlasSprite *) getPlayer;
+-(PlayerSprite *) getPlayer;
+-(void) regainEnergy: (ccTime) dt;
 
 @end
