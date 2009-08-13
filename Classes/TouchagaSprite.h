@@ -6,9 +6,10 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "TouchagaSprite.h"
 #import "cocos2d.h"
 
-@interface AtlasSprite (KaragaSprite)
+@interface AtlasSprite (TouchagaSprite)
 -(CGRect) getSpriteRect;
 
 @end

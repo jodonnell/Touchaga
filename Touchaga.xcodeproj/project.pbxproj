@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1673CCD5102C18E7001142DC /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 1673CCD4102C18E7001142DC /* player.png */; };
-		16C2CD25102D24F000AF0163 /* KaragaSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2CD24102D24F000AF0163 /* KaragaSprite.m */; };
+		16C2CD25102D24F000AF0163 /* TouchagaSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2CD24102D24F000AF0163 /* TouchagaSprite.m */; };
 		16C2CEE7102E3DE400AF0163 /* BulletsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2CEE6102E3DE400AF0163 /* BulletsLayer.m */; };
 		16C2CEEB102E3F3A00AF0163 /* bullets.png in Resources */ = {isa = PBXBuildFile; fileRef = 16C2CEEA102E3F3A00AF0163 /* bullets.png */; };
 		16C2CF19102F86E900AF0163 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2CF18102F86E900AF0163 /* SceneManager.m */; };
 		16C2CF36102FCB1C00AF0163 /* UIShootLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2CF35102FCB1C00AF0163 /* UIShootLayer.m */; };
+		16EB700E1032681500823433 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EB700D1032681500823433 /* Player.m */; };
+		16EB702A1032697300823433 /* Energy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EB70291032697300823433 /* Energy.m */; };
 		1D3623260D0F684500981E51 /* TouchagaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -233,8 +235,8 @@
 
 /* Begin PBXFileReference section */
 		1673CCD4102C18E7001142DC /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		16C2CD23102D24F000AF0163 /* KaragaSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaragaSprite.h; sourceTree = "<group>"; };
-		16C2CD24102D24F000AF0163 /* KaragaSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaragaSprite.m; sourceTree = "<group>"; };
+		16C2CD23102D24F000AF0163 /* TouchagaSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchagaSprite.h; sourceTree = "<group>"; };
+		16C2CD24102D24F000AF0163 /* TouchagaSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchagaSprite.m; sourceTree = "<group>"; };
 		16C2CEE5102E3DE400AF0163 /* BulletsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletsLayer.h; sourceTree = "<group>"; };
 		16C2CEE6102E3DE400AF0163 /* BulletsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletsLayer.m; sourceTree = "<group>"; };
 		16C2CEEA102E3F3A00AF0163 /* bullets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullets.png; sourceTree = "<group>"; };
@@ -243,6 +245,10 @@
 		16C2CF34102FCB1C00AF0163 /* UIShootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIShootLayer.h; sourceTree = "<group>"; };
 		16C2CF35102FCB1C00AF0163 /* UIShootLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIShootLayer.m; sourceTree = "<group>"; };
 		16C2CF39102FDD0F00AF0163 /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		16EB700C1032681500823433 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		16EB700D1032681500823433 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		16EB70281032697300823433 /* Energy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Energy.h; sourceTree = "<group>"; };
+		16EB70291032697300823433 /* Energy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Energy.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TouchagaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchagaAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchagaAppDelegate.m; sourceTree = "<group>"; };
@@ -501,10 +507,14 @@
 				16C2CF17102F86E900AF0163 /* SceneManager.h */,
 				16C2CF18102F86E900AF0163 /* SceneManager.m */,
 				16C2CD20102D217800AF0163 /* Layers */,
-				16C2CD23102D24F000AF0163 /* KaragaSprite.h */,
-				16C2CD24102D24F000AF0163 /* KaragaSprite.m */,
+				16C2CD23102D24F000AF0163 /* TouchagaSprite.h */,
+				16C2CD24102D24F000AF0163 /* TouchagaSprite.m */,
 				1D3623240D0F684500981E51 /* TouchagaAppDelegate.h */,
 				1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */,
+				16EB700C1032681500823433 /* Player.h */,
+				16EB700D1032681500823433 /* Player.m */,
+				16EB70281032697300823433 /* Energy.h */,
+				16EB70291032697300823433 /* Energy.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1103,10 +1113,12 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* TouchagaAppDelegate.m in Sources */,
 				50479D3F1010E04B00D1C71A /* PlayerLayer.m in Sources */,
-				16C2CD25102D24F000AF0163 /* KaragaSprite.m in Sources */,
+				16C2CD25102D24F000AF0163 /* TouchagaSprite.m in Sources */,
 				16C2CEE7102E3DE400AF0163 /* BulletsLayer.m in Sources */,
 				16C2CF19102F86E900AF0163 /* SceneManager.m in Sources */,
 				16C2CF36102FCB1C00AF0163 /* UIShootLayer.m in Sources */,
+				16EB700E1032681500823433 /* Player.m in Sources */,
+				16EB702A1032697300823433 /* Energy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

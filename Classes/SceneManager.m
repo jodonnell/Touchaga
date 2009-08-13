@@ -24,11 +24,11 @@
 		PlayerLayer *layer = [PlayerLayer node];
 		BulletsLayer *bulletsLayer = [BulletsLayer node];
 		UIShootLayer *uiShootLayer = [UIShootLayer node];
-	
+		
 		[scene addChild:layer z:0 tag:kTagPlayerLayer];
 		[scene addChild:bulletsLayer z:0 tag:kTagBulletLayer];
 		[scene addChild:uiShootLayer z:0 tag:kTagShootLayer];
-	
+		
 		[[Director sharedDirector] runWithScene: scene];
 	}
 	return self;
