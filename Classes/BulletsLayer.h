@@ -9,13 +9,16 @@
 
 
 @interface BulletsLayer : Layer {
-  int  numPlayerBullets;
+    int  numPlayerBullets;
+    NSMutableArray *onScreenPlayerBullets;
 }
 
 @property (nonatomic) int numPlayerBullets;
+@property (retain, nonatomic) NSMutableArray *onScreenPlayerBullets;
 
 -(void) addPlayerBullet:(CGPoint) pos andCharge:(int) charge;
 -(void) addEnemyBullet:(CGPoint) pos andCharge:(int) charge;
 -(void) moveBullet:(ccTime) dt;
+-(void) removePlayerBullet: (AtlasSprite *) bulletSprite;
 
 @end
