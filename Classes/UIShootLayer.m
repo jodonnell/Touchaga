@@ -21,6 +21,8 @@
 	self.isTouchEnabled = YES;
 		
 	shootRect = CGRectMake(0, 0, 30, 200);
+
+	[self schedule: @selector(regainEnergy:) interval:0];
     }
     return self;
 }
@@ -49,15 +51,14 @@
 		
 	if (CGRectContainsPoint(shootRect, convertedPoint))
 	{
-	    PlayerLayer *playerLayer = (PlayerLayer *)[[self getGamePlayScene] getChildByTag:kTagPlayerLayer];
-	    PlayerSprite *player = [playerLayer getPlayer];
-	    if ([player hasEnoughEnergy:20])
-	    {
-		[player depleteEnergy: 20];
+	    [self unschedule: @selector(chargeShot:)];
+	    [self schedule: @selector(regainEnergy:) interval:0];
 
-		BulletsLayer *bulletLayer = (BulletsLayer *)[[self getGamePlayScene] getChildByTag:kTagBulletLayer];
-		[bulletLayer addPlayerBullet:player.position andCharge: 0];
-	    }
+	    PlayerSprite *player = [self getPlayer];
+	    int charge = [player fire];
+
+	    BulletsLayer *bulletLayer = (BulletsLayer *)[[self getGamePlayScene] getChildByTag:kTagBulletLayer];
+	    [bulletLayer addPlayerBullet:player.position andCharge: charge];
 	}
 	else
 	    return kEventIgnored;
@@ -83,6 +84,8 @@
 
 	if (CGRectContainsPoint(shootRect, convertedPoint))
 	{
+	    [self schedule: @selector(chargeShot:) interval:0];
+	    [self unschedule: @selector(regainEnergy:)];
 	}
 	else 
 	    return kEventIgnored;
@@ -93,6 +96,25 @@
 	
     // we ignore the event. Other receivers will receive this event.
     return kEventIgnored;
+}
+
+-(void) chargeShot: (ccTime) dt
+{
+    PlayerSprite *player = [self getPlayer];
+    [player chargingEnergy:1];
+}
+
+-(void) regainEnergy: (ccTime) dt
+{
+    PlayerSprite *sprite = (PlayerSprite *)[self getPlayer];
+    [sprite regainEnergy:1];
+}
+
+-(PlayerSprite *) getPlayer
+{
+    PlayerLayer *playerLayer = (PlayerLayer *)[[self getGamePlayScene] getChildByTag:kTagPlayerLayer];
+    PlayerSprite *player = [playerLayer getPlayer];
+    return player;
 }
 
 @end

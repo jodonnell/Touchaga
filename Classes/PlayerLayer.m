@@ -26,8 +26,6 @@ enum {
 		PlayerSprite *sprite = [PlayerSprite spriteWithRect:CGRectMake(0,0,16,16) spriteManager:mgr];
 		sprite.position = ccp( 100, 150);
 		[mgr addChild:sprite z:0 tag:kTagPlayer];
-
-		[self schedule: @selector(regainEnergy:) interval:0];
 	}
 	return self;
 }
@@ -124,13 +122,6 @@ enum {
 	
 	// we ignore the event. Other receivers will receive this event.
 	return kEventIgnored;
-}
-
--(void) regainEnergy: (ccTime) dt
-{
-    AtlasSpriteManager *mgr= (AtlasSpriteManager *)[self getChildByTag:kTagSpriteManager];
-    PlayerSprite *sprite = (PlayerSprite *)[mgr getChildByTag:kTagPlayer];
-    [sprite regainEnergy:1];
 }
 
 @end

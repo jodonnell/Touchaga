@@ -12,6 +12,5 @@
 @property (nonatomic) BOOL moving;
 
 -(PlayerSprite *) getPlayer;
--(void) regainEnergy: (ccTime) dt;
 
 @end

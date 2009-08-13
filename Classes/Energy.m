@@ -19,6 +19,7 @@
     if( (self=[super init] )) {
 	maxEnergy = 100;
 	unchargedEnergy = maxEnergy;
+	chargedEnergy = 0;
     }
     
     return self;
@@ -32,7 +33,6 @@
 
 -(BOOL) hasEnoughEnergy: (int) charge
 {
-    NSLog(@"%i", unchargedEnergy - charge);
     if (unchargedEnergy - charge > 0)
 	return YES;
     return NO;
@@ -49,6 +49,22 @@
 
     if (unchargedEnergy > maxEnergy)
 	unchargedEnergy = maxEnergy;
+}
+
+-(void) chargingEnergy: (int) energyToCharge
+{
+    if ([self hasEnoughEnergy: energyToCharge])
+    {
+	unchargedEnergy -= energyToCharge;
+	chargedEnergy += energyToCharge;
+    }
+}
+
+-(int) releaseChargedEnergy
+{
+    int now_energy = chargedEnergy;
+    chargedEnergy = 0;
+    return now_energy;
 }
 
 @end

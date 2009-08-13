@@ -22,5 +22,7 @@
 -(int) getTotalEnergy;
 -(BOOL) hasEnoughEnergy: (int) charge;
 -(void) regainEnergy: (int) energyToRegain;
+-(int) releaseChargedEnergy;
+-(void) chargingEnergy: (int) energyToCharge;
 
 @end

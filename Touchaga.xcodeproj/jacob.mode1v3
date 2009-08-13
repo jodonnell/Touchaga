@@ -278,7 +278,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>145</integer>
+									<integer>144</integer>
 									<integer>57</integer>
 								</array>
 							</array>
@@ -313,14 +313,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PlayerLayer.m</string>
+								<string>UIShootLayer.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PlayerLayer.m</string>
+										<string>UIShootLayer.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>1693D0C01033D4E100AF7BF8</string>
+										<string>1693D0E31033DE5F00AF7BF8</string>
 										<key>history</key>
 										<array>
 											<string>1673CC5B102B51FA001142DC</string>
@@ -344,7 +342,6 @@
 											<string>16C2CF09102F41EB00AF0163</string>
 											<string>16C2CF0A102F41EB00AF0163</string>
 											<string>16C2CF41102FDEA700AF0163</string>
-											<string>16C2CF7F102FE42400AF0163</string>
 											<string>16C2CFBA102FEA1800AF0163</string>
 											<string>16C2CFBB102FEA1800AF0163</string>
 											<string>16C2D050102FF70700AF0163</string>
@@ -368,14 +365,15 @@
 											<string>1693D0011033AF8500AF7BF8</string>
 											<string>1693D0021033AF8500AF7BF8</string>
 											<string>1693D0471033C7A600AF7BF8</string>
-											<string>1693D05A1033CA1E00AF7BF8</string>
 											<string>1693D0841033CC7C00AF7BF8</string>
-											<string>1693D0981033D04D00AF7BF8</string>
 											<string>1693D0991033D04D00AF7BF8</string>
 											<string>1693D09A1033D04D00AF7BF8</string>
 											<string>1693D09B1033D04D00AF7BF8</string>
 											<string>1693D0B01033D3F400AF7BF8</string>
-											<string>1693D0B11033D3F400AF7BF8</string>
+											<string>1693D0C21033DC2600AF7BF8</string>
+											<string>1693D0CF1033DCC700AF7BF8</string>
+											<string>1693D0DA1033DD0800AF7BF8</string>
+											<string>1693D0DB1033DD0800AF7BF8</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -446,6 +444,13 @@
 											<string>1693D09F1033D04D00AF7BF8</string>
 											<string>1693D0A71033D23F00AF7BF8</string>
 											<string>1693D0B21033D3F400AF7BF8</string>
+											<string>1693D0C51033DC2600AF7BF8</string>
+											<string>1693D0C61033DC2600AF7BF8</string>
+											<string>1693D0C71033DC2600AF7BF8</string>
+											<string>1693D0D21033DCC700AF7BF8</string>
+											<string>1693D0D31033DCC700AF7BF8</string>
+											<string>1693D0DC1033DD0800AF7BF8</string>
+											<string>1693D0DD1033DD0800AF7BF8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -643,8 +648,8 @@
 		<string>1693CFDA1033AD0500AF7BF8</string>
 		<string>164A3ADA1029424000A5E5B6</string>
 		<string>/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8/tests/samples/Touchaga/Touchaga.xcodeproj</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>1829 81 1920 969 1680 -30 1920 1080 </string>
