@@ -31,7 +31,6 @@
 	[[Director sharedDirector] setDeviceOrientation:CCDeviceOrientationPortrait];
 	
 	[Director sharedDirector].displayFPS = YES;
-
 	
 	// Make the window visible
 	[window makeKeyAndVisible];

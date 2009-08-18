@@ -10,7 +10,7 @@
 #import "PlayerSprite.h"
 
 @interface UIShootLayer : Layer {
-	CGRect shootRect;
+    CGRect shootRect;
 }
 
 @property (nonatomic) CGRect shootRect;

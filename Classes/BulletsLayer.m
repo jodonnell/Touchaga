@@ -8,6 +8,7 @@
 
 #import "BulletsLayer.h"
 #import "defines.h"
+#import "PlayerBulletSprite.h"
 
 #define kTagSpriteManager 1
 
@@ -18,7 +19,6 @@ enum {
 
 @implementation BulletsLayer
 
-@synthesize numPlayerBullets;
 @synthesize onScreenPlayerBullets;
 
 // on "init" you need to initialize your instance
@@ -30,7 +30,6 @@ enum {
 	AtlasSpriteManager *mgr = [AtlasSpriteManager spriteManagerWithFile:@"bullets.png" capacity:2];
 	[self addChild:mgr z:0 tag:kTagSpriteManager];
 	
-	numPlayerBullets = 0;
 	onScreenPlayerBullets = [[NSMutableArray alloc] init];
     }
     
@@ -47,10 +46,8 @@ enum {
 
 -(void) addPlayerBullet:(CGPoint) pos andCharge:(int) charge
 {
-    numPlayerBullets++;
-
     AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag: kTagSpriteManager];
-    AtlasSprite *playerBulletSprite = [AtlasSprite spriteWithRect:CGRectMake(0,0,8,8) spriteManager:mgr];
+    PlayerBulletSprite *playerBulletSprite = [PlayerBulletSprite initWithCharge:charge spriteManager:mgr];
     playerBulletSprite.position = pos;
     [mgr addChild:playerBulletSprite z:0];
     
@@ -74,16 +71,16 @@ enum {
     // asserts that the bullets go offscreen in the same order they were created
     for (int i = 0; i < [onScreenPlayerBullets count]; i++) 
     {
-	AtlasSprite *playerBulletSprite = (AtlasSprite *)[onScreenPlayerBullets objectAtIndex:i];
+	PlayerBulletSprite *playerBulletSprite = [onScreenPlayerBullets objectAtIndex:i];
 
-	playerBulletSprite.position = CGPointMake(playerBulletSprite.position.x, playerBulletSprite.position.y + 2);
+	playerBulletSprite.position = CGPointMake(playerBulletSprite.position.x, playerBulletSprite.position.y + 5);
 
  	if (s.height < playerBulletSprite.position.y)
 	    [self removePlayerBullet: playerBulletSprite];
     }
 }
 
--(void) removePlayerBullet: (AtlasSprite *) bulletSprite
+-(void) removePlayerBullet: (PlayerBulletSprite *) bulletSprite
 {
     AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag: kTagSpriteManager];
     [onScreenPlayerBullets removeObject: bulletSprite];

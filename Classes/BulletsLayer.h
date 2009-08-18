@@ -9,11 +9,9 @@
 
 
 @interface BulletsLayer : Layer {
-    int  numPlayerBullets;
     NSMutableArray *onScreenPlayerBullets;
 }
 
-@property (nonatomic) int numPlayerBullets;
 @property (retain, nonatomic) NSMutableArray *onScreenPlayerBullets;
 
 -(void) addPlayerBullet:(CGPoint) pos andCharge:(int) charge;

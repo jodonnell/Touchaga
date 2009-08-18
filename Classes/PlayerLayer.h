@@ -6,10 +6,7 @@
 // HelloWorld Layer
 @interface PlayerLayer : Layer
 {
-    BOOL moving;
 }
-
-@property (nonatomic) BOOL moving;
 
 -(PlayerSprite *) getPlayer;
 
