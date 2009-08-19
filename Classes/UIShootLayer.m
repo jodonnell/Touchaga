@@ -45,8 +45,8 @@
 
 -(void) regainEnergy: (ccTime) dt
 {
-    PlayerSprite *sprite = (PlayerSprite *)[self getPlayer];
-    [sprite regainEnergy:1];
+    PlayerSprite *player = [self getPlayer];
+    [player regainEnergy:1];
 }
 
 -(PlayerSprite *) getPlayer
@@ -56,31 +56,21 @@
     return player;
 }
 
-
 - (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
 	
     if( touch ) {
 	CGPoint location = [touch locationInView: [touch view]];
-		
-	// IMPORTANT:
-	// The touches are always in "portrait" coordinates. You need to convert them to your current orientation
 	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 
 	if (CGRectContainsPoint(shootRect, convertedPoint))
 	{
 	    [self schedule: @selector(chargeShot:) interval:0];
 	    [self unschedule: @selector(regainEnergy:)];
+	    return kEventHandled;
 	}
-	else 
-	    return kEventIgnored;
-		
-	// no other handlers will receive this event
-	return kEventHandled;
     }
-	
-    // we ignore the event. Other receivers will receive this event.
     return kEventIgnored;
 }
 
@@ -90,9 +80,6 @@
 	
     if( touch ) {
 	CGPoint location = [touch locationInView: [touch view]];
-		
-	// IMPORTANT:
-	// The touches are always in "portrait" coordinates. You need to convert them to your current orientation
 	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 		
 	if (CGRectContainsPoint(shootRect, convertedPoint))
@@ -105,15 +92,9 @@
 
 	    BulletsLayer *bulletLayer = (BulletsLayer *)[[self getGamePlayScene] getChildByTag:kTagBulletLayer];
 	    [bulletLayer addPlayerBullet:player.position andCharge: charge];
+	    return kEventHandled;
 	}
-	else
-	    return kEventIgnored;
-		
-	// no other handlers will receive this event
-	return kEventHandled;
     }
-	
-    // we ignore the event. Other receivers will receive this event.
     return kEventIgnored;
 }
 

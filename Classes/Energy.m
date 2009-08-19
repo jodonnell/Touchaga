@@ -30,10 +30,9 @@
     [super dealloc];
 }
 
-
 -(BOOL) hasEnoughEnergy: (int) charge
 {
-    if (unchargedEnergy - charge > 0)
+    if (unchargedEnergy - charge >= 0)
 	return YES;
     return NO;
 }

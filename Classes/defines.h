@@ -15,3 +15,5 @@
 
 
 #define kEveryFrame 1/60
+
+#define kPlayerBulletMovementSpeed 5

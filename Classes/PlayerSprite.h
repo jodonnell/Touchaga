@@ -8,6 +8,7 @@
 
 #import "TouchagaSprite.h"
 #import "Energy.h"
+#import "ShieldLayer.h"
 
 @interface PlayerSprite : AtlasSprite <TargetedTouchDelegate> {
     Energy *energy;
@@ -22,8 +23,10 @@
 -(CGRect)getTouchBox;
 -(int) fire;
 -(BOOL) hasEnoughEnergy: (int) charge;
--(void) depleteEnergy: (int) charge;
 -(void) chargingEnergy: (int) charge;
 -(void) regainEnergy: (int) energyToRegain;
+-(ShieldLayer *) getShieldLayer;
+-(CocosNode *) getPlayerLayer;
+-(void) updateShieldStrength;
 
 @end

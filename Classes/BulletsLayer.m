@@ -21,7 +21,6 @@ enum {
 
 @synthesize onScreenPlayerBullets;
 
-// on "init" you need to initialize your instance
 -(id) init
 {
     if( (self=[super init] )) {
@@ -32,17 +31,14 @@ enum {
 	
 	onScreenPlayerBullets = [[NSMutableArray alloc] init];
     }
-    
     return self;
 }
-
 
 - (void) dealloc
 {
     [onScreenPlayerBullets release];
     [super dealloc];
 }
-
 
 -(void) addPlayerBullet:(CGPoint) pos andCharge:(int) charge
 {
@@ -73,8 +69,9 @@ enum {
     {
 	PlayerBulletSprite *playerBulletSprite = [onScreenPlayerBullets objectAtIndex:i];
 
-	playerBulletSprite.position = CGPointMake(playerBulletSprite.position.x, playerBulletSprite.position.y + 5);
+	playerBulletSprite.position = CGPointMake(playerBulletSprite.position.x, playerBulletSprite.position.y + kPlayerBulletMovementSpeed);
 
+	// is this dangerous?
  	if (s.height < playerBulletSprite.position.y)
 	    [self removePlayerBullet: playerBulletSprite];
     }

@@ -18,31 +18,31 @@
 
 -(id) init
 {
-	if( (self=[super init] )) {
-		Scene *scene = [Scene node];
+    if( (self=[super init] )) {
+	Scene *scene = [Scene node];
 		
-		PlayerLayer *layer = [PlayerLayer node];
-		BulletsLayer *bulletsLayer = [BulletsLayer node];
-		UIShootLayer *uiShootLayer = [UIShootLayer node];
+	PlayerLayer *playerLayer = [PlayerLayer node];
+	BulletsLayer *bulletsLayer = [BulletsLayer node];
+	UIShootLayer *uiShootLayer = [UIShootLayer node];
+	
+	[scene addChild:playerLayer z:0 tag:kTagPlayerLayer];
+	[scene addChild:bulletsLayer z:0 tag:kTagBulletLayer];
+	[scene addChild:uiShootLayer z:0 tag:kTagShootLayer];
 		
-		[scene addChild:layer z:0 tag:kTagPlayerLayer];
-		[scene addChild:bulletsLayer z:0 tag:kTagBulletLayer];
-		[scene addChild:uiShootLayer z:0 tag:kTagShootLayer];
-		
-		[[Director sharedDirector] runWithScene: scene];
-	}
-	return self;
+	[[Director sharedDirector] runWithScene: scene];
+    }
+    return self;
 }
 
 
 - (void) dealloc
 {
-	[super dealloc];
+    [super dealloc];
 }
 
 -(void) makeGameCurrentScene: (int) level
 {
-	[[Director sharedDirector] popScene];
+    [[Director sharedDirector] popScene];
 }
 
 @end

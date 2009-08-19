@@ -7,7 +7,8 @@
 //
 
 #import "PlayerSprite.h"
-
+#import "ShieldLayer.h"
+#import "PlayerLayer.h"
 
 @implementation PlayerSprite
 
@@ -44,20 +45,34 @@
     return [energy hasEnoughEnergy: charge];
 }
 
--(void) depleteEnergy: (int) charge
-{
-    //assert energy exists
-    energy.unchargedEnergy -= charge;
-}
-
 -(void) chargingEnergy: (int) charge
 {
     [energy chargingEnergy: charge];
+    [self updateShieldStrength];
 }
 
 -(void) regainEnergy: (int) energyToRegain
 {
     [energy regainEnergy:energyToRegain];
+    [self updateShieldStrength];
+}
+
+-(CocosNode *) getPlayerLayer
+{
+    return [[self parent] parent];
+}
+
+-(ShieldLayer *) getShieldLayer
+{
+    PlayerLayer *playerLayer = (PlayerLayer *)[self getPlayerLayer];
+    ShieldLayer *shieldLayer = [playerLayer getShield];
+    return shieldLayer;
+}
+
+-(void) updateShieldStrength
+{
+    ShieldLayer *shieldLayer = [self getShieldLayer];
+    [shieldLayer setShieldStrengthByEnergy:energy.unchargedEnergy];
 }
 
 - (void)onEnter
@@ -91,6 +106,9 @@
     CGPoint touchPoint = [touch locationInView:[touch view]];
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
     self.position = CGPointMake(touchPoint.x, touchPoint.y);
+
+    ShieldLayer *shieldLayer = [self getShieldLayer];
+    shieldLayer.pos = CGPointMake(touchPoint.x, touchPoint.y);
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
