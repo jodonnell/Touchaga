@@ -19,7 +19,7 @@ enum {
 
 @implementation BulletsLayer
 
-@synthesize onScreenPlayerBullets;
+@synthesize playerBullets;
 
 -(id) init
 {
@@ -29,14 +29,14 @@ enum {
 	AtlasSpriteManager *mgr = [AtlasSpriteManager spriteManagerWithFile:@"bullets.png" capacity:2];
 	[self addChild:mgr z:0 tag:kTagSpriteManager];
 	
-	onScreenPlayerBullets = [[NSMutableArray alloc] init];
+	playerBullets = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void) dealloc
 {
-    [onScreenPlayerBullets release];
+    [playerBullets release];
     [super dealloc];
 }
 
@@ -47,7 +47,7 @@ enum {
     playerBulletSprite.position = pos;
     [mgr addChild:playerBulletSprite z:0];
     
-    [onScreenPlayerBullets addObject: playerBulletSprite];
+    [playerBullets addObject: playerBulletSprite];
 
     [self schedule: @selector(moveBullet:) interval:0];
 }
@@ -65,9 +65,9 @@ enum {
     CGSize s = [[Director sharedDirector] winSize];
 
     // asserts that the bullets go offscreen in the same order they were created
-    for (int i = 0; i < [onScreenPlayerBullets count]; i++) 
+    for (int i = 0; i < [playerBullets count]; i++) 
     {
-	PlayerBulletSprite *playerBulletSprite = [onScreenPlayerBullets objectAtIndex:i];
+	PlayerBulletSprite *playerBulletSprite = [playerBullets objectAtIndex:i];
 
 	playerBulletSprite.position = CGPointMake(playerBulletSprite.position.x, playerBulletSprite.position.y + kPlayerBulletMovementSpeed);
 
@@ -80,7 +80,7 @@ enum {
 -(void) removePlayerBullet: (PlayerBulletSprite *) bulletSprite
 {
     AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag: kTagSpriteManager];
-    [onScreenPlayerBullets removeObject: bulletSprite];
+    [playerBullets removeObject: bulletSprite];
     [mgr removeChild: bulletSprite cleanup:YES];
 }
 

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-
+/**
+ * Manages the active screen.  The game screen once loaded once will remain on the stack for the life of
+ * the game.
+ */
 @interface SceneManager : NSObject {
 
 }
 
-//-(void) initbaby;
 -(void) makeGameCurrentScene: (int) level;
 @end

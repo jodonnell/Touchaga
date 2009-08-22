@@ -8,16 +8,28 @@
 
 #import "PlayerBulletSprite.h"
 
-
+/**
+ * The sprite for all the player bullets.
+ */
 @implementation PlayerBulletSprite
 
 @synthesize charge;
 
+/**
+ * Constructor
+ * @param initCharge The charge of the current shot.
+ * @param manager The bullet sprites AtlasSpriteManager 
+ */
 +(id)initWithCharge:(int)initCharge spriteManager:(AtlasSpriteManager*)manager
 {
     return [[[self alloc] initWithCharge:initCharge spriteManager:manager] autorelease];
 }
 
+/**
+ * Depending on how big the charge is, uses a different graphic.
+ * @param initCharge The charge of the current shot.
+ * @param manager The bullet sprites AtlasSpriteManager 
+ */
 -(id)initWithCharge:(int)initCharge spriteManager:(AtlasSpriteManager*)manager
 {
     CGRect rect;
