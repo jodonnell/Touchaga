@@ -15,6 +15,7 @@
  * the PlayerBulletSprite.
  */
 @interface UIShootLayer : Layer {
+@private
     CGRect shootRect;
 }
 

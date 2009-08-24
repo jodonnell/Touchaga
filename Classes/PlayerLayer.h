@@ -10,6 +10,8 @@
 #import "PlayerSprite.h"
 #import "ShieldLayer.h"
 
+@class PlayerSprite;
+
 /**
  * The layer that contains the PlayerSprite and the ShieldLayer, and anything else to do with the player.
  */

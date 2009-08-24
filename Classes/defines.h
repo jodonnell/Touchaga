@@ -11,6 +11,7 @@
 #define kTagPlayerLayer 1
 #define kTagBulletLayer 2
 #define kTagShootLayer 3
+#define kTagEnemyLayer 4
 
 
 

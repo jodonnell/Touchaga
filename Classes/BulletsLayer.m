@@ -71,10 +71,21 @@ enum {
 
 	playerBulletSprite.position = CGPointMake(playerBulletSprite.position.x, playerBulletSprite.position.y + kPlayerBulletMovementSpeed);
 
+	if ([self checkForBulletEnemyCollision:playerBulletSprite])
+	{
+	    [self removePlayerBullet: playerBulletSprite];
+	    continue;
+	}
 	// is this dangerous?
  	if (s.height < playerBulletSprite.position.y)
 	    [self removePlayerBullet: playerBulletSprite];
     }
+}
+
+-(BOOL) checkForBulletEnemyCollision:(PlayerBulletSprite *)bulletSprite
+{
+    EnemyLayer *enemyLayer = [self getEnemyLayer];
+    return [enemyLayer checkForBulletEnemyCollision:bulletSprite];
 }
 
 -(void) removePlayerBullet: (PlayerBulletSprite *) bulletSprite
@@ -82,6 +93,11 @@ enum {
     AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag: kTagSpriteManager];
     [playerBullets removeObject: bulletSprite];
     [mgr removeChild: bulletSprite cleanup:YES];
+}
+
+-(EnemyLayer *) getEnemyLayer
+{
+    return (EnemyLayer *)[[self parent] getChildByTag:kTagEnemyLayer];
 }
 
 @end

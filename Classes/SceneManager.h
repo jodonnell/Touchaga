@@ -16,5 +16,8 @@
 
 }
 
+/**
+ * @todo Document.
+ */
 -(void) makeGameCurrentScene: (int) level;
 @end

@@ -7,6 +7,9 @@
 //
 #import "cocos2d.h"
 
+@class EnemyLayer;
+@class PlayerBulletSprite;
+
 /**
  * The layer which contains all the bullets on screen.
  */
@@ -25,9 +28,7 @@
 -(void) addPlayerBullet:(CGPoint) pos andCharge:(int) charge;
 
 /**
- * 
- * 
- * 
+ * @todo Add description.
  */
 -(void) addEnemyBullet:(CGPoint) pos andCharge:(int) charge;
 
@@ -43,5 +44,17 @@
  * @param a PlayerBulletSprite to remove from the game.
  */
 -(void) removePlayerBullet: (AtlasSprite *) bulletSprite;
+
+/**
+ * Delegates to the EnemyLayer to check for an enemy-bullet collision.
+ * @see EnemyLayer::checkForBulletEnemyCollision
+ */
+-(BOOL) checkForBulletEnemyCollision:(PlayerBulletSprite *)bulletSprite;
+
+/**
+ * Given a PlayerBulletSprite object, removes it from the screen and deletes it.
+ * @param a PlayerBulletSprite to remove from the game.
+ */
+-(EnemyLayer *) getEnemyLayer;
 
 @end

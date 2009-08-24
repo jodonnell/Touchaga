@@ -9,6 +9,9 @@
 #import "TouchagaSprite.h"
 #import "Energy.h"
 #import "ShieldLayer.h"
+#import "PlayerLayer.h"
+
+@class PlayerLayer;
 
 /**
  * The player sprite.  Implements the TargetedTouchDelegate protocol, the player is moved by touching
@@ -18,6 +21,7 @@
  * The player also has a shield that when spent makes the player vulnerable to losing a life.
  */
 @interface PlayerSprite : AtlasSprite <TargetedTouchDelegate> {
+@private
     Energy *energy;
     int lives;
     BOOL moving;

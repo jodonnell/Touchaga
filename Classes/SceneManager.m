@@ -11,6 +11,7 @@
 #import "PlayerLayer.h"
 #import "BulletsLayer.h"
 #import "UIShootLayer.h"
+#import "EnemyLayer.h"
 #import "defines.h"
 #import "cocos2d.h"
 
@@ -24,11 +25,13 @@
 	PlayerLayer *playerLayer = [PlayerLayer node];
 	BulletsLayer *bulletsLayer = [BulletsLayer node];
 	UIShootLayer *uiShootLayer = [UIShootLayer node];
-	
+	EnemyLayer *enemyLayer = [EnemyLayer node];
+
 	[scene addChild:playerLayer z:0 tag:kTagPlayerLayer];
 	[scene addChild:bulletsLayer z:0 tag:kTagBulletLayer];
 	[scene addChild:uiShootLayer z:0 tag:kTagShootLayer];
-		
+	[scene addChild:enemyLayer z:0 tag:kTagEnemyLayer];
+
 	[[Director sharedDirector] runWithScene: scene];
     }
     return self;
