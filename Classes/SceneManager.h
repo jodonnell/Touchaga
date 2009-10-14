@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class Scene;
+
 /**
  * Manages the active screen.  The game screen once loaded once will remain on the stack for the life of
  * the game.
@@ -20,4 +22,17 @@
  * @todo Document.
  */
 -(void) makeGameCurrentScene: (int) level;
+
+
+/**
+ * Creates the main game screen.
+ */
+-(Scene *) initGame;
+
+/**
+ * Create the level editor screen.
+ */
+-(Scene *) initLevelCreator;
+
+
 @end

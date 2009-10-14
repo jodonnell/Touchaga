@@ -12,6 +12,9 @@
 
 @class PlayerBulletSprite;
 
+/**
+ * The layer which contains all the enemies on screen.
+ */
 @interface EnemyLayer : Layer {
 @private
     NSMutableArray *enemies;

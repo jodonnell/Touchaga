@@ -37,7 +37,6 @@
 
 -(void) move: (ccTime) dt
 {
-    NSLog(@"hu");
     self.position = CGPointMake(self.position.x + 1, self.position.y);
 }
 
