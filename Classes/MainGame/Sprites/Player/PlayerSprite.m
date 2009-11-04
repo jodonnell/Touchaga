@@ -77,14 +77,14 @@
 
 - (void)onEnter
 {
-	[[TouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-	[super onEnter];
+    [[TouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+    [super onEnter];
 }
 
 - (void)onExit
 {
-	[[TouchDispatcher sharedDispatcher] removeDelegate:self];
-	[super onExit];
+    [[TouchDispatcher sharedDispatcher] removeDelegate:self];
+    [super onExit];
 }	
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
