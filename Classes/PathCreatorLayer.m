@@ -65,19 +65,30 @@
     [linePoints addObject: value];
 }
 
+-(void) drawAllLines
+{
+// get both this point and the next and draw a line between them
+    for (int i = 0; i < [linePoints count] - 1; i++) 
+    {
+	CGPoint point1, point2;
+	NSValue *value1 = [linePoints objectAtIndex:i];
+	NSValue *value2 = [linePoints objectAtIndex:i + 1];
+	[value1 getValue:&point1];
+	[value2 getValue:&point2];
+	drawLine(point1, point2);
+    }
+}
+
 -(void) draw
 {
     glPointSize(1);
     glColor4ub(0,0,255,128);
 
+    glEnable(GL_LINE_SMOOTH);
 
-    // get both this point and the next and draw a line between them
-    for (int i = 0; i < [linePoints count]; i++) 
+    if ([linePoints count] > 1)
     {
-	NSValue *value = [linePoints objectAtIndex:i];
-	CGPoint point;
-	[value getValue:&point];
-	drawPoint(point);
+	[self drawAllLines];
     }
 }
 

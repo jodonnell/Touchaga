@@ -24,4 +24,10 @@
 /** Keeps track of all the points touched on the screen */
 @property (nonatomic, retain) NSMutableArray *linePoints;
 
+
+/**
+ * Draws lines between all the marked points the editor has made
+ */
+-(void) drawAllLines;
+
 @end
