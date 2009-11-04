@@ -242,36 +242,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1613ACB21071A326005FE4DE /* PathCreatorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathCreatorLayer.h; sourceTree = "<group>"; };
-		1613ACB31071A326005FE4DE /* PathCreatorLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathCreatorLayer.m; sourceTree = "<group>"; };
-		161C38E4103A5EFC00FBC46B /* PlayerBulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerBulletSprite.h; sourceTree = "<group>"; };
-		161C38E5103A5EFC00FBC46B /* PlayerBulletSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerBulletSprite.m; sourceTree = "<group>"; };
-		161C3939103A71AD00FBC46B /* ShieldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShieldLayer.h; sourceTree = "<group>"; };
-		161C393A103A71AD00FBC46B /* ShieldLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShieldLayer.m; sourceTree = "<group>"; };
+		1613ACB21071A326005FE4DE /* PathCreatorLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PathCreatorLayer.h; path = LevelEditor/Layers/PathCreatorLayer.h; sourceTree = "<group>"; };
+		1613ACB31071A326005FE4DE /* PathCreatorLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PathCreatorLayer.m; path = LevelEditor/Layers/PathCreatorLayer.m; sourceTree = "<group>"; };
+		161C38E4103A5EFC00FBC46B /* PlayerBulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerBulletSprite.h; path = MainGame/Sprites/Player/PlayerBulletSprite.h; sourceTree = "<group>"; };
+		161C38E5103A5EFC00FBC46B /* PlayerBulletSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerBulletSprite.m; path = MainGame/Sprites/Player/PlayerBulletSprite.m; sourceTree = "<group>"; };
+		161C3939103A71AD00FBC46B /* ShieldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShieldLayer.h; path = MainGame/Layers/ShieldLayer.h; sourceTree = "<group>"; };
+		161C393A103A71AD00FBC46B /* ShieldLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShieldLayer.m; path = MainGame/Layers/ShieldLayer.m; sourceTree = "<group>"; };
 		1673CCD4102C18E7001142DC /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		167E7B1C10424E640076A7F8 /* PawnSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PawnSprite.h; sourceTree = "<group>"; };
-		167E7B1D10424E640076A7F8 /* PawnSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PawnSprite.m; sourceTree = "<group>"; };
-		16C2CD23102D24F000AF0163 /* TouchagaSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchagaSprite.h; sourceTree = "<group>"; };
-		16C2CD24102D24F000AF0163 /* TouchagaSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchagaSprite.m; sourceTree = "<group>"; };
-		16C2CEE5102E3DE400AF0163 /* BulletsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletsLayer.h; sourceTree = "<group>"; };
-		16C2CEE6102E3DE400AF0163 /* BulletsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletsLayer.m; sourceTree = "<group>"; };
+		167E7B1C10424E640076A7F8 /* PawnSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PawnSprite.h; path = MainGame/Sprites/Enemy/PawnSprite.h; sourceTree = "<group>"; };
+		167E7B1D10424E640076A7F8 /* PawnSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PawnSprite.m; path = MainGame/Sprites/Enemy/PawnSprite.m; sourceTree = "<group>"; };
+		16C2CD23102D24F000AF0163 /* TouchagaSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchagaSprite.h; path = MainGame/Sprites/TouchagaSprite.h; sourceTree = "<group>"; };
+		16C2CD24102D24F000AF0163 /* TouchagaSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchagaSprite.m; path = MainGame/Sprites/TouchagaSprite.m; sourceTree = "<group>"; };
+		16C2CEE5102E3DE400AF0163 /* BulletsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletsLayer.h; path = MainGame/Layers/BulletsLayer.h; sourceTree = "<group>"; };
+		16C2CEE6102E3DE400AF0163 /* BulletsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BulletsLayer.m; path = MainGame/Layers/BulletsLayer.m; sourceTree = "<group>"; };
 		16C2CEEA102E3F3A00AF0163 /* bullets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullets.png; sourceTree = "<group>"; };
 		16C2CF17102F86E900AF0163 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		16C2CF18102F86E900AF0163 /* SceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneManager.m; sourceTree = "<group>"; };
-		16C2CF34102FCB1C00AF0163 /* UIShootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIShootLayer.h; sourceTree = "<group>"; };
-		16C2CF35102FCB1C00AF0163 /* UIShootLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIShootLayer.m; sourceTree = "<group>"; };
+		16C2CF34102FCB1C00AF0163 /* UIShootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIShootLayer.h; path = MainGame/Layers/UIShootLayer.h; sourceTree = "<group>"; };
+		16C2CF35102FCB1C00AF0163 /* UIShootLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIShootLayer.m; path = MainGame/Layers/UIShootLayer.m; sourceTree = "<group>"; };
 		16C2CF39102FDD0F00AF0163 /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
-		16D1FCA41041E994007D231F /* EnemyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyLayer.h; sourceTree = "<group>"; };
-		16D1FCA51041E994007D231F /* EnemyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyLayer.m; sourceTree = "<group>"; };
-		16D1FCAE1041ECD4007D231F /* EnemySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemySprite.h; sourceTree = "<group>"; };
-		16D1FCAF1041ECD4007D231F /* EnemySprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemySprite.m; sourceTree = "<group>"; };
+		16D1FCA41041E994007D231F /* EnemyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyLayer.h; path = MainGame/Layers/EnemyLayer.h; sourceTree = "<group>"; };
+		16D1FCA51041E994007D231F /* EnemyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemyLayer.m; path = MainGame/Layers/EnemyLayer.m; sourceTree = "<group>"; };
+		16D1FCAE1041ECD4007D231F /* EnemySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemySprite.h; path = MainGame/Sprites/Enemy/EnemySprite.h; sourceTree = "<group>"; };
+		16D1FCAF1041ECD4007D231F /* EnemySprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnemySprite.m; path = MainGame/Sprites/Enemy/EnemySprite.m; sourceTree = "<group>"; };
 		16D1FD531041F3AE007D231F /* enemies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemies.png; sourceTree = "<group>"; };
-		16EB700C1032681500823433 /* PlayerSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSprite.h; sourceTree = "<group>"; };
-		16EB700D1032681500823433 /* PlayerSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSprite.m; sourceTree = "<group>"; };
-		16EB70281032697300823433 /* Energy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Energy.h; sourceTree = "<group>"; };
-		16EB70291032697300823433 /* Energy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Energy.m; sourceTree = "<group>"; };
-		16FB79B710462C30006D8339 /* Level1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level1.h; sourceTree = "<group>"; };
-		16FB79B810462C30006D8339 /* Level1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level1.m; sourceTree = "<group>"; };
+		16EB700C1032681500823433 /* PlayerSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerSprite.h; path = MainGame/Sprites/Player/PlayerSprite.h; sourceTree = "<group>"; };
+		16EB700D1032681500823433 /* PlayerSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerSprite.m; path = MainGame/Sprites/Player/PlayerSprite.m; sourceTree = "<group>"; };
+		16EB70281032697300823433 /* Energy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Energy.h; path = MainGame/Sprites/Player/Energy.h; sourceTree = "<group>"; };
+		16EB70291032697300823433 /* Energy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Energy.m; path = MainGame/Sprites/Player/Energy.m; sourceTree = "<group>"; };
+		16FB79B710462C30006D8339 /* Level1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level1.h; path = MainGame/Level/Level1.h; sourceTree = "<group>"; };
+		16FB79B810462C30006D8339 /* Level1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level1.m; path = MainGame/Level/Level1.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TouchagaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchagaAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchagaAppDelegate.m; sourceTree = "<group>"; };
@@ -281,8 +281,8 @@
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* MyFirstGame_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFirstGame_Prefix.pch; sourceTree = "<group>"; };
-		50479D3D1010E04B00D1C71A /* PlayerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerLayer.h; sourceTree = "<group>"; };
-		50479D3E1010E04B00D1C71A /* PlayerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerLayer.m; sourceTree = "<group>"; };
+		50479D3D1010E04B00D1C71A /* PlayerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerLayer.h; path = MainGame/Layers/PlayerLayer.h; sourceTree = "<group>"; };
+		50479D3E1010E04B00D1C71A /* PlayerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerLayer.m; path = MainGame/Layers/PlayerLayer.m; sourceTree = "<group>"; };
 		50479D461010E0BF00D1C71A /* libcocos2d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcocos2d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		50479D4A1010E0DD00D1C71A /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		50479D4B1010E0DD00D1C71A /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
@@ -527,17 +527,13 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				16C0FC5E10A1519A001E3267 /* MainGame */,
 				1613ACAE1071A2D9005FE4DE /* LevelEditor */,
-				16FB79AC10462BCB006D8339 /* Level */,
 				16C2CF39102FDD0F00AF0163 /* defines.h */,
-				161C3935103A712C00FBC46B /* Sprites */,
 				16C2CF17102F86E900AF0163 /* SceneManager.h */,
 				16C2CF18102F86E900AF0163 /* SceneManager.m */,
-				16C2CD20102D217800AF0163 /* Layers */,
 				1D3623240D0F684500981E51 /* TouchagaAppDelegate.h */,
 				1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */,
-				16EB70281032697300823433 /* Energy.h */,
-				16EB70291032697300823433 /* Energy.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -562,13 +558,10 @@
 		161C3935103A712C00FBC46B /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				167E7B1F10424E6C0076A7F8 /* Enemy */,
-				16EB700D1032681500823433 /* PlayerSprite.m */,
-				16EB700C1032681500823433 /* PlayerSprite.h */,
-				161C38E4103A5EFC00FBC46B /* PlayerBulletSprite.h */,
-				161C38E5103A5EFC00FBC46B /* PlayerBulletSprite.m */,
 				16C2CD24102D24F000AF0163 /* TouchagaSprite.m */,
 				16C2CD23102D24F000AF0163 /* TouchagaSprite.h */,
+				16C0FC7210A153BB001E3267 /* Player */,
+				167E7B1F10424E6C0076A7F8 /* Enemy */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -582,6 +575,29 @@
 				167E7B1D10424E640076A7F8 /* PawnSprite.m */,
 			);
 			name = Enemy;
+			sourceTree = "<group>";
+		};
+		16C0FC5E10A1519A001E3267 /* MainGame */ = {
+			isa = PBXGroup;
+			children = (
+				16C2CD20102D217800AF0163 /* Layers */,
+				161C3935103A712C00FBC46B /* Sprites */,
+				16FB79AC10462BCB006D8339 /* Level */,
+			);
+			name = MainGame;
+			sourceTree = "<group>";
+		};
+		16C0FC7210A153BB001E3267 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				16EB70291032697300823433 /* Energy.m */,
+				16EB70281032697300823433 /* Energy.h */,
+				16EB700D1032681500823433 /* PlayerSprite.m */,
+				16EB700C1032681500823433 /* PlayerSprite.h */,
+				161C38E4103A5EFC00FBC46B /* PlayerBulletSprite.h */,
+				161C38E5103A5EFC00FBC46B /* PlayerBulletSprite.m */,
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 		16C2CD20102D217800AF0163 /* Layers */ = {
