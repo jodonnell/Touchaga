@@ -22,7 +22,8 @@
 -(id) init
 {
     if( (self=[super init] )) {
-	Scene *scene = 	[self initLevelCreator];
+	//	Scene *scene = 	[self initLevelCreator];
+	Scene *scene = 	[self initGame];
 
 	[[Director sharedDirector] runWithScene: scene];
     }
