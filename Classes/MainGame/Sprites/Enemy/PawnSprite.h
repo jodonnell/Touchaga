@@ -10,13 +10,7 @@
 
 
 @interface PawnSprite : EnemySprite {
-    int xSpeed;
-    int ySpeed;
+
 }
-
-@property (nonatomic) int xSpeed;
-@property (nonatomic) int ySpeed;
-
-
 
 @end
