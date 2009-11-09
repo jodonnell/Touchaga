@@ -1,0 +1,2 @@
+
+if your ship goes to bottom right then the shoot button will swallow the touches
