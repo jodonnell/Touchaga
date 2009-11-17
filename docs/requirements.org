@@ -1,5 +1,16 @@
-Make a fun game!
 
+* Make a fun game!
+** Performance
+*** The game must run at a consistent frame rate at all times, 60 fps would be preferable.
+** Level Editor
+*** There must be an easy way of creating levels as well as enemy flight and attack patterns.
+**** Enemies should follow a specific path then exit the screen.  Enemies will often follow the same path so it is necessary that these paths can be reused.
+**** Enemies should be able to perform specific actions along the path they follow.
+***** Enemies should be able to shoot different types of bullets.
+***** The creator should be able to set the (at least initial) speed that the enemy travels along the line.
+***** [#C] The enemy should be able to change speeds along the line.
+***** There will likely be additional actions that will need to be implemented.
 
-
-The player finger must track the player sprite very closely or the player will get killed unfairly  - build a prototype to determine if this will be a showstopper
+* Risks
+** The player finger must track the player sprite very closely or the player will get killed unfairly  - 
+*** DONE Resolution - build a prototype to determine if this will be a showstopper
