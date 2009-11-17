@@ -5,12 +5,38 @@
 ** Level Editor
 *** There must be an easy way of creating levels as well as enemy flight and attack patterns.
 **** Enemies should follow a specific path then exit the screen.  Enemies will often follow the same path so it is necessary that these paths can be reused.
+***** A starting point for this path must be on the border of a screen, enemies cannot appear in the middle of the screen.
+***** The ending point must also be at the border of the screen.
+***** The path should be any curve that has one starting and ending point.
+***** TODO What about something like a circle where the enemy should fly around the cirle 5 times?
 **** Enemies should be able to perform specific actions along the path they follow.
 ***** Enemies should be able to shoot different types of bullets.
-***** The creator should be able to set the (at least initial) speed that the enemy travels along the line.
-***** [#C] The enemy should be able to change speeds along the line.
+***** The creator should be able to set the (at least initial) speed that the enemy travels along the path.
+***** [#C] The enemy should be able to change speeds along the path.
 ***** There will likely be additional actions that will need to be implemented.
+**** Complete enemy paths and actions should be able to be copied with the only difference being the time they start the motion in the level.
+** Main Game
+*** The Player
+**** The player is represented by the players finger.
+**** The player can move.
+**** The player can shoot a steady stream of LASERS.  
+**** Player Cloaking
+***** If a player lifts his finger off the screen he can no longer move but is invinble
+***** TODO Possibly the player can warp, instead of having to put there finger back in the same place they can set it somewhere else to warp the player
+****** Maybe this will work that points will earn you a farther jump and you can save up a pool of points to warp to a new area
+****** Also possible that the speed and trajectory of your finger when it left the screen make the possible warp area
+****** When you are invisible enemies can still target you so if tons of guys are shooting at your old pos it might be impossible to come back without warping.
+****** Whats to stop a player from staying cloaked the whole level then?
+******* Create a meter that has your cloaking time allowed?  It recharges by killing enemies, when its out you cannot warp.  I LIKE IT.
+***** TODO The player must be represented somehow when they remove their finger from the screen.
+
+**** Maybe do some callabration at the beginning to determine player finger size, so can make a tight fitting bounding box.
+*** Player bullets
+**** Player bullets are unlimited.
+**** They can be shot at rapid fire so it basically makes a solid line of fire.
+**** TODO I feel like there needs to be some balance to this to make it so there is a penalty of some kind for shooting so many bullets.
 
 * Risks
 ** The player finger must track the player sprite very closely or the player will get killed unfairly  - 
-*** DONE Resolution - build a prototype to determine if this will be a showstopper
+*** DONE Resolution - build a prototype to determine if this will be a showstopper.
+    Seems to me that a player cannot move their finger rapidly across the screen and avoid many enemies so this should be a non issue.
