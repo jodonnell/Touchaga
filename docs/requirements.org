@@ -3,6 +3,9 @@
 ** Performance
 *** The game must run at a consistent frame rate at all times, 60 fps would be preferable.
 ** Level Editor
+*** Level
+**** When you create a new level it asks for the level speed.  Then when you create things that should have the appearance of moving with the background, it will default to this speed.
+**** TODO How is time recorded, what is the needed granularity, should time match frames? Would need to make time dependant of the fps then.
 *** There must be an easy way of creating levels as well as enemy flight and attack patterns.
 **** Enemies should follow a specific path then exit the screen.  Enemies will often follow the same path so it is necessary that these paths can be reused.
 ***** A starting point for this path must be on the border of a screen, enemies cannot appear in the middle of the screen.
@@ -41,8 +44,15 @@
 ****** TODO Must decide the user experience for letting the player know to release the screen and touch somewhere else.
 *** Scoring
 **** The player gets points for killing enemies.
+**** Possible online scoreboard.
 *** Levels
 **** When a level is unlocked a player can jump to it from the main menu.
+**** Time
+***** When a level starts a timer starts that is used to determine when different events happen.
+***** Enemies enter the level at a given time and act out their actions using the absolute coords written by the level editor.
+**** An image in the background begins scrolling and continues scrolling down at a constant speed.
+***** TODO Image can either wrap, end during boss fight, or continue until the level must end (time limit).
+
 *** Menus
 **** The main menu will have the following options.
 ***** Play
@@ -50,6 +60,19 @@
 ****** Allow player to move position of shoot button.
 ****** Adjust starting lives.
 ******* Gives point penalty.
+*** Enemies
+**** Enemies are not mapped on to the level's relative position
+enemies enter levelr at a given time. and follow the path mapped out for them in absolute coords.  Hazards are also given a speed so although it looks like its scrolling down with the level its actually moving dows
+**** TODO Exploding enemies?
+*** Enemy Bullets
+**** Normal Bullets
+***** When these are created it looks where the player is currently and shoots in a line towards that position with a given speed.
+**** Homing
+***** These bullets will home in on the player.
+***** TODO How exactly will this home.  Tricky.
+*** Hazards
+**** There can be lasers!!
+***** The lasers are basically a line segment that will kill the player upon contact.
 *** Player bullets
 **** Player bullets are unlimited.
 **** They can be shot at rapid fire so it basically makes a solid line of fire.
