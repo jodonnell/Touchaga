@@ -19,18 +19,37 @@
 *** The Player
 **** The player is represented by the players finger.
 **** The player can move.
-**** The player can shoot a steady stream of LASERS.  
+***** Since the player is represented by the player's finger, when the finger is moved the player moves.
+**** The player can shoot a steady stream of LASERS.
+***** By holding down a button (default bottom left of the screen? configurable.) The player spawns player bullets at his location.
 **** Player Cloaking
-***** If a player lifts his finger off the screen he can no longer move but is invinble
-***** TODO Possibly the player can warp, instead of having to put there finger back in the same place they can set it somewhere else to warp the player
-****** Maybe this will work that points will earn you a farther jump and you can save up a pool of points to warp to a new area
-****** Also possible that the speed and trajectory of your finger when it left the screen make the possible warp area
+***** If a player lifts his finger off the screen he can no longer move but is invincible.
+***** Possibly the player can warp, instead of having to put there finger back in the same place, they can set it somewhere else to warp the player.
 ****** When you are invisible enemies can still target you so if tons of guys are shooting at your old pos it might be impossible to come back without warping.
-****** Whats to stop a player from staying cloaked the whole level then?
-******* Create a meter that has your cloaking time allowed?  It recharges by killing enemies, when its out you cannot warp.  I LIKE IT.
-***** TODO The player must be represented somehow when they remove their finger from the screen.
-
+****** Create a meter that has your cloaking time allowed?  It recharges by killing enemies, when its out you cannot warp.
+***** The field the player can warp to will be a semitransparent circle with the center being the player.
+***** There should be a meter displayed (probably on the right side of the screen).
+***** The meter will show how far the player can warp. The farther they warp the more energy it takes up.
+***** If the meter is completely empty than lifting your finger off the screen kills you.
+****** I am not sure about this point, perhaps it makes the player visible agian.
+***** Killing enemies will give the player more points to his meter.  The enemy will contain how much point bonus it gives.
 **** Maybe do some callabration at the beginning to determine player finger size, so can make a tight fitting bounding box.
+**** Player lives
+***** If the player gets hit a life is lost.
+***** A player has X lives.  When all lives are lost the game is over.
+***** When a player dies they revive at the point the player puts his finger back on the screen.
+****** TODO Must decide the user experience for letting the player know to release the screen and touch somewhere else.
+*** Scoring
+**** The player gets points for killing enemies.
+*** Levels
+**** When a level is unlocked a player can jump to it from the main menu.
+*** Menus
+**** The main menu will have the following options.
+***** Play
+***** Options
+****** Allow player to move position of shoot button.
+****** Adjust starting lives.
+******* Gives point penalty.
 *** Player bullets
 **** Player bullets are unlimited.
 **** They can be shot at rapid fire so it basically makes a solid line of fire.
