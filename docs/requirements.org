@@ -1,5 +1,5 @@
 * Vision
-  This game is a classic shoot 'em up.  It should be fast paced, diffucult, and very hard to master.  The game should make it challenging yet rewarding to improve and try to get the highest scores possible.
+  This game is a classic shoot 'em up.  It should be fast paced, difficult, and very hard to master.  The game should make it challenging yet rewarding to improve and try to get the highest scores possible.  A lot of the challenge will be achieved based on pattern based level design that will require players to memorize the levels to master them.
 * The game
 ** Non-functional Requirements
 *** Performance
@@ -8,53 +8,63 @@
 **** The game must be able to shutdown and save state quickly.
 ***** TODO Look to see if Apple has regulations on shutdown time. 	   :TBD:
 ***** The shutdown needs to happen as quickly as possible.  Target of under a second.
+***** On shutdown, if game is in progress [[Quicksave][Quicksave]].
 *** Stability
-**** The game should ship with no known crashes
+**** The game should ship with no known crashes.
 **** If there are smaller bugs found a judgement call should be made whether they should be fixed before sending to store.
 ** Functional Requirements
 *** Level Editor
 **** Level
 ***** When you create a new level it asks for the level speed.  Then when you create things that should have the appearance of moving with the background, it will default to this speed.
 ***** TODO How is time recorded, what is the needed granularity, should time match frames? Would need to make time dependant of the fps then. :TBD:
-**** There must be an easy way of creating levels as well as enemy flight and attack patterns.
+**** Paths <<Path>>
 ***** Enemies should follow a specific path then exit the screen.  Enemies will often follow the same path so it is necessary that these paths can be reused.
-****** A starting point for this path must be on the border of a screen, enemies cannot appear in the middle of the screen.
-****** The ending point must also be at the border of the screen.
-****** The path should be any curve that has one starting and ending point.
-****** TODO What about something like a circle where the enemy should fly around the cirle 5 times? :TBD:
+***** A starting point for this path must be on the border of a screen, enemies cannot appear in the middle of the screen.
+***** The ending point must also be at the border of the screen.
+***** The path should be any curve that has one starting and ending point.
+***** TODO What about something like a circle where the enemy should fly around the circle 5 times? :TBD:
+**** There must be an easy way of creating levels as well as enemy flight and attack patterns.
+**** Actions <<Actions>>
 ***** Enemies should be able to perform specific actions along the path they follow.
 ****** Enemies should be able to shoot different types of bullets.
 ****** The creator should be able to set the (at least initial) speed that the enemy travels along the path.
 ****** [#C] The enemy should be able to change speeds along the path.
 ****** There will likely be additional actions that will need to be implemented.
-***** Complete enemy paths and actions should be able to be copied with the only difference being the time they start the motion in the level.
+**** Complete enemy paths and actions should be able to be copied with the only difference being the time they start the motion in the level.
 *** Main Game
 **** The Player
 ***** The player is represented by the players finger.
 ***** The player can move.
 ****** Since the player is represented by the player's finger, when the finger is moved the player moves.
-***** The player can shoot a steady stream of LASERS.
-****** By holding down a button (default bottom left of the screen? configurable.) The player spawns player bullets at his location.
-***** Player Cloaking
+****** The player cannot move inside the area where the [[Shoot Button Configuration][shoot button lies]].
+***** The player can shoot a steady stream of [[Player Bullets][bullets]].
+****** By holding down a button the player spawns player bullets at his location.
+******* The player can configure where the button is in the [[Shoot Button Configuration][menu]].
+***** Player Warping
+****** Warp Meter
+******* Killing enemies will give the player more points to his meter.  The amount of points given will depend on the enemy.
+******* Once the meter is maxed out no more points will be awarded.
+******* When the meter is empty you cannot warp.
+******* There should be a meter displayed (probably on the right side of the screen). :TBD:
 ****** If a player lifts his finger off the screen he can no longer move but is invincible.
-****** Possibly the player can warp, instead of having to put there finger back in the same place, they can set it somewhere else to warp the player.
-******* When you are invisible enemies can still target you so if tons of guys are shooting at your old pos it might be impossible to come back without warping.
-******* Create a meter that has your cloaking time allowed?  It recharges by killing enemies, when its out you cannot warp.
-****** The field the player can warp to will be a semitransparent circle with the center being the player.
-****** There should be a meter displayed (probably on the right side of the screen).
+******* The players warp meter will steadily decrease until they warp back in.
+****** The field the player can warp to will be a semi-transparent circle with the center being the player.
+******* The size of the semi circle will depend on the amount of energy the player has accumulated.  The exact value will need to be tweaked.
+******* The farther you warp from the center of the circle the more energy is used.  This value will need to be tweaked.
+******* The player warps to a position by putting his finger back on the screen somewhere within the semi circle.
+******* If the player loses all warp meter while warped out they lose a life.
+****** When you are invisible enemies can still target your position.
 ****** The meter will show how far the player can warp. The farther they warp the more energy it takes up.
 ****** If the meter is completely empty than lifting your finger off the screen kills you.
-******* I am not sure about this point, perhaps it makes the player visible agian.
-****** Killing enemies will give the player more points to his meter.  The enemy will contain how much point bonus it gives.
-***** Maybe do some callabration at the beginning to determine player finger size, so can make a tight fitting bounding box.
+***** TODO Maybe do some calibration at the beginning to determine player finger size, so can make a tight fitting bounding box. :TBD:
 ***** Player lives
-****** If the player gets hit a life is lost.
-****** A player has X lives.  When all lives are lost the game is over.
+****** If the player collides with either an enemy or an enemy bullet a life is lost.
+****** A player has [[Adjust Starting Lives][X lives]].  When all lives are lost the game is over.
 ****** When a player dies they revive at the point the player puts his finger back on the screen.
 ******* TODO Must decide the user experience for letting the player know to release the screen and touch somewhere else. :TBD:
 **** Scoring
 ***** The player gets points for killing enemies.
-***** Possible online scoreboard.
+***** Possible on-line scoreboard.
 **** Levels
 ***** When a level is unlocked a player can jump to it from the main menu.
 ***** Time
@@ -66,12 +76,12 @@
 ***** The main menu will have the following options.
 ****** Play
 ****** Options
-******* Allow player to move position of shoot button.
-******* Adjust starting lives.
+******* Allow player to move position of shoot button, to any of 4 corners.  <<Shoot Button Configuration>>
+******* Adjust starting lives. <<Adjust Starting Lives>>
 ******** Gives point penalty.
 **** Enemies
-***** Enemies are not mapped on to the level's relative position
-      Enemies enter levelr at a given time. and follow the path mapped out for them in absolute coords.  Hazards are also given a speed so although it looks like its scrolling down with the level its actually moving dows
+***** Enemies are not mapped on to the level's relative position.  :TBD:implementation detail:
+      Enemies enter level at a given time. and follow the path mapped out for them in absolute coords.  Hazards are also given a speed so although it looks like its scrolling down with the level its actually moving down.
 ***** TODO Exploding enemies?						   :TBD:
 **** Enemy Bullets
 ***** Normal Bullets
@@ -82,10 +92,13 @@
 **** Hazards
 ***** There can be lasers!!
 ****** The lasers are basically a line segment that will kill the player upon contact.
-**** QuickSave
-***** The player may need to shut down this game fast for a phone call or life interruting in some fashion.
+****** They like enemies can move off the screen.
+****** One type will be a fixed line size that will follow a [[Path]] and then disappear.
+****** Another type will be a solid line that moves in a direction until it is off-screen.
+**** QuickSave <<Quicksave>>
+***** The player may need to shut down this game fast for a phone call or life interrupting in some fashion.
 ****** The player should start where they left off in a warped state, but game paused.
-**** Player bullets
+**** Player Bullets <<Player Bullets>>
 ***** Player bullets are unlimited.
 ***** They can be shot at rapid fire so it basically makes a solid line of fire.
 ***** TODO I feel like there needs to be some balance to this to make it so there is a penalty of some kind for shooting so many bullets. 
