@@ -47,12 +47,13 @@
 ******* When the meter is empty you cannot warp.
 ******* There should be a meter displayed (probably on the right side of the screen). :TBD:
 ****** If a player lifts his finger off the screen he can no longer move but is invincible.
-******* The players warp meter will steadily decrease until they warp back in.
+******* The players warp meter will steadily decrease.
+******* If the player runs out of energy they lose a life.
+******* When energy is low the screen starts flashing.
 ****** The field the player can warp to will be a semi-transparent circle with the center being the player.
 ******* The size of the semi circle will depend on the amount of energy the player has accumulated.  The exact value will need to be tweaked.
 ******* The farther you warp from the center of the circle the more energy is used.  This value will need to be tweaked.
 ******* The player warps to a position by putting his finger back on the screen somewhere within the semi circle.
-******* If the player loses all warp meter while warped out they lose a life.
 ****** When you are invisible enemies can still target your position.
 ****** The meter will show how far the player can warp. The farther they warp the more energy it takes up.
 ****** If the meter is completely empty than lifting your finger off the screen kills you.
