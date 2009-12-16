@@ -22,7 +22,6 @@
 		16D1FD541041F3AE007D231F /* enemies.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D1FD531041F3AE007D231F /* enemies.png */; };
 		16EB700E1032681500823433 /* PlayerSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EB700D1032681500823433 /* PlayerSprite.m */; };
 		16EB702A1032697300823433 /* Energy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EB70291032697300823433 /* Energy.m */; };
-		16FB79B910462C30006D8339 /* Level1.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FB79B810462C30006D8339 /* Level1.m */; };
 		1D3623260D0F684500981E51 /* TouchagaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -270,8 +269,6 @@
 		16EB700D1032681500823433 /* PlayerSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerSprite.m; path = MainGame/Sprites/Player/PlayerSprite.m; sourceTree = "<group>"; };
 		16EB70281032697300823433 /* Energy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Energy.h; path = MainGame/Sprites/Player/Energy.h; sourceTree = "<group>"; };
 		16EB70291032697300823433 /* Energy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Energy.m; path = MainGame/Sprites/Player/Energy.m; sourceTree = "<group>"; };
-		16FB79B710462C30006D8339 /* Level1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level1.h; path = MainGame/Level/Level1.h; sourceTree = "<group>"; };
-		16FB79B810462C30006D8339 /* Level1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level1.m; path = MainGame/Level/Level1.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TouchagaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchagaAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchagaAppDelegate.m; sourceTree = "<group>"; };
@@ -582,7 +579,6 @@
 			children = (
 				16C2CD20102D217800AF0163 /* Layers */,
 				161C3935103A712C00FBC46B /* Sprites */,
-				16FB79AC10462BCB006D8339 /* Level */,
 			);
 			name = MainGame;
 			sourceTree = "<group>";
@@ -615,15 +611,6 @@
 				16D1FCA51041E994007D231F /* EnemyLayer.m */,
 			);
 			name = Layers;
-			sourceTree = "<group>";
-		};
-		16FB79AC10462BCB006D8339 /* Level */ = {
-			isa = PBXGroup;
-			children = (
-				16FB79B710462C30006D8339 /* Level1.h */,
-				16FB79B810462C30006D8339 /* Level1.m */,
-			);
-			name = Level;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -1219,7 +1206,6 @@
 				16D1FCA61041E994007D231F /* EnemyLayer.m in Sources */,
 				16D1FCB01041ECD4007D231F /* EnemySprite.m in Sources */,
 				167E7B1E10424E640076A7F8 /* PawnSprite.m in Sources */,
-				16FB79B910462C30006D8339 /* Level1.m in Sources */,
 				1613ACB41071A326005FE4DE /* PathCreatorLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

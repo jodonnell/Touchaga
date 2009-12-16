@@ -20,7 +20,7 @@
 ****** Lines of code/per hour
 **** Risks
 ***** Keep a top ten list of major risks, update every week
-**** Create unit tests for all classes written
+**** Use Test Driven Development
 ***** Code coverage standards?
 *** Testing
 
