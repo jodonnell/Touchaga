@@ -32,6 +32,9 @@
 ****** There will likely be additional actions that will need to be implemented.
 **** Complete enemy paths and actions should be able to be copied with the only difference being the time they start the motion in the level.
 *** Main Game
+**** Orientation
+***** The orientation of the game should be horizontal.
+      When using a vertical orientation, the player's finger blocks more of the screen making it harder to be aware of what is going on.
 **** The Player
 ***** The player is represented by the players finger.
 ***** The player can move.
@@ -45,7 +48,7 @@
 ******* Killing enemies will give the player more points to his meter.  The amount of points given will depend on the enemy.
 ******* Once the meter is maxed out no more points will be awarded.
 ******* When the meter is empty you cannot warp.
-******* There should be a meter displayed (probably on the right side of the screen). :TBD:
+******* There should be a meter displayed.
 ****** If a player lifts his finger off the screen he can no longer move but is invincible.
 ******* The players warp meter will steadily decrease.
 ******* If the player runs out of energy they lose a life.
@@ -57,7 +60,6 @@
 ****** When you are invisible enemies can still target your position.
 ****** The meter will show how far the player can warp. The farther they warp the more energy it takes up.
 ****** If the meter is completely empty than lifting your finger off the screen kills you.
-***** TODO Maybe do some calibration at the beginning to determine player finger size, so can make a tight fitting bounding box. :TBD:
 ***** Player lives
 ****** If the player collides with either an enemy or an enemy bullet a life is lost.
 ****** A player has [[Adjust Starting Lives][X lives]].  When all lives are lost the game is over.
@@ -68,6 +70,7 @@
 ***** Possible on-line scoreboard.
 **** Levels
 ***** When a level is unlocked a player can jump to it from the main menu.
+***** When a level starts the whole screen blinks, and the players warp meter begins draining.  Need to warp in.
 ***** Time
 ****** When a level starts a timer starts that is used to determine when different events happen.
 ****** Enemies enter the level at a given time and act out their actions using the absolute coords written by the level editor.
@@ -81,15 +84,24 @@
 ******* Adjust starting lives. <<Adjust Starting Lives>>
 ******** Gives point penalty.
 **** Enemies
+***** Some enemies will require one hit to destroy.
+***** Some enemies will require multiple hits to destroy.
+***** Enemies will follow a [[Path][path]] and shoot at the player.
 ***** Enemies are not mapped on to the level's relative position.  :TBD:implementation detail:
       Enemies enter level at a given time. and follow the path mapped out for them in absolute coords.  Hazards are also given a speed so although it looks like its scrolling down with the level its actually moving down.
-***** TODO Exploding enemies?						   :TBD:
 **** Enemy Bullets
 ***** Normal Bullets
 ****** When these are created it looks where the player is currently and shoots in a line towards that position with a given speed.
 ***** Homing
 ****** These bullets will home in on the player.
 ****** TODO How exactly will this home.  Tricky.			   :TBD:
+***** Streams
+****** These bullets shoot a stream below the enemy.
+******* They have a duration.
+**** Bosses
+***** Can string multiple [[Path][paths]] together and have them repeat.
+***** Can fire from multiple places multiple missle types.
+***** The bosses have a health meter.
 **** Hazards
 ***** There can be lasers!!
 ****** The lasers are basically a line segment that will kill the player upon contact.
@@ -102,8 +114,7 @@
 **** Player Bullets <<Player Bullets>>
 ***** Player bullets are unlimited.
 ***** They can be shot at rapid fire so it basically makes a solid line of fire.
-***** TODO I feel like there needs to be some balance to this to make it so there is a penalty of some kind for shooting so many bullets. 
-  :TBD:
+***** TODO I feel like there needs to be some balance to this to make it so there is a penalty of some kind for shooting so many bullets. :TBD:
 * Risks
 ** The player finger must track the player sprite very closely or the player will get killed unfairly  - 
 *** DONE Resolution - build a prototype to determine if this will be a showstopper.
