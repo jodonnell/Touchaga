@@ -3,13 +3,13 @@
 ** Sashimi Lifecycle
    I am mainly looking to make this a quality project with a small emphasis on schedule and zero in cost (since the only cost is my time).
    I want to eliminate scope creep so by defining my product well from the beginning, I can limit the ability to change
-*** Requirements
+** Requirements
 **** Level editor
 ***** RISK - the user interface is very unknown
 ****** Build prototype to get a feel for it and quickly determine UI constrictions before actual construction
 **** Create an estimate
-*** Design
-*** Construction
+** Design
+** Construction
 **** Break estimates into smaller chunk
 ***** Track estimates
 **** Code reviews
@@ -22,6 +22,7 @@
 ***** Keep a top ten list of major risks, update every week
 **** Use Test Driven Development
 ***** Code coverage standards?
-*** Testing
+** Testing
+** Use daily smoke test.
 
 
