@@ -1,0 +1,10 @@
+
+* Work
+** Creating Development Process doc 
+   CLOCK: [2009-12-24 Thu 02:18]--[2009-12-24 Thu 02:23] =>  0:05
+** Working on Playing Game Package Diagram t
+   :CLOCK:
+   CLOCK: [2009-12-25 Fri 12:45]--[2009-12-25 Fri 14:31] =>  1:46
+   CLOCK: [2009-12-24 Thu 02:25]--[2009-12-24 Thu 02:45] =>  0:20
+   :END:
+
