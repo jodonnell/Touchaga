@@ -19,20 +19,8 @@
 }
 
 /**
- * @todo Document.
- */
--(void) makeGameCurrentScene: (int) level;
-
-
-/**
  * Creates the main game screen.
  */
 -(Scene *) initGame;
-
-/**
- * Create the level editor screen.
- */
--(Scene *) initLevelCreator;
-
 
 @end

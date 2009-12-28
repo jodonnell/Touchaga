@@ -6,17 +6,23 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "Energy.h"
-#import "ShieldLayer.h"
-#import "PlayerLayer.h"
+#import "cocos2d.h"
+
+@class WarpEnergy;
+@class PlayerBullet;
+@class WarpSprite;
 
 /**
  * The player sprite.  Implements the TargetedTouchDelegate protocol, the player is moved by touching
  * your finger to the player sprite and then as you move your finger the sprite follows it, until you 
  * lift your finger.
- * The player can shoot bullets.
+ * The player can shoot a stream of unlimited bullets by holding down a shoot button.
+ * The player has a score.
+ * The player can warp off the screen when the player removes his finger from the screen.
+ * He can warp back in by touching his finger back to the screen.
+ * When the player loses all his lives it is game over.
  */
-@interface PlayerSprite : AtlasSprite <TargetedTouchDelegate> {
+@interface Player : AtlasSprite <TargetedTouchDelegate> {
 @private
     WarpEnergy *warpEnergy;
     int lives;
@@ -36,7 +42,6 @@
 /** A BOOL, when YES the player is invincible. */
 @property (nonatomic) BOOL invincible;
 
-// PUBLIC METHODS
 
 /**
  * Creates a PlayerBullet that is created right above player position

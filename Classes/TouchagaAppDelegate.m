@@ -5,10 +5,7 @@
 
 #import "TouchagaAppDelegate.h"
 #import "SceneManager.h"
-#import "defines.h"
 #import "cocos2d.h"
-
-#define kTagPlayerSprite 1
 
 @implementation TouchagaAppDelegate
 

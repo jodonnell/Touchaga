@@ -7,6 +7,13 @@
 *** TODO Create moving/TargetedTouchDelegate code - Estimate 2:00
 *** TODO Warp Energy class. - 1:00
 *** TODO Implement warp.  - 3:00
-*** TODO Rest of class. - 2:00
+*** TODO Rest of class. - 2:00 
+    :CLOCK:
+    CLOCK: [2009-12-28 Mon 03:50]--[2009-12-28 Mon 04:02] =>  0:12
+    CLOCK: [2009-12-28 Mon 03:04]--[2009-12-28 Mon 03:24] =>  0:20
+    :END:
 *** TODO Animation
 *** TODO Unit tests - 3:00
+*** TODO Create GameLayer and logic for MainGameLoop to inform the layer of updates - 2:00
+    CLOCK: [2009-12-28 Mon 04:02]
+
