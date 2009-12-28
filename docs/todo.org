@@ -1,4 +1,12 @@
 
 * Touchaga
+** Create main game loop scaffolding.
+*** Need to create UML to get basic jist of the class.
+*** Create call to player functions.
 ** Player
-*** TODO create shield
+*** TODO Create moving/TargetedTouchDelegate code - Estimate 2:00
+*** TODO Warp Energy class. - 1:00
+*** TODO Implement warp.  - 3:00
+*** TODO Rest of class. - 2:00
+*** TODO Animation
+*** TODO Unit tests - 3:00
