@@ -7,6 +7,7 @@
 //
 
 #import "MainGameLoop.h"
+#import "GameLayer.h"
 
 @implementation MainGameLoop
 
@@ -17,7 +18,7 @@
 {
     if( (self=[super init] )) {
 	gameLayer = [[GameLayer alloc] init];
-	player = [[Player alloc] init];
+	player = [gameLayer createPlayer];
     }
     
     return self;

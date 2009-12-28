@@ -326,7 +326,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>165F39AF10E8AD3D00951D44</string>
+										<string>165F39F110E8B42C00951D44</string>
 										<key>history</key>
 										<array>
 											<string>1673CC5B102B51FA001142DC</string>
@@ -373,14 +373,14 @@
 											<string>1613ACFD1071B3D7005FE4DE</string>
 											<string>165F393710E8A09900951D44</string>
 											<string>165F393810E8A09900951D44</string>
-											<string>165F396310E8A72D00951D44</string>
 											<string>165F396410E8A72D00951D44</string>
 											<string>165F397210E8A76E00951D44</string>
 											<string>165F397310E8A76E00951D44</string>
-											<string>165F397410E8A76E00951D44</string>
 											<string>165F397510E8A76E00951D44</string>
-											<string>165F39A910E8AD1E00951D44</string>
-											<string>165F39AA10E8AD1E00951D44</string>
+											<string>165F39CE10E8B25100951D44</string>
+											<string>165F39CF10E8B25100951D44</string>
+											<string>165F39E210E8B3D200951D44</string>
+											<string>165F39E310E8B3D200951D44</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -442,6 +442,12 @@
 											<string>165F397B10E8A76E00951D44</string>
 											<string>165F397C10E8A76E00951D44</string>
 											<string>165F39AB10E8AD1E00951D44</string>
+											<string>165F39BB10E8B1E200951D44</string>
+											<string>165F39D110E8B25100951D44</string>
+											<string>165F39D210E8B25100951D44</string>
+											<string>165F39D310E8B25100951D44</string>
+											<string>165F39E410E8B3D200951D44</string>
+											<string>165F39E510E8B3D200951D44</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -638,9 +644,9 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>164A3ADA1029424000A5E5B6</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8.1/tests/samples/Touchaga/Touchaga.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 59 1680 969 0 0 1680 1028 </string>

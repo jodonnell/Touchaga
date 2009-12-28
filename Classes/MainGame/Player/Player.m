@@ -28,6 +28,7 @@
 
 -(id)initWithRect:(CGRect)rect spriteManager:(AtlasSpriteManager*)manager
 {
+    NSLog(@"Start");
     lives = 3;
 //    energy = [[Energy alloc] init];
     return [super initWithRect:rect spriteManager:manager];
@@ -44,8 +45,21 @@
     return CGRectMake(-15, -15, 30, 30);
 }
 
+- (void)onEnter
+{
+	[[TouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	[super onEnter];
+}
+
+- (void)onExit
+{
+	[[TouchDispatcher sharedDispatcher] removeDelegate:self];
+	[super onExit];
+}	
+
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    NSLog(@"ih");
     CGPoint convertedPoint = [self convertTouchToNodeSpaceAR:touch];
     if (CGRectContainsPoint([self getTouchBox], convertedPoint)) {
 	return YES;
