@@ -20,13 +20,6 @@ enum {
 @synthesize tag;
 @synthesize zIndex;
 
--(id) init
-{
-    if(self=[super init]) {
-    }
-    return self;
-}
-
 -(void) dealloc
 {
     [super dealloc];

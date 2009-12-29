@@ -50,8 +50,6 @@
  * Constructor
  * @return id The Sprite
  */
-+(id)init;
-
 -(id)init;
 
 /**

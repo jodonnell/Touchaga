@@ -28,19 +28,12 @@
 @synthesize invincible;
 @synthesize score;
 
-+(id)init
-{
-    return [[[self alloc] init] autorelease];
-}
-
 -(id)init
 {
     lives = 3;
     score = 0;
 //    energy = [[Energy alloc] init];
     spriteManager = [[PlayerSpriteManager alloc] init];
-    NSLog(@"%@", spriteManager);
-    NSLog(@"%i", spriteManager.zIndex);
     return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 

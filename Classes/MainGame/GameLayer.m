@@ -28,12 +28,9 @@
 -(void) addSpriteToLayer:(TouchagaSprite *) sprite
 {
     AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag:[[sprite spriteManager] tag]];
-
-    if (!mgr) {
-	AtlasSpriteManager *mgr = [[sprite getSpriteManager] getManager];
-//	[self addChild:mgr z:[[sprite spriteManager] zIndex] tag:[[sprite spriteManager] tag]];
-//	AtlasSpriteManager *mgr = [AtlasSpriteManager spriteManagerWithFile:@"player.png" capacity:1];
-	[self addChild:mgr z:0 tag:0];
+    if (mgr == nil) {
+	mgr = [[sprite getSpriteManager] getManager];
+	[self addChild:mgr z:[[sprite spriteManager] zIndex] tag:[[sprite spriteManager] tag]];
     }
 
     [mgr addChild:sprite];
