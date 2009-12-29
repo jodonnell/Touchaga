@@ -10,11 +10,13 @@
 
 @class GameLayer;
 @class Player;
+@class ShootButtonLayer;
 
-@interface MainGameLoop : NSObject {
+@interface MainGameLoop : CocosNode {
 @private
     GameLayer *gameLayer;
     Player *player;
+    ShootButtonLayer *shootButtonLayer;
 }
 
 /** The layer that contains everything within the main game */
@@ -23,9 +25,14 @@
 /** The player object */
 @property (retain, nonatomic) Player *player;
 
+/** The layer with the shoot button on it. */
+@property (retain, nonatomic) ShootButtonLayer *shootButtonLayer;
 
--(void) update;
+
+-(void) update: (ccTime) dt;
 
 -(GameLayer *) getGameLayer;
+
+-(ShootButtonLayer *) getShootButtonLayer;
 
 @end

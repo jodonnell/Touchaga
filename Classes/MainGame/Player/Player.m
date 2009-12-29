@@ -7,6 +7,8 @@
 //
 
 #import "Player.h"
+#import "PlayerBullet.h"
+#import "SpriteManager.h"
 
 @interface Player (private)
 -(void) changeAnimation;
@@ -26,12 +28,20 @@
 @synthesize invincible;
 @synthesize score;
 
--(id)initWithRect:(CGRect)rect spriteManager:(AtlasSpriteManager*)manager
++(id)init
 {
-    NSLog(@"Start");
+    return [[[self alloc] init] autorelease];
+}
+
+-(id)init
+{
     lives = 3;
+    score = 0;
 //    energy = [[Energy alloc] init];
-    return [super initWithRect:rect spriteManager:manager];
+    spriteManager = [[PlayerSpriteManager alloc] init];
+    NSLog(@"%@", spriteManager);
+    NSLog(@"%i", spriteManager.zIndex);
+    return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
 -(void) dealloc
@@ -47,19 +57,18 @@
 
 - (void)onEnter
 {
-	[[TouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-	[super onEnter];
+    [[TouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+    [super onEnter];
 }
 
 - (void)onExit
 {
-	[[TouchDispatcher sharedDispatcher] removeDelegate:self];
-	[super onExit];
+    [[TouchDispatcher sharedDispatcher] removeDelegate:self];
+    [super onExit];
 }	
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    NSLog(@"ih");
     CGPoint convertedPoint = [self convertTouchToNodeSpaceAR:touch];
     if (CGRectContainsPoint([self getTouchBox], convertedPoint)) {
 	return YES;
@@ -72,7 +81,7 @@
 {
     CGPoint touchPoint = [touch locationInView:[touch view]];
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
-    self.position = CGPointMake(touchPoint.x, touchPoint.y);
+    [self moveTo:CGPointMake(touchPoint.x, touchPoint.y)];
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
@@ -82,12 +91,12 @@
 
 -(void) moveTo: (CGPoint) point
 {
-
+    self.position = point;
 }
 
 -(BOOL) isInvincible
 {
-    return YES;
+    return invincible;
 }
 
 -(BOOL) isDead
@@ -97,7 +106,7 @@
 
 -(int) getScore
 {
-    return 0;
+    return score;
 }
 
 -(WarpSprite *) warpOut
@@ -112,17 +121,19 @@
 
 -(void) addScore: (int) addScore
 {
-
+    score += addScore;
 }
 
 -(void) loseLife
 {
-
+    lives -= 1;
 }
 
 -(PlayerBullet *) shoot
 {
-
+    PlayerBullet *playerBullet = [PlayerBullet init];
+    [playerBullet moveTo:CGPointMake(20, 20)];
+    return playerBullet;
 }
 
 @end

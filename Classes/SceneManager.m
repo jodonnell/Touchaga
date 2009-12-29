@@ -28,8 +28,11 @@
     Scene *scene = [Scene node];
     MainGameLoop *mainGameLoop = [[MainGameLoop alloc] init];
     GameLayer *gameLayer = [mainGameLoop getGameLayer];
+    AtlasSprite *shootButtonLayer = (AtlasSprite *)[mainGameLoop getShootButtonLayer];
 
     [scene addChild:gameLayer];
+    [scene addChild:shootButtonLayer];
+    [scene addChild:mainGameLoop]; // must be attached to run mainGameLoop's timer
     return scene;
 }
 

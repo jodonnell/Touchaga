@@ -10,6 +10,10 @@
 		165F392A10E89FAC00951D44 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F392910E89FAC00951D44 /* Player.m */; };
 		165F395D10E8A70200951D44 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F395C10E8A70200951D44 /* GameLayer.m */; };
 		165F396110E8A71A00951D44 /* MainGameLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F396010E8A71A00951D44 /* MainGameLoop.m */; };
+		165F3A3110E969D900951D44 /* ShootButtonLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F3A3010E969D900951D44 /* ShootButtonLayer.m */; };
+		165F3AAD10E977FC00951D44 /* PlayerBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F3AAC10E977FC00951D44 /* PlayerBullet.m */; };
+		165F3B5310E9B28900951D44 /* SpriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F3B5210E9B28900951D44 /* SpriteManager.m */; };
+		165F3BFA10E9BF0B00951D44 /* TouchagaSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F3BF910E9BF0B00951D44 /* TouchagaSprite.m */; };
 		1673CCD5102C18E7001142DC /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 1673CCD4102C18E7001142DC /* player.png */; };
 		16C2CEEB102E3F3A00AF0163 /* bullets.png in Resources */ = {isa = PBXBuildFile; fileRef = 16C2CEEA102E3F3A00AF0163 /* bullets.png */; };
 		16C2CF19102F86E900AF0163 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2CF18102F86E900AF0163 /* SceneManager.m */; };
@@ -238,6 +242,16 @@
 		165F395E10E8A70D00951D44 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLayer.h; path = MainGame/GameLayer.h; sourceTree = "<group>"; };
 		165F395F10E8A71400951D44 /* MainGameLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainGameLoop.h; path = MainGame/MainGameLoop.h; sourceTree = "<group>"; };
 		165F396010E8A71A00951D44 /* MainGameLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainGameLoop.m; path = MainGame/MainGameLoop.m; sourceTree = "<group>"; };
+		165F39FB10E957D800951D44 /* Unit Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		165F39FD10E957D800951D44 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
+		165F3A2F10E969CE00951D44 /* ShootButtonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShootButtonLayer.h; path = MainGame/ShootButtonLayer.h; sourceTree = "<group>"; };
+		165F3A3010E969D900951D44 /* ShootButtonLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShootButtonLayer.m; path = MainGame/ShootButtonLayer.m; sourceTree = "<group>"; };
+		165F3AAB10E977F400951D44 /* PlayerBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerBullet.h; path = MainGame/Player/PlayerBullet.h; sourceTree = "<group>"; };
+		165F3AAC10E977FC00951D44 /* PlayerBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerBullet.m; path = MainGame/Player/PlayerBullet.m; sourceTree = "<group>"; };
+		165F3B5110E9B28000951D44 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = MainGame/SpriteManager.h; sourceTree = "<group>"; };
+		165F3B5210E9B28900951D44 /* SpriteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteManager.m; path = MainGame/SpriteManager.m; sourceTree = "<group>"; };
+		165F3BF710E9BE8100951D44 /* TouchagaSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchagaSprite.h; path = MainGame/TouchagaSprite.h; sourceTree = "<group>"; };
+		165F3BF910E9BF0B00951D44 /* TouchagaSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchagaSprite.m; path = MainGame/TouchagaSprite.m; sourceTree = "<group>"; };
 		1673CCD4102C18E7001142DC /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		16C2CEEA102E3F3A00AF0163 /* bullets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullets.png; sourceTree = "<group>"; };
 		16C2CF17102F86E900AF0163 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
@@ -246,7 +260,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TouchagaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchagaAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchagaAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* MyFirstGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Touchaga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Touchaga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -443,6 +457,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		165F39F910E957D700951D44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,14 +518,8 @@
 			isa = PBXGroup;
 			children = (
 				16C0FC5E10A1519A001E3267 /* MainGame */,
-				16C2CF17102F86E900AF0163 /* SceneManager.h */,
-				16C2CF18102F86E900AF0163 /* SceneManager.m */,
 				1D3623240D0F684500981E51 /* TouchagaAppDelegate.h */,
 				1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */,
-				165F395E10E8A70D00951D44 /* GameLayer.h */,
-				165F395C10E8A70200951D44 /* GameLayer.m */,
-				165F396010E8A71A00951D44 /* MainGameLoop.m */,
-				165F395F10E8A71400951D44 /* MainGameLoop.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -514,6 +529,8 @@
 			children = (
 				165F392B10E89FB500951D44 /* Player.h */,
 				165F392910E89FAC00951D44 /* Player.m */,
+				165F3AAB10E977F400951D44 /* PlayerBullet.h */,
+				165F3AAC10E977FC00951D44 /* PlayerBullet.m */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -521,6 +538,18 @@
 		16C0FC5E10A1519A001E3267 /* MainGame */ = {
 			isa = PBXGroup;
 			children = (
+				165F3B5210E9B28900951D44 /* SpriteManager.m */,
+				165F3B5110E9B28000951D44 /* SpriteManager.h */,
+				165F3A3010E969D900951D44 /* ShootButtonLayer.m */,
+				165F3A2F10E969CE00951D44 /* ShootButtonLayer.h */,
+				16C2CF17102F86E900AF0163 /* SceneManager.h */,
+				16C2CF18102F86E900AF0163 /* SceneManager.m */,
+				165F395E10E8A70D00951D44 /* GameLayer.h */,
+				165F395C10E8A70200951D44 /* GameLayer.m */,
+				165F3BF710E9BE8100951D44 /* TouchagaSprite.h */,
+				165F3BF910E9BF0B00951D44 /* TouchagaSprite.m */,
+				165F396010E8A71A00951D44 /* MainGameLoop.m */,
+				165F395F10E8A71400951D44 /* MainGameLoop.h */,
 				165F391D10E89F6700951D44 /* Player */,
 			);
 			name = MainGame;
@@ -529,11 +558,12 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* MyFirstGame.app */,
+				1D6058910D05DD3D006BFB54 /* Touchaga.app */,
 				50479D461010E0BF00D1C71A /* libcocos2d.a */,
 				50479E2A1010E0ED00D1C71A /* libCocosDenshion.a */,
 				50479E431010E13000D1C71A /* libcocoslive.a */,
 				50479E7D1010E18400D1C71A /* libPhysics Engine - Chipmunk.a */,
+				165F39FB10E957D800951D44 /* Unit Tests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -551,6 +581,7 @@
 				50479EE61010E23600D1C71A /* AudioToolbox.framework */,
 				50479EEA1010E23F00D1C71A /* OpenAL.framework */,
 				50479F101010E30D00D1C71A /* CoreGraphics.framework */,
+				165F39FD10E957D800951D44 /* Unit Tests-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -976,6 +1007,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		165F39FA10E957D700951D44 /* Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 165F3A0010E957D900951D44 /* Build configuration list for PBXNativeTarget "Unit Tests" */;
+			buildPhases = (
+				165F39F710E957D700951D44 /* Resources */,
+				165F39F810E957D700951D44 /* Sources */,
+				165F39F910E957D700951D44 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Unit Tests";
+			productName = "Unit Tests";
+			productReference = 165F39FB10E957D800951D44 /* Unit Tests.app */;
+			productType = "com.apple.product-type.application";
+		};
 		1D6058900D05DD3D006BFB54 /* Touchaga */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Touchaga" */;
@@ -994,7 +1042,7 @@
 			);
 			name = Touchaga;
 			productName = MyFirstGame;
-			productReference = 1D6058910D05DD3D006BFB54 /* MyFirstGame.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Touchaga.app */;
 			productType = "com.apple.product-type.application";
 		};
 		50479D451010E0BF00D1C71A /* cocos2d */ = {
@@ -1082,11 +1130,19 @@
 				50479E291010E0ED00D1C71A /* CocosDenshion */,
 				50479E421010E13000D1C71A /* cocoslive */,
 				50479E7C1010E18400D1C71A /* Chipmunk */,
+				165F39FA10E957D700951D44 /* Unit Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		165F39F710E957D700951D44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1101,6 +1157,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		165F39F810E957D700951D44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1111,6 +1174,10 @@
 				165F392A10E89FAC00951D44 /* Player.m in Sources */,
 				165F395D10E8A70200951D44 /* GameLayer.m in Sources */,
 				165F396110E8A71A00951D44 /* MainGameLoop.m in Sources */,
+				165F3A3110E969D900951D44 /* ShootButtonLayer.m in Sources */,
+				165F3AAD10E977FC00951D44 /* PlayerBullet.m in Sources */,
+				165F3B5310E9B28900951D44 /* SpriteManager.m in Sources */,
+				165F3BFA10E9BF0B00951D44 /* TouchagaSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1252,6 +1319,55 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		165F39FE10E957D900951D44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Debug;
+		};
+		165F39FF10E957D900951D44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = iphoneos3.1.2;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1411,6 +1527,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		165F3A0010E957D900951D44 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				165F39FE10E957D900951D44 /* Debug */,
+				165F39FF10E957D900951D44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Touchaga" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

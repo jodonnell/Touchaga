@@ -7,10 +7,12 @@
 //
 
 #import "cocos2d.h"
+#import "TouchagaSprite.h";
 
 @class WarpEnergy;
 @class PlayerBullet;
 @class WarpSprite;
+@class SpriteManager;
 
 /**
  * The player sprite.  Implements the TargetedTouchDelegate protocol, the player is moved by touching
@@ -22,7 +24,7 @@
  * He can warp back in by touching his finger back to the screen.
  * When the player loses all his lives it is game over.
  */
-@interface Player : AtlasSprite <TargetedTouchDelegate> {
+@interface Player : TouchagaSprite <TargetedTouchDelegate> {
 @private
     WarpEnergy *warpEnergy;
     int lives;
@@ -43,8 +45,18 @@
 @property (nonatomic) BOOL invincible;
 
 
+
 /**
- * Creates a PlayerBullet that is created right above player position
+ * Constructor
+ * @return id The Sprite
+ */
++(id)init;
+
+-(id)init;
+
+/**
+ * Creates a PlayerBullet that is created right above player position.
+ * It is the clients responsibility to release the object.
  * @return PlayerBullet that is created right above player position
  */
 -(PlayerBullet *) shoot;

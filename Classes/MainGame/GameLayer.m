@@ -8,11 +8,7 @@
 
 #import "GameLayer.h"
 #import "Player.h"
-
-enum {
-    kTagSpriteManager = 1,
-    kTagPlayer = 2,
-};
+#import "TouchagaSprite.h"
 
 @implementation GameLayer
 
@@ -20,8 +16,6 @@ enum {
 {
     if( (self=[super init] )) {
 	self.isTouchEnabled = YES;
-	AtlasSpriteManager *mgr = [AtlasSpriteManager spriteManagerWithFile:@"player.png" capacity:1];
-	[self addChild:mgr z:0 tag:kTagSpriteManager];
     }
     return self;
 }
@@ -31,13 +25,18 @@ enum {
     [super dealloc];
 }
 
--(Player *) createPlayer
+-(void) addSpriteToLayer:(TouchagaSprite *) sprite
 {
-    AtlasSpriteManager *mgr= (AtlasSpriteManager *)[self getChildByTag:kTagSpriteManager];
-    Player *player = [Player spriteWithRect:CGRectMake(0,0,16,16) spriteManager:mgr];
-    player.position = ccp(100, 150);
-    [mgr addChild:player z:0 tag:kTagPlayer];
-    return player;
+    AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag:[[sprite spriteManager] tag]];
+
+    if (!mgr) {
+	AtlasSpriteManager *mgr = [[sprite getSpriteManager] getManager];
+//	[self addChild:mgr z:[[sprite spriteManager] zIndex] tag:[[sprite spriteManager] tag]];
+//	AtlasSpriteManager *mgr = [AtlasSpriteManager spriteManagerWithFile:@"player.png" capacity:1];
+	[self addChild:mgr z:0 tag:0];
+    }
+
+    [mgr addChild:sprite];
 }
 
 @end

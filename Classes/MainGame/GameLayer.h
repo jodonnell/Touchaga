@@ -14,7 +14,7 @@
 
 }
 
--(Player *) createPlayer;
+-(void) addSpriteToLayer:(AtlasSprite *) sprite;
 
 @end
 
