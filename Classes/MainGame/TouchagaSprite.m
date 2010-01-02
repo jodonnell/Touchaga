@@ -12,9 +12,17 @@
 
 @synthesize spriteManager;
 
--(SpriteManager *)getSpriteManager
+-(id) init
 {
-    return self.spriteManager;
+    if( (self=[super init] )) {
+    }
+    return self;
+}
+
+-(void) dealloc
+{
+    [spriteManager release];
+    [super dealloc];
 }
 
 @end

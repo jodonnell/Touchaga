@@ -11,6 +11,7 @@
 #import "SceneManager.h"
 #import "MainGameLoop.h"
 #import "GameLayer.h"
+#import "ShootButtonLayer.h"
 
 @implementation SceneManager
 
@@ -28,7 +29,7 @@
     Scene *scene = [Scene node];
     MainGameLoop *mainGameLoop = [[MainGameLoop alloc] init];
     GameLayer *gameLayer = [mainGameLoop getGameLayer];
-    AtlasSprite *shootButtonLayer = (AtlasSprite *)[mainGameLoop getShootButtonLayer];
+    ShootButtonLayer *shootButtonLayer = [mainGameLoop getShootButtonLayer];
 
     [scene addChild:gameLayer];
     [scene addChild:shootButtonLayer];

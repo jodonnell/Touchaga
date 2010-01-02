@@ -12,16 +12,9 @@
 /**
  * The sprite for all the player bullets.
  */
-@interface PlayerBullet :  TouchagaSprite {
+@interface PlayerBullet : TouchagaSprite {
 
 }
-
-/**
- * Constructor
- * @param manager The bullet sprites AtlasSpriteManager.
- * @return Returns the PlayerBulletSprite instantiation.
- */
-+(id)init;
 
 /**
  * Depending on how big the charge is, uses a different graphic.

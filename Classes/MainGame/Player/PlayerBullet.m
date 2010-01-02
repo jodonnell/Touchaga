@@ -11,16 +11,10 @@
 
 @implementation PlayerBullet
 
-+(id)init
-{
-    return [[[self alloc] init] autorelease];
-}
-
 -(id)init
 {
     spriteManager = [[PlayerBulletSpriteManager alloc] init];
-    self = [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
-    return self;
+    return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
 -(void) moveTo: (CGPoint) point
@@ -30,7 +24,8 @@
 
 -(void) dealloc
 {
-    [super dealloc];
+    [spriteManager release];
+    [super dealloc];    
 }
 
 @end
