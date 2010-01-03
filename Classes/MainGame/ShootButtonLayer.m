@@ -57,14 +57,15 @@
     UITouch *touch = [touches anyObject];
 	
     if( touch ) {
-	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
+//	CGPoint location = [touch locationInView: [touch view]];
+//	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 		
-	if (CGRectContainsPoint([self getButtonRect], convertedPoint))
-	{
-	    shooting = NO;
-	    return kEventHandled;
-	}
+//     if your finger slides off button and you release it would get stuck shooting
+//	if (CGRectContainsPoint([self getButtonRect], convertedPoint))
+//	{
+	shooting = NO;
+	return kEventHandled;
+//	}
     }
     return kEventIgnored;
 }
