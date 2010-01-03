@@ -7,7 +7,7 @@
 //
 
 #import "cocos2d.h"
-#import "TouchagaSprite.h";
+#import "TouchagaSprite.h"
 
 @class WarpEnergy;
 @class PlayerBullet;
