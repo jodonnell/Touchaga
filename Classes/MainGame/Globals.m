@@ -1,3 +1,11 @@
+//
+//  Globals.m
+//  Touchaga
+//
+//  Created by Jacob O'Donnell on 1/2/10.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
+
 #import "Globals.h"
 
 @implementation Globals
@@ -7,15 +15,12 @@
 
 + (Globals *)sharedInstance
 {
-    // the instance of this class is stored here
     static Globals *myInstance = nil;
  
-    // check to see if an instance already exists
     if (nil == myInstance) {
         myInstance  = [[[self class] alloc] init];
-        // initialize variables here
     }
-    // return the instance of this class
+
     return myInstance;
 }
 
