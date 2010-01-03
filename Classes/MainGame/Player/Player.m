@@ -9,6 +9,7 @@
 #import "Player.h"
 #import "PlayerBullet.h"
 #import "SpriteManager.h"
+#import "WarpEnergy.h"
 
 @implementation Player
 
@@ -21,14 +22,14 @@
 {
     lives = 3;
     score = 0;
-//    energy = [[Energy alloc] init];
+    warpEnergy = [[WarpEnergy alloc] init];
     spriteManager = [[PlayerSpriteManager alloc] init];
     return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
 -(void) dealloc
 {
-//    [energy release];
+    [warpEnergy release];
     [super dealloc];
 }
 
