@@ -37,4 +37,10 @@
     [mgr addChild:sprite];
 }
 
+-(void) removePlayerBullet: (PlayerBullet *) playerBullet
+{
+    AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag:[[playerBullet spriteManager] tag]];
+    [mgr removeChild:(TouchagaSprite *)playerBullet cleanup:YES];
+}
+
 @end

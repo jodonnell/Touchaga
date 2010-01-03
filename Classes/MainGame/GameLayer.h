@@ -9,12 +9,14 @@
 #import "cocos2d.h"
 
 @class TouchagaSprite;
+@class PlayerBullet;
 
 @interface GameLayer : Layer {
 
 }
 
 -(void) addSpriteToLayer:(TouchagaSprite *) sprite;
+-(void) removePlayerBullet: (PlayerBullet *) playerBullet;
 
 @end
 

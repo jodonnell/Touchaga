@@ -24,6 +24,8 @@
 -(id)init;
 
 -(void) moveTo: (CGPoint) point;
+-(void) update;
+-(BOOL) isOffScreen;
 
 
 @end

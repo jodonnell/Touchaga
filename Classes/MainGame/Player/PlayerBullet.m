@@ -9,6 +9,10 @@
 #import "PlayerBullet.h"
 #import "SpriteManager.h"
 
+enum {
+    kPlayerBulletMovementSpeed = 5,
+};
+
 @implementation PlayerBullet
 
 -(id)init
@@ -17,15 +21,28 @@
     return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
+-(void) dealloc
+{
+    [spriteManager release];
+    [super dealloc];    
+}
+
 -(void) moveTo: (CGPoint) point
 {
     self.position = point;
 }
 
--(void) dealloc
+-(void) update
 {
-    [spriteManager release];
-    [super dealloc];    
+    self.position = CGPointMake(self.position.x, self.position.y + kPlayerBulletMovementSpeed);
+}
+
+-(BOOL) isOffScreen
+{
+    CGSize s = [[Director sharedDirector] winSize];
+    if (s.height < self.position.y)
+	return YES;
+    return NO;
 }
 
 @end

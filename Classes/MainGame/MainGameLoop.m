@@ -11,16 +11,20 @@
 #import "ShootButtonLayer.h"
 #import "Player.h"
 #import "TouchagaSprite.h"
+#import "PlayerBullet.h"
 
 @implementation MainGameLoop
 
 @synthesize gameLayer;
 @synthesize player;
 @synthesize shootButtonLayer;
+@synthesize playerBullets;
 
 -(id) init
 {
     if( (self=[super init] )) {
+	playerBullets = [[NSMutableArray alloc] init];
+
 	gameLayer = [[GameLayer alloc] init];
 	shootButtonLayer = [[ShootButtonLayer alloc] init];
 
@@ -39,16 +43,38 @@
     [gameLayer release];
     [player release];
     [shootButtonLayer release];
-
+    [playerBullets release];
+    
     [super dealloc];
 }
 
 -(void) update: (ccTime) dt
 {
     if ([shootButtonLayer isShooting]) {
-	TouchagaSprite *playerBullet = (TouchagaSprite *)[player shoot];
+	NSLog(@"Shooting!");
+	PlayerBullet *playerBullet = (PlayerBullet *)[player shoot];
+	[playerBullet moveTo:player.position];
 	[gameLayer addSpriteToLayer:playerBullet];
+
+	[playerBullets addObject: playerBullet];
     }
+
+    if ([playerBullets count]) {
+	for (int i = 0; i < [playerBullets count]; i++) 
+	{
+	    PlayerBullet *playerBullet = [playerBullets objectAtIndex:i];
+	    [playerBullet update];
+	    if ([playerBullet isOffScreen]) {
+		[self removePlayerBullet: playerBullet];
+	    }
+	}
+    }
+}
+
+-(void) removePlayerBullet: (PlayerBullet *) playerBullet
+{
+    [gameLayer removePlayerBullet:playerBullet];
+    [playerBullets removeObject: playerBullet];
 }
 
 -(GameLayer *) getGameLayer
