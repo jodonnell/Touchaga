@@ -18,6 +18,4 @@
 /** The sprite manager for all the player related images. */
 @property (retain, nonatomic) SpriteManager *spriteManager;
 
--(SpriteManager *)getSpriteManager;
-
 @end

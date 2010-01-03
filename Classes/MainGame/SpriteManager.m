@@ -7,11 +7,14 @@
 //
 
 #import "SpriteManager.h"
+#import "Globals.h"
 
 enum {
     kTagPlayer = 1,
     kTagPlayerBullet = 2,
 };
+
+
 
 @implementation SpriteManager
 
@@ -20,18 +23,20 @@ enum {
 @synthesize tag;
 @synthesize zIndex;
 
+-(id) init
+{
+    if( (self=[super init] )) {
+    }
+    return self;
+}
+
 -(void) dealloc
 {
+    [manager release];
     [super dealloc];
 }
 
--(AtlasSpriteManager *) getManager
-{
-    return self.manager;
-}
-
 @end
-
 
 
 @implementation PlayerSpriteManager
@@ -39,10 +44,10 @@ enum {
 -(id) init
 {
     if( (self=[super init] )) {
-	manager = [AtlasSpriteManager spriteManagerWithFile:@"player.png" capacity:1];
+	manager = [[Globals sharedInstance] playerManager];
 	imageRect = CGRectMake(0,0,16,16);
 	tag = kTagPlayer;
-	zIndex = 100;
+	zIndex = 0;
     }
     return self;
 }
@@ -54,7 +59,7 @@ enum {
 -(id) init
 {
     if(self=[super init]) {
-	manager = [AtlasSpriteManager spriteManagerWithFile:@"bullets.png" capacity:2];
+	manager = [[Globals sharedInstance] bulletManager];
 	imageRect = CGRectMake(0,0,8,8);
 	tag = kTagPlayerBullet;
 	zIndex = 0;

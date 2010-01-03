@@ -10,17 +10,6 @@
 #import "PlayerBullet.h"
 #import "SpriteManager.h"
 
-@interface Player (private)
--(void) changeAnimation;
-@end
-
-@implementation Player (private)
--(void) changeAnimation
-{
-
-}
-@end
-
 @implementation Player
 
 @synthesize warpEnergy;
@@ -124,7 +113,7 @@
 
 -(PlayerBullet *) shoot
 {
-    PlayerBullet *playerBullet = [PlayerBullet init];
+    PlayerBullet *playerBullet = [[PlayerBullet alloc] init];
     [playerBullet moveTo:CGPointMake(20, 20)];
     return playerBullet;
 }

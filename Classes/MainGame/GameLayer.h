@@ -8,13 +8,13 @@
 
 #import "cocos2d.h"
 
-@class Player;
+@class TouchagaSprite;
 
 @interface GameLayer : Layer {
 
 }
 
--(void) addSpriteToLayer:(AtlasSprite *) sprite;
+-(void) addSpriteToLayer:(TouchagaSprite *) sprite;
 
 @end
 

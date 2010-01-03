@@ -21,8 +21,6 @@
 @property (nonatomic) int tag;
 @property (nonatomic) int zIndex;
 
--(AtlasSpriteManager *) getManager;
-
 @end
 
 
