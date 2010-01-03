@@ -10,6 +10,7 @@
 #import "PlayerBullet.h"
 #import "SpriteManager.h"
 #import "WarpEnergy.h"
+#import "WarpLayer.h"
 
 @implementation Player
 
@@ -17,6 +18,7 @@
 @synthesize lives;
 @synthesize invincible;
 @synthesize score;
+@synthesize isWarpedOut;
 
 -(id)init
 {
@@ -24,6 +26,7 @@
     score = 0;
     warpEnergy = [[WarpEnergy alloc] init];
     spriteManager = [[PlayerSpriteManager alloc] init];
+    isWarpedOut = NO;
     return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
@@ -69,7 +72,7 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-
+    self.isWarpedOut = YES;
 }
 
 -(void) moveTo: (CGPoint) point
@@ -92,9 +95,10 @@
     return score;
 }
 
--(WarpSprite *) warpOut
+-(WarpLayer *) warpOut
 {
-
+    self.isWarpedOut = NO;
+    return [[WarpLayer alloc] initWithCenterPoint:self.position andEnergy:self.warpEnergy.energy];
 }
 
 -(void) warpIn: (CGPoint) point

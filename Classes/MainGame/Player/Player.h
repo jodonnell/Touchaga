@@ -11,7 +11,7 @@
 
 @class WarpEnergy;
 @class PlayerBullet;
-@class WarpSprite;
+@class WarpLayer;
 @class SpriteManager;
 
 /**
@@ -30,6 +30,7 @@
     int lives;
     int score;
     BOOL invincible;
+    BOOL isWarpedOut;
 }
 
 /** An energy object that represents the players pool of warp energy. */
@@ -44,6 +45,8 @@
 /** A BOOL, when YES the player is invincible. */
 @property (nonatomic) BOOL invincible;
 
+/** A BOOL, when YES the player needs to transition to the warped out state */
+@property (nonatomic) BOOL isWarpedOut;
 
 
 /**
@@ -90,7 +93,7 @@
  * screen.
  * @return The warp sprite to be attached to the screen.
  */
--(WarpSprite *) warpOut;
+-(WarpLayer *) warpOut;
 
 /**
  * Warps the player back in at the passed in point.  Makes the player vulnerable again.

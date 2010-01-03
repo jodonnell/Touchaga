@@ -43,4 +43,9 @@
     [mgr removeChild:(TouchagaSprite *)playerBullet cleanup:YES];
 }
 
+-(void) addChildLayer:(Layer *) layer
+{
+    [self addChild:layer z:0 tag:93];
+}
+
 @end

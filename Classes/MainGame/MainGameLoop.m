@@ -51,7 +51,6 @@
 -(void) update: (ccTime) dt
 {
     if ([shootButtonLayer isShooting]) {
-	NSLog(@"Shooting!");
 	PlayerBullet *playerBullet = (PlayerBullet *)[player shoot];
 	[playerBullet moveTo:player.position];
 	[gameLayer addSpriteToLayer:playerBullet];
@@ -68,6 +67,10 @@
 		[self removePlayerBullet: playerBullet];
 	    }
 	}
+    }
+    
+    if ([player isWarpedOut]) {
+	[gameLayer addChildLayer: (Layer *)[player warpOut]];
     }
 }
 

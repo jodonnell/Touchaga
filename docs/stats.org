@@ -8,3 +8,15 @@
    CLOCK: [2009-12-24 Thu 02:25]--[2009-12-24 Thu 02:45] =>  0:20
    :END:
 
+** Working on adding game bullets
+   :CLOCK:
+   CLOCK: [2010-01-02 Sat 22:14]--[2010-01-02 Sat 22:31] =>  0:17
+   CLOCK: [2010-01-02 Sat 19:22]--[2010-01-02 Sat 20:13] =>  0:51
+   :END:
+
+
+** Making the game horizontal rather than vertical
+   :CLOCK:    [2010-01-02 Sat 22:33]--[2010-01-02 Sat 22:51] =>  0:18
+** creating WarpEnergy class
+   CLOCK: [2010-01-02 Sat 23:11]--[2010-01-02 Sat 23:23] =>  0:12
+

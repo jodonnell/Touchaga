@@ -14,7 +14,7 @@
 -(id) init
 {
     if( (self=[super init] )) {
-	energy = 0;
+	energy = 50;
     }
     
     return self;

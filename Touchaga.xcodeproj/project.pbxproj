@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1615D02410F0040800E31B92 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = 1615D02310F0040800E31B92 /* Globals.m */; };
 		165F392A10E89FAC00951D44 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F392910E89FAC00951D44 /* Player.m */; };
 		165F395D10E8A70200951D44 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F395C10E8A70200951D44 /* GameLayer.m */; };
 		165F396110E8A71A00951D44 /* MainGameLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F396010E8A71A00951D44 /* MainGameLoop.m */; };
@@ -18,6 +19,8 @@
 		16C2CEEB102E3F3A00AF0163 /* bullets.png in Resources */ = {isa = PBXBuildFile; fileRef = 16C2CEEA102E3F3A00AF0163 /* bullets.png */; };
 		16C2CF19102F86E900AF0163 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2CF18102F86E900AF0163 /* SceneManager.m */; };
 		16D1FD541041F3AE007D231F /* enemies.png in Resources */ = {isa = PBXBuildFile; fileRef = 16D1FD531041F3AE007D231F /* enemies.png */; };
+		16DDA9F810F051A7001C6AEB /* WarpEnergy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DDA9F710F051A7001C6AEB /* WarpEnergy.m */; };
+		16DDAA3D10F09869001C6AEB /* WarpLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DDAA3C10F09869001C6AEB /* WarpLayer.m */; };
 		1D3623260D0F684500981E51 /* TouchagaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -236,6 +239,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1615D02310F0040800E31B92 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Globals.m; path = MainGame/Globals.m; sourceTree = "<group>"; };
+		1615D02510F0040E00E31B92 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Globals.h; path = MainGame/Globals.h; sourceTree = "<group>"; };
 		165F392910E89FAC00951D44 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = MainGame/Player/Player.m; sourceTree = "<group>"; };
 		165F392B10E89FB500951D44 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = MainGame/Player/Player.h; sourceTree = "<group>"; };
 		165F395C10E8A70200951D44 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameLayer.m; path = MainGame/GameLayer.m; sourceTree = "<group>"; };
@@ -257,6 +262,10 @@
 		16C2CF17102F86E900AF0163 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		16C2CF18102F86E900AF0163 /* SceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneManager.m; sourceTree = "<group>"; };
 		16D1FD531041F3AE007D231F /* enemies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemies.png; sourceTree = "<group>"; };
+		16DDA9F710F051A7001C6AEB /* WarpEnergy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarpEnergy.m; path = MainGame/Player/WarpEnergy.m; sourceTree = "<group>"; };
+		16DDA9F910F051AE001C6AEB /* WarpEnergy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarpEnergy.h; path = MainGame/Player/WarpEnergy.h; sourceTree = "<group>"; };
+		16DDAA3C10F09869001C6AEB /* WarpLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarpLayer.m; path = MainGame/Player/WarpLayer.m; sourceTree = "<group>"; };
+		16DDAA3E10F09870001C6AEB /* WarpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarpLayer.h; path = MainGame/Player/WarpLayer.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TouchagaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchagaAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* TouchagaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchagaAppDelegate.m; sourceTree = "<group>"; };
@@ -527,6 +536,10 @@
 		165F391D10E89F6700951D44 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				16DDAA3E10F09870001C6AEB /* WarpLayer.h */,
+				16DDAA3C10F09869001C6AEB /* WarpLayer.m */,
+				16DDA9F910F051AE001C6AEB /* WarpEnergy.h */,
+				16DDA9F710F051A7001C6AEB /* WarpEnergy.m */,
 				165F392B10E89FB500951D44 /* Player.h */,
 				165F392910E89FAC00951D44 /* Player.m */,
 				165F3AAB10E977F400951D44 /* PlayerBullet.h */,
@@ -538,6 +551,8 @@
 		16C0FC5E10A1519A001E3267 /* MainGame */ = {
 			isa = PBXGroup;
 			children = (
+				1615D02510F0040E00E31B92 /* Globals.h */,
+				1615D02310F0040800E31B92 /* Globals.m */,
 				165F3B5210E9B28900951D44 /* SpriteManager.m */,
 				165F3B5110E9B28000951D44 /* SpriteManager.h */,
 				165F3A3010E969D900951D44 /* ShootButtonLayer.m */,
@@ -1178,6 +1193,9 @@
 				165F3AAD10E977FC00951D44 /* PlayerBullet.m in Sources */,
 				165F3B5310E9B28900951D44 /* SpriteManager.m in Sources */,
 				165F3BFA10E9BF0B00951D44 /* TouchagaSprite.m in Sources */,
+				1615D02410F0040800E31B92 /* Globals.m in Sources */,
+				16DDA9F810F051A7001C6AEB /* WarpEnergy.m in Sources */,
+				16DDAA3D10F09869001C6AEB /* WarpLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

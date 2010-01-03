@@ -17,6 +17,7 @@
 
 -(void) addSpriteToLayer:(TouchagaSprite *) sprite;
 -(void) removePlayerBullet: (PlayerBullet *) playerBullet;
+-(void) addChildLayer:(Layer *) layer;
 
 @end
 

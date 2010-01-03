@@ -1,3 +1,7 @@
 1. Spending too much time in fuzzy front end.
 2. Feature creep.
 3. Developer gold plating.
+4. Insufficient Risk Management
+5. Shortchanged upstream activities.
+6. Omitting necessary tasks from estimates.
+7. Inadequate design.
