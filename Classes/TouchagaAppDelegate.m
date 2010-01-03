@@ -25,7 +25,7 @@
     [[Director sharedDirector] attachInWindow:window];
 	
     // before creating any layer, set the landscape mode
-    [[Director sharedDirector] setDeviceOrientation:CCDeviceOrientationPortrait];
+    [[Director sharedDirector] setDeviceOrientation:CCDeviceOrientationLandscapeLeft];
 	
     [Director sharedDirector].displayFPS = YES;
 	
