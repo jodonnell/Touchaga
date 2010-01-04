@@ -8,19 +8,23 @@
 
 #import "cocos2d.h"
 
+@class Player;
 
 @interface WarpLayer : Layer {
 @private 
     BOOL warpIn;
     CGPoint center;
     int energy;
+    Player *player;
 }
 
 @property (nonatomic) BOOL warpIn;
 @property (nonatomic) CGPoint center;
 @property (nonatomic) int energy;
+@property (retain, nonatomic) Player *player;
 
--(id) initWithCenterPoint: (CGPoint) point andEnergy:(int) energy;
+-(id) initWithPlayer:(Player *) thePlayer;
 -(int)convertEnergyToRadius;
+-(void)drainEnergy;
 
 @end

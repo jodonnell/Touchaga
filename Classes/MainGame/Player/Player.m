@@ -18,7 +18,7 @@
 @synthesize lives;
 @synthesize invincible;
 @synthesize score;
-@synthesize isWarpedOut;
+@synthesize warpPlayerOut;
 
 -(id)init
 {
@@ -26,7 +26,7 @@
     score = 0;
     warpEnergy = [[WarpEnergy alloc] init];
     spriteManager = [[PlayerSpriteManager alloc] init];
-    isWarpedOut = NO;
+    warpPlayerOut = NO;
     return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
@@ -72,7 +72,7 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    self.isWarpedOut = YES;
+    self.warpPlayerOut = YES;
 }
 
 -(void) moveTo: (CGPoint) point
@@ -97,13 +97,13 @@
 
 -(WarpLayer *) warpOut
 {
-    self.isWarpedOut = NO;
-    return [[WarpLayer alloc] initWithCenterPoint:self.position andEnergy:self.warpEnergy.energy];
+    self.warpPlayerOut = NO;
+    return [[WarpLayer alloc] initWithPlayer:self];
 }
 
 -(void) warpIn: (CGPoint) point
 {
-
+    [self moveTo:CGPointMake(point.x, point.y)];
 }
 
 -(void) addScore: (int) addScore

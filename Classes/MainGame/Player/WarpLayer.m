@@ -6,20 +6,23 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 
 #import "WarpLayer.h"
+#import "Player.h"
 
 @implementation WarpLayer
 
-@synthesize warpIn;
 @synthesize center;
 @synthesize energy;
+@synthesize player;
+@synthesize warpIn;
 
--(id) initWithCenterPoint: (CGPoint) point andEnergy:(int) inEnergy
+-(id) initWithPlayer:(Player *) thePlayer;
 {
     if( (self=[super init] )) {
 	self.isTouchEnabled = YES;
+	self.player = thePlayer;
+	self.center = thePlayer.position;
+	self.energy = [[thePlayer warpEnergy] energy];
 	self.warpIn = NO;
-	self.center = point;
-	self.energy = inEnergy;
     }
     return self;
 }
@@ -43,10 +46,11 @@
 	CGPoint location = [touch locationInView: [touch view]];
 	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 
-	if (CGRectContainsPoint(CGRectMake(self.center.x - 40, self.center.y - 40, self.center.x + 40, self.center.y + 40), convertedPoint))
+	if (CGRectContainsPoint(CGRectMake(self.center.x - [self convertEnergyToRadius], self.center.y - [self convertEnergyToRadius], [self convertEnergyToRadius] * 2, [self convertEnergyToRadius] * 2), convertedPoint))
 	{
-	    self.warpIn = YES;
-	    return kEventHandled;
+	    [player warpIn:convertedPoint];
+	    warpIn = YES;
+	    return kEventIgnored; // we want the player touch method to pick this up now
 	}
     }
     return kEventIgnored;
@@ -54,7 +58,13 @@
 
 -(int)convertEnergyToRadius
 {
-    return self.energy;
+    return self.energy / 10;
+}
+
+-(void)drainEnergy
+{
+    [[player warpEnergy] removeEnergy: 1];
+    energy = [[player warpEnergy] energy];
 }
 
 @end

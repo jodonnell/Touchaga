@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "TouchagaSprite.h"
 #import "PlayerBullet.h"
+#import "WarpLayer.h"
 
 @implementation MainGameLoop
 
@@ -19,6 +20,7 @@
 @synthesize player;
 @synthesize shootButtonLayer;
 @synthesize playerBullets;
+@synthesize warpLayer;
 
 -(id) init
 {
@@ -27,6 +29,7 @@
 
 	gameLayer = [[GameLayer alloc] init];
 	shootButtonLayer = [[ShootButtonLayer alloc] init];
+	warpLayer = nil;
 
  	player = [[Player alloc] init];
  	[player moveTo:ccp(100, 150)];
@@ -69,9 +72,20 @@
 	}
     }
     
-    if ([player isWarpedOut]) {
-	[gameLayer addChildLayer: (Layer *)[player warpOut]];
+    if ([player warpPlayerOut]) {
+	warpLayer = [player warpOut];
+	[gameLayer addChild: (Layer *)warpLayer];
     }
+    
+    if (warpLayer != nil)
+	[warpLayer drainEnergy];
+
+    if (warpLayer != nil && [warpLayer warpIn]) {
+	[gameLayer removeChild: (Layer *)warpLayer cleanup:YES];
+	[warpLayer release];
+	warpLayer = nil;
+    }
+	
 }
 
 -(void) removePlayerBullet: (PlayerBullet *) playerBullet

@@ -12,6 +12,7 @@
 @class Player;
 @class ShootButtonLayer;
 @class PlayerBullet;
+@class WarpLayer;
 
 @interface MainGameLoop : CocosNode {
 @private
@@ -19,6 +20,7 @@
     Player *player;
     ShootButtonLayer *shootButtonLayer;
     NSMutableArray *playerBullets;
+    WarpLayer *warpLayer;
 }
 
 /** A NSMutableArray that contains all the player bullet sprite objects */
@@ -32,6 +34,9 @@
 
 /** The layer with the shoot button on it. */
 @property (retain, nonatomic) ShootButtonLayer *shootButtonLayer;
+
+/** The warp layer. */
+@property (retain, nonatomic) WarpLayer *warpLayer;
 
 
 -(void) update: (ccTime) dt;

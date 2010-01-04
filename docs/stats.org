@@ -20,3 +20,6 @@
 ** creating WarpEnergy class
    CLOCK: [2010-01-02 Sat 23:11]--[2010-01-02 Sat 23:23] =>  0:12
 
+** creating the warp circle
+   CLOCK: [2010-01-03 Sun 23:25]--[2010-01-04 Mon 01:19] =>  1:54
+

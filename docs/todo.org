@@ -14,6 +14,10 @@
     :END:
 *** TODO Animation
 *** TODO Unit tests - 3:00
-*** TODO Create GameLayer and logic for MainGameLoop to inform the layer of updates - 2:00
+*** DONE Create GameLayer and logic for MainGameLoop to inform the layer of updates - 2:00
     CLOCK: [2009-12-28 Mon 04:02]--[2009-12-28 Mon 04:41] =>  0:39
 
+  * TODO make horizontal
+  * add comments to global
+  * remove bullets
+*** warp layer needs finishing, check to see if need warp out, add layer.  Check if layer exists, if does check to see if need warp in

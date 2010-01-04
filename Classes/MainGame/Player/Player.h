@@ -30,7 +30,7 @@
     int lives;
     int score;
     BOOL invincible;
-    BOOL isWarpedOut;
+    BOOL warpPlayerOut;
 }
 
 /** An energy object that represents the players pool of warp energy. */
@@ -46,7 +46,7 @@
 @property (nonatomic) BOOL invincible;
 
 /** A BOOL, when YES the player needs to transition to the warped out state */
-@property (nonatomic) BOOL isWarpedOut;
+@property (nonatomic) BOOL warpPlayerOut;
 
 
 /**
