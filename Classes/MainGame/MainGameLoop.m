@@ -53,7 +53,7 @@
 
 -(void) update: (ccTime) dt
 {
-    if ([shootButtonLayer isShooting]) {
+    if ([shootButtonLayer isShooting] && [player isWarpedOut] == NO) {
 	PlayerBullet *playerBullet = (PlayerBullet *)[player shoot];
 	[playerBullet moveTo:player.position];
 	[gameLayer addSpriteToLayer:playerBullet];
@@ -77,10 +77,10 @@
 	[gameLayer addChild: (Layer *)warpLayer];
     }
     
-    if (warpLayer != nil)
+    if ([player isWarpedOut])
 	[warpLayer drainEnergy];
 
-    if (warpLayer != nil && [warpLayer warpIn]) {
+    if (warpLayer != nil && ([warpLayer warpIn] || [player isOutOfWarpEnergy])) {
 	[gameLayer removeChild: (Layer *)warpLayer cleanup:YES];
 	[warpLayer release];
 	warpLayer = nil;

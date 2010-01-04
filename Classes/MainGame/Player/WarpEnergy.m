@@ -27,12 +27,14 @@
 
 -(void) addEnergy:(int) inEnergy
 {
-    self.energy += inEnergy;
+    energy += inEnergy;
 }
 
 -(void) removeEnergy: (int) inEnergy
 {
-    self.energy -= inEnergy;
+    energy -= inEnergy;
+    if (energy < 0)
+	energy = 0;
 }
 
 @end

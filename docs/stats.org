@@ -22,4 +22,6 @@
 
 ** creating the warp circle
    CLOCK: [2010-01-03 Sun 23:25]--[2010-01-04 Mon 01:19] =>  1:54
+** is out of warp energy
+   CLOCK: [2010-01-04 Mon 01:53]--[2010-01-04 Mon 01:58] =>  0:05
 

@@ -7,6 +7,7 @@
 
 #import "WarpLayer.h"
 #import "Player.h"
+#import "WarpEnergy.h"
 
 @implementation WarpLayer
 

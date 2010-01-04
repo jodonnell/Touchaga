@@ -228,6 +228,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,7 +269,6 @@
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>16C0FC5E10A1519A001E3267</string>
 								<string>165F391D10E89F6700951D44</string>
-								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
 								<string>1C08E77C0454961000C914BD</string>
@@ -276,12 +277,11 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>55</integer>
-									<integer>53</integer>
+									<integer>48</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 127}, {273, 910}}</string>
+							<string>{{0, 42}, {273, 910}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -328,7 +328,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>16DDAB7110F1BF37001C6AEB</string>
+										<string>16DDABAF10F1C8CC001C6AEB</string>
 										<key>history</key>
 										<array>
 											<string>1673CC5B102B51FA001142DC</string>
@@ -389,13 +389,13 @@
 											<string>16DDA9C310F04603001C6AEB</string>
 											<string>16DDA9DE10F04AE9001C6AEB</string>
 											<string>16DDAA2210F052C6001C6AEB</string>
-											<string>16DDAA3010F05311001C6AEB</string>
 											<string>16DDAA4710F098CB001C6AEB</string>
 											<string>16DDAA4910F098CB001C6AEB</string>
-											<string>16DDAA7010F099B0001C6AEB</string>
 											<string>16DDAB2410F1B74B001C6AEB</string>
 											<string>16DDAB6B10F1BEEF001C6AEB</string>
-											<string>16DDAB6C10F1BEEF001C6AEB</string>
+											<string>16DDAB9210F1C7CB001C6AEB</string>
+											<string>16DDABA810F1C871001C6AEB</string>
+											<string>16DDABA910F1C871001C6AEB</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -483,6 +483,10 @@
 											<string>16DDAB2810F1B74B001C6AEB</string>
 											<string>16DDAB6D10F1BEEF001C6AEB</string>
 											<string>16DDAB6E10F1BEEF001C6AEB</string>
+											<string>16DDAB8510F1C7B2001C6AEB</string>
+											<string>16DDAB9510F1C7CB001C6AEB</string>
+											<string>16DDAB9610F1C7CB001C6AEB</string>
+											<string>16DDABAA10F1C871001C6AEB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -504,8 +508,6 @@
 							<string>756pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
