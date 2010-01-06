@@ -3362,9 +3362,9 @@
 		path = "/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8.1/tests/samples/Touchaga/Classes/MainGame/MainGameLoop.m";
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1045, 1524}}";
-			sepNavSelRange = "{2182, 0}";
-			sepNavVisRange = "{1452, 434}";
+			sepNavIntBoundsRect = "{{0, 0}, {1324, 1974}}";
+			sepNavSelRange = "{2660, 0}";
+			sepNavVisRange = "{1148, 923}";
 		};
 	};
 	16DDAB0710F1ADB9001C6AEB /* PBXTextBookmark */ = {
@@ -3994,9 +3994,9 @@
 		path = "/Users/jacob/Documents/Firefox/cocos2d-iphone-0.8.1/tests/samples/Touchaga/Classes/MainGame/Player/WarpLayer.m";
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1324, 1062}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1324, 1022}}";
 			sepNavSelRange = "{1633, 0}";
-			sepNavVisRange = "{476, 1157}";
+			sepNavVisRange = "{415, 1218}";
 		};
 	};
 	16DDABA810F1C871001C6AEB /* PBXTextBookmark */ = {
@@ -4055,6 +4055,86 @@
 		rType = 0;
 		vrLen = 1157;
 		vrLoc = 476;
+	};
+	16DDABB610F45B55001C6AEB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16DDABA610F1C86F001C6AEB /* WarpLayer.m */;
+		name = "WarpLayer.m: 73";
+		rLen = 0;
+		rLoc = 1633;
+		rType = 0;
+		vrLen = 1218;
+		vrLoc = 415;
+	};
+	16DDABB710F45B55001C6AEB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16DDABA610F1C86F001C6AEB /* WarpLayer.m */;
+		name = "WarpLayer.m: 73";
+		rLen = 0;
+		rLoc = 1633;
+		rType = 0;
+		vrLen = 1218;
+		vrLoc = 415;
+	};
+	16DDABB810F45B55001C6AEB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16DDAAE110F1ACBF001C6AEB /* TouchagaAppDelegate.m */;
+		name = "TouchagaAppDelegate.m: 36";
+		rLen = 53;
+		rLoc = 987;
+		rType = 0;
+		vrLen = 1113;
+		vrLoc = 0;
+	};
+	16DDABB910F45D1B001C6AEB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16DDAAE110F1ACBF001C6AEB /* TouchagaAppDelegate.m */;
+		name = "TouchagaAppDelegate.m: 36";
+		rLen = 53;
+		rLoc = 987;
+		rType = 0;
+		vrLen = 1113;
+		vrLoc = 0;
+	};
+	16DDABBB10F45D84001C6AEB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16DDAAE110F1ACBF001C6AEB /* TouchagaAppDelegate.m */;
+		name = "TouchagaAppDelegate.m: 36";
+		rLen = 53;
+		rLoc = 987;
+		rType = 0;
+		vrLen = 1113;
+		vrLoc = 0;
+	};
+	16DDABBC10F45D84001C6AEB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16DDAAE110F1ACBF001C6AEB /* TouchagaAppDelegate.m */;
+		name = "TouchagaAppDelegate.m: 36";
+		rLen = 53;
+		rLoc = 987;
+		rType = 0;
+		vrLen = 1113;
+		vrLoc = 0;
+	};
+	16DDABBD10F45D84001C6AEB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16DDAB0510F1ADB6001C6AEB /* MainGameLoop.m */;
+		name = "MainGameLoop.m: 109";
+		rLen = 0;
+		rLoc = 2129;
+		rType = 0;
+		vrLen = 990;
+		vrLoc = 1148;
+	};
+	16DDABBF10F45D95001C6AEB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16DDAB0510F1ADB6001C6AEB /* MainGameLoop.m */;
+		name = "MainGameLoop.m: 142";
+		rLen = 0;
+		rLoc = 2660;
+		rType = 0;
+		vrLen = 923;
+		vrLoc = 1148;
 	};
 	16E4D673103CB630009EC579 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -4561,6 +4641,14 @@
 			16DDABAB10F1C871001C6AEB /* PBXTextBookmark */ = 16DDABAB10F1C871001C6AEB /* PBXTextBookmark */;
 			16DDABAD10F1C88E001C6AEB /* PBXTextBookmark */ = 16DDABAD10F1C88E001C6AEB /* PBXTextBookmark */;
 			16DDABAF10F1C8CC001C6AEB /* PBXTextBookmark */ = 16DDABAF10F1C8CC001C6AEB /* PBXTextBookmark */;
+			16DDABB610F45B55001C6AEB /* PBXTextBookmark */ = 16DDABB610F45B55001C6AEB /* PBXTextBookmark */;
+			16DDABB710F45B55001C6AEB /* PBXTextBookmark */ = 16DDABB710F45B55001C6AEB /* PBXTextBookmark */;
+			16DDABB810F45B55001C6AEB /* PBXTextBookmark */ = 16DDABB810F45B55001C6AEB /* PBXTextBookmark */;
+			16DDABB910F45D1B001C6AEB /* PBXTextBookmark */ = 16DDABB910F45D1B001C6AEB /* PBXTextBookmark */;
+			16DDABBB10F45D84001C6AEB /* PBXTextBookmark */ = 16DDABBB10F45D84001C6AEB /* PBXTextBookmark */;
+			16DDABBC10F45D84001C6AEB /* PBXTextBookmark */ = 16DDABBC10F45D84001C6AEB /* PBXTextBookmark */;
+			16DDABBD10F45D84001C6AEB /* PBXTextBookmark */ = 16DDABBD10F45D84001C6AEB /* PBXTextBookmark */;
+			16DDABBF10F45D95001C6AEB /* PBXTextBookmark */ = 16DDABBF10F45D95001C6AEB /* PBXTextBookmark */;
 			16E4D673103CB630009EC579 = 16E4D673103CB630009EC579 /* PBXTextBookmark */;
 			16EB6FE710325EAC00823433 = 16EB6FE710325EAC00823433 /* PlistBookmark */;
 			16EB6FEB10325EAC00823433 = 16EB6FEB10325EAC00823433 /* PlistBookmark */;

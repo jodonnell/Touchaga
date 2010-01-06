@@ -47,4 +47,13 @@
 
 -(void) removePlayerBullet: (PlayerBullet *) playerBullet;
 
+// private
+-(void) updatePlayerBullets;
+-(void) shootBullet;
+-(void) warpPlayerOut;
+-(void) drainPlayerWarpEnergy;
+-(void) warpPlayerIn;
+-(BOOL) isPlayerWarpingIn;
+-(BOOL) isShooting;
+
 @end

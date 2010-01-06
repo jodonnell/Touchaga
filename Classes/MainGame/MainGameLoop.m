@@ -53,39 +53,21 @@
 
 -(void) update: (ccTime) dt
 {
-    if ([shootButtonLayer isShooting] && [player isWarpedOut] == NO) {
-	PlayerBullet *playerBullet = (PlayerBullet *)[player shoot];
-	[playerBullet moveTo:player.position];
-	[gameLayer addSpriteToLayer:playerBullet];
+    if ([self isShooting])
+	[self shootBullet];
 
-	[playerBullets addObject: playerBullet];
-    }
+    [self updatePlayerBullets];
 
-    if ([playerBullets count]) {
-	for (int i = 0; i < [playerBullets count]; i++) 
-	{
-	    PlayerBullet *playerBullet = [playerBullets objectAtIndex:i];
-	    [playerBullet update];
-	    if ([playerBullet isOffScreen]) {
-		[self removePlayerBullet: playerBullet];
-	    }
-	}
-    }
-    
-    if ([player warpPlayerOut]) {
-	warpLayer = [player warpOut];
-	[gameLayer addChild: (Layer *)warpLayer];
-    }
-    
+    if ([player warpPlayerOut])
+	[self warpPlayerOut];
+
     if ([player isWarpedOut])
-	[warpLayer drainEnergy];
+	[self drainPlayerWarpEnergy];
 
-    if (warpLayer != nil && ([warpLayer warpIn] || [player isOutOfWarpEnergy])) {
-	[gameLayer removeChild: (Layer *)warpLayer cleanup:YES];
-	[warpLayer release];
-	warpLayer = nil;
-    }
-	
+    if ([self isPlayerWarpingIn])
+	[self warpPlayerIn];
+
+//    if  [player isOutOfWarpEnergy]
 }
 
 -(void) removePlayerBullet: (PlayerBullet *) playerBullet
@@ -102,6 +84,58 @@
 -(ShootButtonLayer *) getShootButtonLayer
 {
     return shootButtonLayer;
+}
+
+// PRIVATE
+-(BOOL) isShooting
+{
+    return [shootButtonLayer isShooting] && [player isWarpedOut] == NO;
+}
+
+-(void) shootBullet
+{
+    PlayerBullet *playerBullet = (PlayerBullet *)[player shoot];
+    [playerBullet moveTo:player.position];
+    [gameLayer addSpriteToLayer:playerBullet];
+
+    [playerBullets addObject: playerBullet];
+}
+
+-(void) updatePlayerBullets
+{
+    if ([playerBullets count]) {
+	for (int i = 0; i < [playerBullets count]; i++) 
+	{
+	    PlayerBullet *playerBullet = [playerBullets objectAtIndex:i];
+	    [playerBullet update];
+	    if ([playerBullet isOffScreen]) {
+		[self removePlayerBullet: playerBullet];
+	    }
+	}
+    }
+}
+
+-(void) warpPlayerOut
+{
+    warpLayer = [player warpOut];
+    [gameLayer addChild: (Layer *)warpLayer];
+}
+
+-(void) drainPlayerWarpEnergy
+{
+    [warpLayer drainEnergy];
+}
+
+-(BOOL) isPlayerWarpingIn
+{
+    return warpLayer != nil && ([warpLayer warpIn]);
+}
+
+-(void) warpPlayerIn
+{
+    [gameLayer removeChild: (Layer *)warpLayer cleanup:YES];
+    [warpLayer release];
+    warpLayer = nil;
 }
 
 @end
