@@ -30,6 +30,8 @@
 
 -(void) dealloc
 {
+    [player release];
+
     [super dealloc];
 }
 

@@ -14,6 +14,8 @@
 #import "PlayerBullet.h"
 #import "WarpLayer.h"
 
+#import "PlayerInactiveLayer.h"
+
 @implementation MainGameLoop
 
 @synthesize gameLayer;
@@ -32,8 +34,10 @@
 	warpLayer = nil;
 
  	player = [[Player alloc] init];
- 	[player moveTo:ccp(100, 150)];
  	[gameLayer addSpriteToLayer:player];
+
+	PlayerInactiveLayer *playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
+	[gameLayer addChild: (Layer *)playerInactiveLayer];
 
 	[self schedule:@selector(update:)];
     }
