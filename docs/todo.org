@@ -21,3 +21,5 @@
   * add comments to global
   * remove bullets
 *** warp layer needs finishing, check to see if need warp out, add layer.  Check if layer exists, if does check to see if need warp in
+*** create a sprite for the warp out, then scale the sprite in proportion to the energy
+* create emacs script to yank a bunch and put them on the same line

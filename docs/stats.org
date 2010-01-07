@@ -1,27 +1,29 @@
 
-* Work
-** Creating Development Process doc 
-   CLOCK: [2009-12-24 Thu 02:18]--[2009-12-24 Thu 02:23] =>  0:05
-** Working on Playing Game Package Diagram t
-   :CLOCK:
-   CLOCK: [2009-12-25 Fri 12:45]--[2009-12-25 Fri 14:31] =>  1:46
-   CLOCK: [2009-12-24 Thu 02:25]--[2009-12-24 Thu 02:45] =>  0:20
-   :END:
+* Creating Development Process doc 
+  CLOCK: [2009-12-24 Thu 02:18]--[2009-12-24 Thu 02:23] =>  0:05
+* Working on Playing Game Package Diagram t
+  :CLOCK:
+  CLOCK: [2009-12-25 Fri 12:45]--[2009-12-25 Fri 14:31] =>  1:46
+  CLOCK: [2009-12-24 Thu 02:25]--[2009-12-24 Thu 02:45] =>  0:20
+  :END:
 
-** Working on adding game bullets
-   :CLOCK:
-   CLOCK: [2010-01-02 Sat 22:14]--[2010-01-02 Sat 22:31] =>  0:17
-   CLOCK: [2010-01-02 Sat 19:22]--[2010-01-02 Sat 20:13] =>  0:51
-   :END:
+* Working on adding game bullets
+  :CLOCK:
+  CLOCK: [2010-01-02 Sat 22:14]--[2010-01-02 Sat 22:31] =>  0:17
+  CLOCK: [2010-01-02 Sat 19:22]--[2010-01-02 Sat 20:13] =>  0:51
+  :END:
 
 
-** Making the game horizontal rather than vertical
-   :CLOCK:    [2010-01-02 Sat 22:33]--[2010-01-02 Sat 22:51] =>  0:18
-** creating WarpEnergy class
-   CLOCK: [2010-01-02 Sat 23:11]--[2010-01-02 Sat 23:23] =>  0:12
+* Making the game horizontal rather than vertical
+  :CLOCK:    [2010-01-02 Sat 22:33]--[2010-01-02 Sat 22:51] =>  0:18
+* creating WarpEnergy class
+  CLOCK: [2010-01-02 Sat 23:11]--[2010-01-02 Sat 23:23] =>  0:12
 
-** creating the warp circle
-   CLOCK: [2010-01-03 Sun 23:25]--[2010-01-04 Mon 01:19] =>  1:54
-** is out of warp energy
-   CLOCK: [2010-01-04 Mon 01:53]--[2010-01-04 Mon 01:58] =>  0:05
+* creating the warp circle
+  CLOCK: [2010-01-03 Sun 23:25]--[2010-01-04 Mon 01:19] =>  1:54
+* is out of warp energy
+  CLOCK: [2010-01-04 Mon 01:53]--[2010-01-04 Mon 01:58] =>  0:05
 
+* making a state where the player is completely warped out so they can warp anywhere on the screen
+  CLOCK: [2010-01-07 Thu 01:31]--[2010-01-07 Thu 02:07] =>  0:36
+* prevent player from entering shoot button space, but need to keep the finger touch active.
