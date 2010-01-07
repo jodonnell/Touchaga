@@ -10,11 +10,13 @@
 @implementation WarpEnergy
 
 @synthesize energy;
+@synthesize maxEnergy;
 
 -(id) init
 {
     if( (self=[super init] )) {
-	energy = 1000;
+	maxEnergy = 1000;
+	energy = maxEnergy;
     }
     
     return self;
@@ -28,6 +30,8 @@
 -(void) addEnergy:(int) inEnergy
 {
     energy += inEnergy;
+    if (energy > maxEnergy)
+	energy = maxEnergy;
 }
 
 -(void) removeEnergy: (int) inEnergy
@@ -36,5 +40,11 @@
     if (energy < 0)
 	energy = 0;
 }
+
+-(float) percentEnergyFull
+{
+    return (float)energy / (float)maxEnergy;
+}
+
 
 @end

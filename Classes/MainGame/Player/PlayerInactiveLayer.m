@@ -6,6 +6,8 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 
 #import "PlayerInactiveLayer.h"
+#import "Player.h"
+#import "WarpEnergy.h"
 
 @implementation PlayerInactiveLayer
 

@@ -16,10 +16,11 @@
 *** TODO Unit tests - 3:00
 *** DONE Create GameLayer and logic for MainGameLoop to inform the layer of updates - 2:00
     CLOCK: [2009-12-28 Mon 04:02]--[2009-12-28 Mon 04:41] =>  0:39
-
-  * TODO make horizontal
-  * add comments to global
-  * remove bullets
+*** DONE make horizontal
+*** DONE add comments to global
+*** DONE remove bullets
 *** warp layer needs finishing, check to see if need warp out, add layer.  Check if layer exists, if does check to see if need warp in
 *** create a sprite for the warp out, then scale the sprite in proportion to the energy
+*** create a meter to display the energy, maybe just a line for now
+*** double check all work and re-UML
 * create emacs script to yank a bunch and put them on the same line

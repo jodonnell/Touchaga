@@ -27,3 +27,5 @@
 * making a state where the player is completely warped out so they can warp anywhere on the screen
   CLOCK: [2010-01-07 Thu 01:31]--[2010-01-07 Thu 02:07] =>  0:36
 * prevent player from entering shoot button space, but need to keep the finger touch active.
+* create a meter to display the energy, maybe just a line for now   CLOCK: [2010-01-07 Thu 02:20]
+

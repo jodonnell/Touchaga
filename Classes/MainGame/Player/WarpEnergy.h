@@ -13,10 +13,14 @@
 @interface WarpEnergy : NSObject {
 @private
     int energy;
+    int maxEnergy;
 }
 
 /** An integer that contains the amount of energy the player has. */
 @property (nonatomic) int energy;
+
+/** An integer that contains the max amount of energy. */
+@property (nonatomic) int maxEnergy;
 
 /**
  * Adds more energy to your current energy.
@@ -29,5 +33,11 @@
  * @param energy The amount of energy to remove from the players pool.
  */
 -(void) removeEnergy:(int) inEnergy;
+
+/**
+ * Gives you the percent the energy is full.
+ * @return float The percent the energy is full.
+ */
+-(float) percentEnergyFull;
 
 @end

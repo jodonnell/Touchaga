@@ -59,5 +59,6 @@
 -(void) warpPlayerIn;
 -(BOOL) isPlayerWarpingIn;
 -(BOOL) isShooting;
+-(void) drawWarpMeter;
 
 @end
