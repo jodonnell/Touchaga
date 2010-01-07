@@ -29,7 +29,7 @@
     warpEnergy = [[WarpEnergy alloc] init];
     spriteManager = [[PlayerSpriteManager alloc] init];
     warpPlayerOut = NO;
-    isWarpedOut = NO;
+    isWarpedOut = YES;
     return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 

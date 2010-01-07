@@ -19,6 +19,7 @@
 @property (retain, nonatomic) Player *player;
 
 -(id) initWithPlayer:(Player *) thePlayer;
+-(void)drainEnergy;
 
 @end
 

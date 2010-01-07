@@ -23,6 +23,7 @@
 @synthesize shootButtonLayer;
 @synthesize playerBullets;
 @synthesize warpLayer;
+@synthesize playerInactiveLayer;
 
 -(id) init
 {
@@ -36,7 +37,7 @@
  	player = [[Player alloc] init];
  	[gameLayer addSpriteToLayer:player];
 
-	PlayerInactiveLayer *playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
+	playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
 	[gameLayer addChild: (Layer *)playerInactiveLayer];
 
 	[self schedule:@selector(update:)];
@@ -70,6 +71,10 @@
 
     if ([self isPlayerWarpingIn])
 	[self warpPlayerIn];
+
+    if (playerInactiveLayer != nil && [playerInactiveLayer warpIn]) {
+	[self warpPlayerIn];
+    }
 
 //    if  [player isOutOfWarpEnergy]
 }
@@ -127,7 +132,10 @@
 
 -(void) drainPlayerWarpEnergy
 {
-    [warpLayer drainEnergy];
+    if (warpLayer != nil)
+	[warpLayer drainEnergy];
+    if (playerInactiveLayer != nil)
+	[playerInactiveLayer drainEnergy];
 }
 
 -(BOOL) isPlayerWarpingIn
@@ -137,9 +145,16 @@
 
 -(void) warpPlayerIn
 {
-    [gameLayer removeChild: (Layer *)warpLayer cleanup:YES];
-    [warpLayer release];
-    warpLayer = nil;
+    if (warpLayer != nil) {
+	[gameLayer removeChild: warpLayer cleanup:YES];
+	[warpLayer release];
+	warpLayer = nil;
+    }
+    if (playerInactiveLayer != nil) {
+	[gameLayer removeChild: playerInactiveLayer cleanup:YES];
+	[playerInactiveLayer release];
+	playerInactiveLayer = nil;
+    }
 }
 
 @end

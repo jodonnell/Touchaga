@@ -14,7 +14,6 @@
 
 -(id) initWithPlayer:(Player *) thePlayer;
 {
-    CGSize size = [[Director sharedDirector] winSize];
     if( (self=[super initWithColor:ccc4(64,64,64,128)] )) {
 	self.isTouchEnabled = YES;
 	self.player = thePlayer;
@@ -32,20 +31,21 @@
 
 - (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-//     UITouch *touch = [touches anyObject];
-//     if( touch ) {
-// 	CGPoint location = [touch locationInView: [touch view]];
-// 	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
+     UITouch *touch = [touches anyObject];
+     if( touch ) {
+ 	CGPoint location = [touch locationInView: [touch view]];
+ 	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 
-// 	if (CGRectContainsPoint([self getButtonRect], convertedPoint))
-// 	{
-// 	    shooting = YES;
-// 	    return kEventHandled;
-// 	}
-//     }
-    return kEventIgnored;
+	[player warpIn:convertedPoint];
+	warpIn = YES;
+     }
+     return kEventIgnored; // we want the player touch method to pick this up now
 }
 
+-(void)drainEnergy
+{
+    [[player warpEnergy] removeEnergy: 1];
+}
 
 @end
 
