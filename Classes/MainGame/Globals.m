@@ -12,6 +12,8 @@
 
 @synthesize playerManager;
 @synthesize bulletManager;
+@synthesize warpOutManager;
+@synthesize backgroundMangaer;
 
 + (Globals *)sharedInstance
 {
@@ -29,6 +31,8 @@
     if(self=[super init]) {
 	playerManager = [AtlasSpriteManager spriteManagerWithFile:@"player.png" capacity:50];
 	bulletManager = [AtlasSpriteManager spriteManagerWithFile:@"bullets.png" capacity:50];
+	warpOutManager = [AtlasSpriteManager spriteManagerWithFile:@"warpCircle.png" capacity:50];
+	backgroundMangaer = [AtlasSpriteManager spriteManagerWithFile:@"background.png" capacity:50];
     }
     return self;
 }

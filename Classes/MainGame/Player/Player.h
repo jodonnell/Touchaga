@@ -12,7 +12,6 @@
 @class WarpEnergy;
 @class PlayerBullet;
 @class WarpLayer;
-@class SpriteManager;
 
 /**
  * The player sprite.  Implements the TargetedTouchDelegate protocol, the player is moved by touching

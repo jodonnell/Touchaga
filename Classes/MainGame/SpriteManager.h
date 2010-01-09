@@ -34,4 +34,14 @@
 
 }
 
+@interface WarpOutSpriteManager : SpriteManager {
+
+}
+
+@end
+
+@interface BackgroundSpriteManager : SpriteManager {
+
+}
+
 @end

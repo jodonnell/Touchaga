@@ -17,6 +17,8 @@
 @public
     AtlasSpriteManager *playerManager;
     AtlasSpriteManager *bulletManager;
+    AtlasSpriteManager *warpOutManager;
+    AtlasSpriteManager *backgroundMangaer;
 }
 
 /** The player manager AtlasSpriteManager */
@@ -24,6 +26,12 @@
 
 /** The bullet manager AtlasSpriteManager */
 @property (retain, nonatomic) AtlasSpriteManager *bulletManager;
+
+/** The warping out sprite manager AtlasSpriteManager */
+@property (retain, nonatomic) AtlasSpriteManager *warpOutManager;
+
+/** The background image manager AtlasSpriteManager */
+@property (retain, nonatomic) AtlasSpriteManager *backgroundMangaer;
 
 /**
  * Constructor

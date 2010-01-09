@@ -12,6 +12,9 @@
 enum {
     kTagPlayer = 1,
     kTagPlayerBullet = 2,
+
+    kTagBackground = 3,
+    kTagWarpOutSprite = 4,
 };
 
 
@@ -47,7 +50,7 @@ enum {
 	manager = [[Globals sharedInstance] playerManager];
 	imageRect = CGRectMake(0,0,16,16);
 	tag = kTagPlayer;
-	zIndex = 0;
+	zIndex = 1;
     }
     return self;
 }
@@ -62,6 +65,36 @@ enum {
 	manager = [[Globals sharedInstance] bulletManager];
 	imageRect = CGRectMake(0,0,8,8);
 	tag = kTagPlayerBullet;
+	zIndex = 1;
+    }
+    return self;
+}
+
+@end
+
+@implementation WarpOutSpriteManager
+
+-(id) init
+{
+    if(self=[super init]) {
+	manager = [[Globals sharedInstance] warpOutManager];
+	imageRect = CGRectMake(0,0,100,100);
+	tag = kTagBackground;
+	zIndex = 1;
+    }
+    return self;
+}
+
+@end
+
+@implementation BackgroundSpriteManager
+
+-(id) init
+{
+    if(self=[super init]) {
+	manager = [[Globals sharedInstance] backgroundMangaer];
+	imageRect = CGRectMake(0,0,480,320);
+	tag = kTagBackground;
 	zIndex = 0;
     }
     return self;

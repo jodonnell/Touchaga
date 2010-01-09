@@ -1,15 +1,16 @@
 //
-//  WarpLayer.m
+//  WarpOutCircle.m
 //  Touchaga
 //
 //  Created by Jacob O'Donnell on 1/3/10.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 
-#import "WarpLayer.h"
+#import "WarpOutCircle.h"
 #import "Player.h"
 #import "WarpEnergy.h"
+#import "SpriteManager.h"
 
-@implementation WarpLayer
+@implementation WarpOutCircle
 
 @synthesize center;
 @synthesize energy;
@@ -18,14 +19,14 @@
 
 -(id) initWithPlayer:(Player *) thePlayer;
 {
-    if( (self=[super init] )) {
-	self.isTouchEnabled = YES;
-	self.player = thePlayer;
-	self.center = thePlayer.position;
-	self.energy = [[thePlayer warpEnergy] energy];
-	self.warpIn = NO;
-    }
-    return self;
+//    self.isTouchEnabled = YES;
+    player = thePlayer;
+    center = thePlayer.position;
+    energy = [[thePlayer warpEnergy] energy];
+    spriteManager = [[WarpOutSpriteManager alloc] init];
+    warpIn = NO;
+
+    return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
 -(void) dealloc

@@ -1,5 +1,5 @@
 //
-//  WarpLayer.h
+//  WarpOutCircle.h
 //  Touchaga
 //
 //  Created by Jacob O'Donnell on 1/3/10.
@@ -7,10 +7,11 @@
 
 
 #import "cocos2d.h"
+#import "TouchagaSprite.h"
 
 @class Player;
 
-@interface WarpLayer : Layer {
+@interface WarpOutCircle : TouchagaSprite <TargetedTouchDelegate> {
 @private 
     BOOL warpIn;
     CGPoint center;
