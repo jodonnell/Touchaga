@@ -40,7 +40,7 @@
 
 -(float)convertEnergyToScaleFactor
 {
-    return (float)self.energy / 600.0f;
+    return (float)self.energy / 300.0f;
 }
 
 -(void)drainEnergy
@@ -71,18 +71,18 @@
     CGRect rect = spriteManager.imageRect;
     rect.size.width *= [self convertEnergyToScaleFactor];
     rect.size.height *= [self convertEnergyToScaleFactor];
-    rect.origin.x -= rect.size.width / 2; 
-    rect.origin.y -= rect.size.height / 2; 
+    rect.origin.x = self.position.x - rect.size.width / 2;
+    rect.origin.y = self.position.y - rect.size.height / 2;
     return rect;
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-     CGPoint convertedPoint = [self convertTouchToNodeSpaceAR:touch];
+     CGPoint touchPoint = [touch locationInView:[touch view]];
+     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
+
      CGRect touchBox = [self getTouchBox];
-     if (CGRectContainsPoint(touchBox, convertedPoint)) {
-	 CGPoint touchPoint = [touch locationInView:[touch view]];
-	 touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
+     if (CGRectContainsPoint(touchBox, touchPoint)) {
 	 [player warpIn:touchPoint];
 	 warpIn = YES;
      }
