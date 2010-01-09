@@ -12,8 +12,9 @@
 @class Player;
 @class ShootButtonLayer;
 @class PlayerBullet;
-@class WarpLayer;
+@class WarpOutCircle;
 @class PlayerInactiveLayer;
+@class Background;
 
 @interface MainGameLoop : CocosNode {
 @private
@@ -21,8 +22,9 @@
     Player *player;
     ShootButtonLayer *shootButtonLayer;
     NSMutableArray *playerBullets;
-    WarpLayer *warpLayer;
+    WarpOutCircle *warpOutCircle;
     PlayerInactiveLayer *playerInactiveLayer;
+    Background *background;
 }
 
 /** A NSMutableArray that contains all the player bullet sprite objects */
@@ -38,10 +40,13 @@
 @property (retain, nonatomic) ShootButtonLayer *shootButtonLayer;
 
 /** The warp layer. Will be nil, unless on screen. */
-@property (retain, nonatomic) WarpLayer *warpLayer;
+@property (retain, nonatomic) WarpOutCircle *warpOutCircle;
 
 /** The inactive layer. A player can touch anywhere to warp in. Will be nil, unless on screen. */
 @property (retain, nonatomic) PlayerInactiveLayer *playerInactiveLayer;
+
+/** The background. */
+@property (retain, nonatomic) Background *background;
 
 -(void) update: (ccTime) dt;
 

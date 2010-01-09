@@ -14,18 +14,18 @@
 @interface WarpOutCircle : TouchagaSprite <TargetedTouchDelegate> {
 @private 
     BOOL warpIn;
-    CGPoint center;
     int energy;
     Player *player;
 }
 
 @property (nonatomic) BOOL warpIn;
-@property (nonatomic) CGPoint center;
 @property (nonatomic) int energy;
 @property (retain, nonatomic) Player *player;
 
 -(id) initWithPlayer:(Player *) thePlayer;
--(int)convertEnergyToRadius;
+-(float)convertEnergyToScaleFactor;
 -(void)drainEnergy;
+-(void)update;
+-(CGRect)getTouchBox;
 
 @end

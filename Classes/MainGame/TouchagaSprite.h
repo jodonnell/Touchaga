@@ -18,4 +18,10 @@
 /** The sprite manager for all the player related images. */
 @property (retain, nonatomic) SpriteManager *spriteManager;
 
+/**
+ * Moves the sprite to the position at point.
+ * @param point The point to move the player to.
+ */
+-(void) moveTo: (CGPoint) point;
+
 @end

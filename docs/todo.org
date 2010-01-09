@@ -24,3 +24,4 @@
 *** create a meter to display the energy, maybe just a line for now
 *** double check all work and re-UML
 * create emacs script to yank a bunch and put them on the same line
+* make control X CONTROL T insert NSLog(@""); in objective c

@@ -10,6 +10,7 @@
 
 @class TouchagaSprite;
 @class PlayerBullet;
+@class WarpOutCircle;
 
 @interface GameLayer : Layer {
 
@@ -17,6 +18,7 @@
 
 -(void) addSpriteToLayer:(TouchagaSprite *) sprite;
 -(void) removePlayerBullet: (PlayerBullet *) playerBullet;
+-(void) removeWarpOutCircle: (WarpOutCircle *) warpOutCircle;
 
 @end
 

@@ -12,21 +12,23 @@
 
 @implementation WarpOutCircle
 
-@synthesize center;
 @synthesize energy;
 @synthesize player;
 @synthesize warpIn;
 
 -(id) initWithPlayer:(Player *) thePlayer;
 {
-//    self.isTouchEnabled = YES;
-    player = thePlayer;
-    center = thePlayer.position;
-    energy = [[thePlayer warpEnergy] energy];
     spriteManager = [[WarpOutSpriteManager alloc] init];
+    self = [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
+    [self moveTo: thePlayer.position];
+    player = thePlayer;
+    energy = [[thePlayer warpEnergy] energy];
     warpIn = NO;
 
-    return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
+    self.scale = [self convertEnergyToScaleFactor];
+    self.opacity = 120;
+
+    return self;
 }
 
 -(void) dealloc
@@ -36,39 +38,55 @@
     [super dealloc];
 }
 
--(void) draw
+-(float)convertEnergyToScaleFactor
 {
-    glLineWidth(2);
-    glColor4ub(0, 255, 255, 255);
-    drawCircle( self.center, [self convertEnergyToRadius], CC_DEGREES_TO_RADIANS(90), 50, NO);
-}
-
-- (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    if( touch ) {
-	CGPoint location = [touch locationInView: [touch view]];
-	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
-
-	if (CGRectContainsPoint(CGRectMake(self.center.x - [self convertEnergyToRadius], self.center.y - [self convertEnergyToRadius], [self convertEnergyToRadius] * 2, [self convertEnergyToRadius] * 2), convertedPoint))
-	{
-	    [player warpIn:convertedPoint];
-	    warpIn = YES;
-	    return kEventIgnored; // we want the player touch method to pick this up now
-	}
-    }
-    return kEventIgnored;
-}
-
--(int)convertEnergyToRadius
-{
-    return self.energy / 10;
+    return (float)self.energy / 600.0f;
 }
 
 -(void)drainEnergy
 {
     [[player warpEnergy] removeEnergy: 1];
     energy = [[player warpEnergy] energy];
+}
+
+-(void)update
+{
+    self.scale = [self convertEnergyToScaleFactor];
+}
+
+- (void)onEnter
+{
+    [[TouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+    [super onEnter];
+}
+
+- (void)onExit
+{
+    [[TouchDispatcher sharedDispatcher] removeDelegate:self];
+    [super onExit];
+}	
+
+-(CGRect)getTouchBox
+{
+    CGRect rect = spriteManager.imageRect;
+    rect.size.width *= [self convertEnergyToScaleFactor];
+    rect.size.height *= [self convertEnergyToScaleFactor];
+    rect.origin.x -= rect.size.width / 2; 
+    rect.origin.y -= rect.size.height / 2; 
+    return rect;
+}
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+     CGPoint convertedPoint = [self convertTouchToNodeSpaceAR:touch];
+     CGRect touchBox = [self getTouchBox];
+     if (CGRectContainsPoint(touchBox, convertedPoint)) {
+	 CGPoint touchPoint = [touch locationInView:[touch view]];
+	 touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
+	 [player warpIn:touchPoint];
+	 warpIn = YES;
+     }
+     return NO;
 }
 
 @end

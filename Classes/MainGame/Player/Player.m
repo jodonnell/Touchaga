@@ -10,7 +10,7 @@
 #import "PlayerBullet.h"
 #import "SpriteManager.h"
 #import "WarpEnergy.h"
-#import "WarpLayer.h"
+#import "WarpOutCircle.h"
 
 @implementation Player
 
@@ -30,7 +30,7 @@
     spriteManager = [[PlayerSpriteManager alloc] init];
     warpPlayerOut = NO;
     isWarpedOut = YES;
-    return [super initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
+    return [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
 -(void) dealloc
@@ -60,7 +60,7 @@
 {
     if (isWarpedOut)
 	return NO;
-    
+
     CGPoint convertedPoint = [self convertTouchToNodeSpaceAR:touch];
     if (CGRectContainsPoint([self getTouchBox], convertedPoint)) {
 	return YES;
@@ -81,11 +81,6 @@
     self.warpPlayerOut = YES;
 }
 
--(void) moveTo: (CGPoint) point
-{
-    self.position = point;
-}
-
 -(BOOL) isInvincible
 {
     return invincible;
@@ -101,11 +96,11 @@
     return score;
 }
 
--(WarpLayer *) warpOut
+-(WarpOutCircle *) warpOut
 {
     warpPlayerOut = NO;
     isWarpedOut = YES;
-    return [[WarpLayer alloc] initWithPlayer:self];
+    return [[WarpOutCircle alloc] initWithPlayer:self];
 }
 
 -(void) warpIn: (CGPoint) point

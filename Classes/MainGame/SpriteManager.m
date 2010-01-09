@@ -79,8 +79,8 @@ enum {
     if(self=[super init]) {
 	manager = [[Globals sharedInstance] warpOutManager];
 	imageRect = CGRectMake(0,0,100,100);
-	tag = kTagBackground;
-	zIndex = 1;
+	tag = kTagWarpOutSprite;
+	zIndex = 2;
     }
     return self;
 }

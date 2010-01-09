@@ -11,7 +11,7 @@
 
 @class WarpEnergy;
 @class PlayerBullet;
-@class WarpLayer;
+@class WarpOutCircle;
 
 /**
  * The player sprite.  Implements the TargetedTouchDelegate protocol, the player is moved by touching
@@ -70,12 +70,6 @@
 -(PlayerBullet *) shoot;
 
 /**
- * Moves the player to the position at point.
- * @param point The point to move the player to.
- */
--(void) moveTo: (CGPoint) point;
-
-/**
  * Is the player currently invincible?
  * @return YES if the player is currently invincible, NO otherwise.
  */
@@ -100,7 +94,7 @@
  * screen.
  * @return The warp sprite to be attached to the screen.
  */
--(WarpLayer *) warpOut;
+-(WarpOutCircle *) warpOut;
 
 /**
  * Warps the player back in at the passed in point.  Makes the player vulnerable again.

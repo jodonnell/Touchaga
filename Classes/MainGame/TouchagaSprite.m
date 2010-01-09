@@ -25,5 +25,10 @@
     [super dealloc];
 }
 
+-(void) moveTo: (CGPoint) point
+{
+    self.position = point;
+}
+
 @end
 

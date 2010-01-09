@@ -27,21 +27,19 @@
 @interface PlayerSpriteManager : SpriteManager {
 
 }
-
 @end
 
 @interface PlayerBulletSpriteManager : SpriteManager {
 
 }
+@end
 
 @interface WarpOutSpriteManager : SpriteManager {
 
 }
-
 @end
 
 @interface BackgroundSpriteManager : SpriteManager {
 
 }
-
 @end

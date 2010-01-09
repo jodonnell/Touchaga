@@ -12,8 +12,9 @@
 #import "Player.h"
 #import "TouchagaSprite.h"
 #import "PlayerBullet.h"
-#import "WarpLayer.h"
+#import "WarpOutCircle.h"
 #import "WarpEnergy.h"
+#import "Background.h"
 
 #import "PlayerInactiveLayer.h"
 
@@ -23,8 +24,9 @@
 @synthesize player;
 @synthesize shootButtonLayer;
 @synthesize playerBullets;
-@synthesize warpLayer;
+@synthesize warpOutCircle;
 @synthesize playerInactiveLayer;
+@synthesize background;
 
 -(id) init
 {
@@ -33,13 +35,16 @@
 
 	gameLayer = [[GameLayer alloc] init];
 	shootButtonLayer = [[ShootButtonLayer alloc] init];
-	warpLayer = nil;
+	warpOutCircle = nil;
 
  	player = [[Player alloc] init];
  	[gameLayer addSpriteToLayer:player];
 
 	playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
 	[gameLayer addChild: (Layer *)playerInactiveLayer];
+
+ 	background = [[Background alloc] init];
+ 	[gameLayer addSpriteToLayer:background];
 
 	[self schedule:@selector(update:)];
     }
@@ -67,8 +72,10 @@
     if ([player warpPlayerOut])
 	[self warpPlayerOut];
 
-    if ([player isWarpedOut])
+    if ([player isWarpedOut]) {
 	[self drainPlayerWarpEnergy];
+	[warpOutCircle update];
+    }
 
     if ([self isPlayerWarpingIn])
 	[self warpPlayerIn];
@@ -126,32 +133,31 @@
 
 -(void) warpPlayerOut
 {
-    warpLayer = [player warpOut];
-    [gameLayer addChild: (Layer *)warpLayer];
+    warpOutCircle = [player warpOut];
+    [gameLayer addSpriteToLayer: (TouchagaSprite *)warpOutCircle];
 }
 
 -(void) drainPlayerWarpEnergy
 {
-    if (warpLayer != nil)
-	[warpLayer drainEnergy];
+    if (warpOutCircle != nil)
+	[warpOutCircle drainEnergy];
     if (playerInactiveLayer != nil)
 	[playerInactiveLayer drainEnergy];
 }
 
 -(BOOL) isPlayerWarpingIn
 {
-    return warpLayer != nil && ([warpLayer warpIn]);
+    return warpOutCircle != nil && ([warpOutCircle warpIn]);
 }
 
 -(void) warpPlayerIn
 {
-    if (warpLayer != nil) {
-	[gameLayer removeChild: warpLayer cleanup:YES];
-	[warpLayer release];
-	warpLayer = nil;
+    if (warpOutCircle != nil) {
+	[gameLayer removeWarpOutCircle:warpOutCircle];
+	warpOutCircle = nil;
     }
     if (playerInactiveLayer != nil) {
-	[gameLayer removeChild: playerInactiveLayer cleanup:YES];
+	[gameLayer removeChild:playerInactiveLayer cleanup:YES];
 	[playerInactiveLayer release];
 	playerInactiveLayer = nil;
     }
