@@ -33,7 +33,7 @@
 
 -(CGRect) getButtonRect
 {
-    return CGRectMake(0, 0, 30, 200);
+    return CGRectMake(0, 0, 80, 80);
 }
 
 - (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
