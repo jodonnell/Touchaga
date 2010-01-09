@@ -24,10 +24,11 @@
 
 -(id)init
 {
+    spriteManager = [[PlayerSpriteManager alloc] init];
+    [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
     lives = 3;
     score = 0;
     warpEnergy = [[WarpEnergy alloc] init];
-    spriteManager = [[PlayerSpriteManager alloc] init];
     warpPlayerOut = NO;
     isWarpedOut = YES;
     return [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
@@ -41,7 +42,7 @@
 
 -(CGRect)getTouchBox
 {
-    return CGRectMake(-15, -15, 30, 30);
+    return CGRectMake(self.position.x - 15, self.position.y - 15, 30, 30);
 }
 
 - (void)onEnter
@@ -58,11 +59,12 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    if (isWarpedOut)
-	return NO;
+//     if (isWarpedOut)
+// 	return NO;
+    CGPoint touchPoint = [touch locationInView:[touch view]];
+    touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
-    CGPoint convertedPoint = [self convertTouchToNodeSpaceAR:touch];
-    if (CGRectContainsPoint([self getTouchBox], convertedPoint)) {
+    if (CGRectContainsPoint([self getTouchBox], touchPoint)) {
 	return YES;
     }
     else 

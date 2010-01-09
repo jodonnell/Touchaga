@@ -32,8 +32,8 @@
   CLOCK: [2010-01-09 Sat 01:20]--[2010-01-09 Sat 02:09] =>  0:49
   CLOCK: [2010-01-08 Fri 23:45]--[2010-01-09 Sat 01:04] =>  1:19
   :END:
-** need to fix touch when the shield gets very low
 ** need to fix player grab on initial warp in
+   CLOCK: [2010-01-09 Sat 17:54]--[2010-01-09 Sat 18:08] =>  0:14
 * create a scrolling background 
   CLOCK: [2010-01-09 Sat 01:08]--[2010-01-09 Sat 01:20] =>  0:12
 * create a meter to display the energy, maybe just a line for now

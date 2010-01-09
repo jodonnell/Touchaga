@@ -18,6 +18,8 @@
 
 #import "PlayerInactiveLayer.h"
 
+#define HIGHEST_Z_VALUE 4
+
 @implementation MainGameLoop
 
 @synthesize gameLayer;
@@ -41,7 +43,7 @@
  	[gameLayer addSpriteToLayer:player];
 
 	playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
-	[gameLayer addChild: (Layer *)playerInactiveLayer];
+	[gameLayer addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
 
  	background = [[Background alloc] init];
  	[gameLayer addSpriteToLayer:background];
