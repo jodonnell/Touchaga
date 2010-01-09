@@ -83,12 +83,6 @@
 //    if  [player isOutOfWarpEnergy]
 }
 
--(void) removePlayerBullet: (PlayerBullet *) playerBullet
-{
-    [gameLayer removePlayerBullet:playerBullet];
-    [playerBullets removeObject: playerBullet];
-}
-
 -(GameLayer *) getGameLayer
 {
     return gameLayer;
@@ -112,20 +106,22 @@
     [gameLayer addSpriteToLayer:playerBullet];
 
     [playerBullets addObject: playerBullet];
+    [playerBullet release];
 }
 
 -(void) updatePlayerBullets
 {
-    if ([playerBullets count]) {
-	for (int i = 0; i < [playerBullets count]; i++) 
-	{
-	    PlayerBullet *playerBullet = [playerBullets objectAtIndex:i];
-	    [playerBullet update];
-	    if ([playerBullet isOffScreen]) {
-		[self removePlayerBullet: playerBullet];
-	    }
+    NSMutableArray *removeBullets = [[NSMutableArray alloc] init];
+    PlayerBullet *playerBullet;
+    for (playerBullet in playerBullets) 
+    {
+	[playerBullet update];
+	if ([playerBullet isOffScreen]) {
+	    [removeBullets addObject:playerBullet];
+	    [gameLayer removePlayerBullet:playerBullet];
 	}
     }
+    [playerBullets removeObjectsInArray:removeBullets];
 }
 
 -(void) warpPlayerOut

@@ -49,8 +49,6 @@
 
 -(ShootButtonLayer *) getShootButtonLayer;
 
--(void) removePlayerBullet: (PlayerBullet *) playerBullet;
-
 // private
 -(void) updatePlayerBullets;
 -(void) shootBullet;
