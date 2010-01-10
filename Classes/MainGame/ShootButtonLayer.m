@@ -37,46 +37,6 @@
     return [[Globals sharedInstance] shootButtonRect];
 }
 
-// - (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-// {
-//     UITouch *touch = [touches anyObject];
-//     if( touch ) {
-// 	CGPoint location = [touch locationInView: [touch view]];
-// 	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
-
-// 	if (CGRectContainsPoint([self getButtonRect], convertedPoint))
-// 	{
-// 	    shooting = YES;
-// 	    return kEventHandled;
-// 	}
-//     }
-//     return kEventIgnored;
-// }
-
-// - (BOOL)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-// {
-//     UITouch *touch = [touches anyObject];
-//     if( touch ) {
-// 	CGPoint location = [touch locationInView: [touch view]];
-// 	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
-		
-// //     if your finger slides off button and you release it would get stuck shooting
-// 	if (CGRectContainsPoint([self getButtonRect], convertedPoint))
-// 	{
-// 	    shooting = NO;
-// 	    return kEventHandled;
-// 	}
-//     }
-//     return kEventIgnored;
-// }
-
-// - (BOOL)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
-// {
-//     NSLog(@"toheu" );
-//     shooting = NO;
-//     return YES;
-// }
-
 - (void)onEnter
 {
     [[TouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
