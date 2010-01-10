@@ -48,7 +48,7 @@ enum {
 {
     if( (self=[super init] )) {
 	manager = [[Globals sharedInstance] playerManager];
-	imageRect = CGRectMake(0,0,16,16);
+	imageRect = CGRectMake(0,0,1,1);
 	tag = kTagPlayer;
 	zIndex = 1;
     }
