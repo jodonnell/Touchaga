@@ -85,9 +85,6 @@
     if (playerInactiveLayer != nil && [playerInactiveLayer warpIn])
 	[self warpPlayerIn];
 
-    
-    [self drawWarpMeter];
-
 
 //    if  [player isOutOfWarpEnergy]
 }
@@ -165,10 +162,16 @@
     }
 }
 
+-(void) draw
+{ 
+    [self drawWarpMeter];
+    [super draw];
+}
+
 -(void) drawWarpMeter
 {
     int top_of_meter = (int)(190 * (float)[[player warpEnergy] percentEnergyFull] + 60);
-    drawLine(ccp(60,30), ccp(top_of_meter, 30));
+    drawLine(ccp(450,60), ccp(450, top_of_meter));
 }
 
 
