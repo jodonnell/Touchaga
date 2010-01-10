@@ -26,7 +26,13 @@
 
 * making a state where the player is completely warped out so they can warp anywhere on the screen
   CLOCK: [2010-01-07 Thu 01:31]--[2010-01-07 Thu 02:07] =>  0:36
-* if player enters shoot space, warp player out.
+* if player enters shoot space, warp player out
+  :CLOCK:
+  CLOCK: [2010-01-09 Sat 19:47]
+  CLOCK: [2010-01-09 Sat 19:33]--[2010-01-09 Sat 19:43] =>  0:10
+  :END:
+* do not allow warp in to shoot space
+  CLOCK: [2010-01-09 Sat 19:43]--[2010-01-09 Sat 19:47] =>  0:04
 * create a sprite for the warp out, then scale the sprite in proportion to the energy
   :CLOCK:
   CLOCK: [2010-01-09 Sat 01:20]--[2010-01-09 Sat 02:09] =>  0:49

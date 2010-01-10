@@ -11,6 +11,7 @@
 #import "SpriteManager.h"
 #import "WarpEnergy.h"
 #import "WarpOutCircle.h"
+#import "Globals.h"
 
 @implementation Player
 
@@ -59,8 +60,9 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-//     if (isWarpedOut)
-// 	return NO;
+     if (isWarpedOut)
+ 	return NO;
+
     CGPoint touchPoint = [touch locationInView:[touch view]];
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
@@ -76,6 +78,12 @@
     CGPoint touchPoint = [touch locationInView:[touch view]];
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
     [self moveTo:CGPointMake(touchPoint.x, touchPoint.y)];
+
+    if ([self isTouchInShootButton:touchPoint]) {
+	self.warpPlayerOut = YES;
+	[self onExit];
+	[self onEnter];
+    }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
@@ -107,8 +115,10 @@
 
 -(void) warpIn: (CGPoint) point
 {
-    isWarpedOut = NO;
-    [self moveTo:CGPointMake(point.x, point.y)];
+    if ( ! [self isTouchInShootButton:point]) {
+	isWarpedOut = NO;
+	[self moveTo:CGPointMake(point.x, point.y)];
+    }
 }
 
 -(void) addScore: (int) addScore
@@ -135,6 +145,11 @@
 	return YES;
     }
     return NO;
+}
+
+-(BOOL) isTouchInShootButton:(CGPoint) touchPoint
+{
+    return CGRectContainsPoint([[Globals sharedInstance] shootButtonRect], touchPoint);
 }
 
 @end

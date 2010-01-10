@@ -7,6 +7,7 @@
 //
 
 #import "ShootButtonLayer.h"
+#import "Globals.h"
 
 @implementation ShootButtonLayer
 
@@ -33,7 +34,7 @@
 
 -(CGRect) getButtonRect
 {
-    return CGRectMake(0, 0, 80, 80);
+    return [[Globals sharedInstance] shootButtonRect];
 }
 
 - (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

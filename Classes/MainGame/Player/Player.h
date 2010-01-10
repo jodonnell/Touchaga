@@ -99,7 +99,7 @@
 /**
  * Warps the player back in at the passed in point.  Makes the player vulnerable again.
  * Normally called when the player puts their finger back in the screen within the 
- * warp sprite bounds.
+ * warp sprite bounds. You cannot warp into the shooting button layer.
  * @param point The point to warp the player back in at.  Must be within warp sprite's bounds.
  */
 -(void) warpIn: (CGPoint) point;
@@ -120,5 +120,13 @@
  * if they are out of the juice.
  */
 -(BOOL) isOutOfWarpEnergy;
+
+
+/**
+ * Determines if a given point is within the shoot button rect. PRIVATE.
+ * @param touchPoint The touch to check if it is in rect.
+ * @return YES if the touch is in the shoot button, NO otherwise
+ */
+-(BOOL) isTouchInShootButton:(CGPoint) touchPoint;
 
 @end

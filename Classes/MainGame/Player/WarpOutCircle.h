@@ -27,5 +27,6 @@
 -(void)drainEnergy;
 -(void)update;
 -(CGRect)getTouchBox;
+-(BOOL) isNotWarpingIntoShootButton:(CGPoint) touchPoint;
 
 @end

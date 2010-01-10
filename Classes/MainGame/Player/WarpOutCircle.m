@@ -9,6 +9,7 @@
 #import "Player.h"
 #import "WarpEnergy.h"
 #import "SpriteManager.h"
+#import "Globals.h"
 
 @implementation WarpOutCircle
 
@@ -82,11 +83,16 @@
      touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
      CGRect touchBox = [self getTouchBox];
-     if (CGRectContainsPoint(touchBox, touchPoint)) {
+     if (CGRectContainsPoint(touchBox, touchPoint) && [self isNotWarpingIntoShootButton:touchPoint]) {
 	 [player warpIn:touchPoint];
 	 warpIn = YES;
      }
      return NO;
+}
+
+-(BOOL) isNotWarpingIntoShootButton:(CGPoint) touchPoint
+{
+    return !CGRectContainsPoint([[Globals sharedInstance] shootButtonRect], touchPoint);
 }
 
 @end
