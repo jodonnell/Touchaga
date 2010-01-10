@@ -13,7 +13,7 @@
  * it begins charging energy and when you release the button it fires the bullet and creates
  * the PlayerBulletSprite.
  */
-@interface ShootButtonLayer : Layer {
+@interface ShootButtonLayer : Layer <TargetedTouchDelegate>{
     BOOL shooting;
 
 }
@@ -31,15 +31,5 @@
  * Returns the rect where the shoot button lies in.
  */
 -(CGRect) getButtonRect;
-
-/** 
- * Starts charging a shot.
- */
-- (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
-
-/** 
- * Fires the current shot, creates a PlayerBulletSprite and resets charged energy to zero.
- */
-- (BOOL)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 
 @end
