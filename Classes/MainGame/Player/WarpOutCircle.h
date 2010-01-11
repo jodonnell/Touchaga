@@ -15,7 +15,9 @@
  * The sprite that represents the area that a player can warp in to.  The sprite
  * gets scaled smaller as the player warp energy runs out.  When the player is warped out
  * this sprite is active, it looks for touches to signal that the player is warping back in,
- * if it gets a touch it sets warpIn.
+ * if it gets a touch it sets warpIn. This needs a reference to the player because when the
+ * touch handler is called it needs to set the player's position before the player touch
+ * handler handles the same touch.
  */
 @interface WarpOutCircle : TouchagaSprite <TargetedTouchDelegate> {
     BOOL warpIn;

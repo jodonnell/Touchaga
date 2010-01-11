@@ -34,6 +34,7 @@
     [scene addChild:gameLayer];
     [scene addChild:shootButtonLayer];
     [scene addChild:mainGameLoop]; // must be attached to run mainGameLoop's timer
+    [mainGameLoop release];
     return scene;
 }
 

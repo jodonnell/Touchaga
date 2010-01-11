@@ -105,7 +105,9 @@
     [player release];
     [shootButtonLayer release];
     [playerBullets release];
-    
+    [playerInactiveLayer release];
+    [background release];
+
     [super dealloc];
 }
 
@@ -198,6 +200,7 @@
 {
     if (warpOutCircle != nil) {
 	[gameLayer removeWarpOutCircle:warpOutCircle];
+	[warpOutCircle release];
 	warpOutCircle = nil;
     }
     if (playerInactiveLayer != nil) {
