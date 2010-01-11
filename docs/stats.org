@@ -50,4 +50,6 @@
 * DONE go back and check memory management
   CLOCK: [2010-01-10 Sun 20:53]--[2010-01-10 Sun 21:01] =>  0:08
 * TODO i think there needs to be a penalty for warping out
-* TODO make the warp circle touch area more cirle like
+* DONE make the warp circle touch area more cirle like
+  CLOCK: [2010-01-11 Mon 00:50]--[2010-01-11 Mon 01:17] =>  0:27
+

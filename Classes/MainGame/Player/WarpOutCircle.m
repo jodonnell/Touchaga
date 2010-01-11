@@ -20,9 +20,10 @@
 
 /**
  * Gets the touchable area of the sprite.
- * @return The rect that contains the touchable area of the warp in sprite.
+ * @param touchPoint The point to test if it is within the circle.
+ * @return YES if the touch is in the warp in circle.
  */
--(CGRect)getTouchBox;
+-(BOOL)isTouchInWarpCircle:(CGPoint) touchPoint;
 
 /**
  * Checks to see if the point is within the shoot button rect.
@@ -85,14 +86,23 @@
     [super onExit];
 }	
 
--(CGRect)getTouchBox
+-(BOOL)isTouchInWarpCircle:(CGPoint) touchPoint
 {
-    CGRect rect = spriteManager.imageRect;
-    rect.size.width *= [self convertEnergyToScaleFactor];
-    rect.size.height *= [self convertEnergyToScaleFactor];
-    rect.origin.x = self.position.x - rect.size.width / 2;
-    rect.origin.y = self.position.y - rect.size.height / 2;
-    return rect;
+    int diameter = spriteManager.imageRect.size.width * [self convertEnergyToScaleFactor];
+    int radius = diameter / 2;
+    int lefCoordOfCircle = self.position.x - radius;
+    int topCoordOfCircle = self.position.y - radius;
+    BOOL xInBounds = (touchPoint.x > lefCoordOfCircle) && (touchPoint.x < lefCoordOfCircle + diameter);
+    BOOL yInBounds =  (touchPoint.y > topCoordOfCircle) && (touchPoint.y < topCoordOfCircle + diameter);
+
+    int xDistance = abs(self.position.x - touchPoint.x);
+    int yDistance = abs(self.position.y - touchPoint.y);
+
+    int lineLength = sqrt(pow(xDistance, 2) + pow(yDistance, 2));
+
+    if (xInBounds && yInBounds && (lineLength <= radius))
+	return YES;
+    return NO;
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
@@ -100,8 +110,7 @@
      CGPoint touchPoint = [touch locationInView:[touch view]];
      touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
-     CGRect touchBox = [self getTouchBox];
-     if (CGRectContainsPoint(touchBox, touchPoint) && ! [self isWarpingIntoShootButton:touchPoint]) {
+     if ([self isTouchInWarpCircle:touchPoint] && ! [self isWarpingIntoShootButton:touchPoint]) {
 	 [player warpIn:touchPoint];
 	 warpIn = YES;
      }
