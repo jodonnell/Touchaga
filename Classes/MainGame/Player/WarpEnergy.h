@@ -11,7 +11,6 @@
  * An object that represents the energy that a player currently has.
  */
 @interface WarpEnergy : NSObject {
-@private
     int energy;
     int maxEnergy;
 }

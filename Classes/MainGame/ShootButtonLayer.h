@@ -21,15 +21,9 @@
 /** Returns true if shooting, false otherwise. */
 @property (nonatomic) BOOL shooting;
 
-
 /** 
  * Returns YES if the player is currently shooting, NO otherwise.
  */
 -(BOOL) isShooting;
-
-/** 
- * Returns the rect where the shoot button lies in.
- */
--(CGRect) getButtonRect;
 
 @end

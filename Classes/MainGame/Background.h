@@ -10,6 +10,7 @@
 #import "TouchagaSprite.h"
 
 /**
+ * The sprite that contains the background.
  */
 @interface Background : TouchagaSprite {
 

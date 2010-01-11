@@ -9,6 +9,16 @@
 #import "ShootButtonLayer.h"
 #import "Globals.h"
 
+@interface ShootButtonLayer()
+
+/** 
+ * Returns the rect where the shoot button lies in.
+ */
+-(CGRect) getButtonRect;
+
+@end
+
+
 @implementation ShootButtonLayer
 
 @synthesize shooting;
@@ -16,7 +26,6 @@
 -(id) init
 {
     if( (self=[super init] )) {
-//	self.isTouchEnabled = YES;
 	shooting = NO;
     }
     return self;

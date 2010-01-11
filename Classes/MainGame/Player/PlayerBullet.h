@@ -17,15 +17,14 @@
 }
 
 /**
- * Depending on how big the charge is, uses a different graphic.
- * @param manager The bullet sprites AtlasSpriteManager.
- * @return Returns the PlayerBulletSprite instantiation.
+ * Updates the player bullets position.
  */
--(id)init;
-
--(void) moveTo: (CGPoint) point;
 -(void) update;
--(BOOL) isOffScreen;
 
+/**
+ * Checks to see if the player bullet is no longer on the screen.
+ * @param YES if the player bullet is off screen.
+ */
+-(BOOL) isOffScreen;
 
 @end

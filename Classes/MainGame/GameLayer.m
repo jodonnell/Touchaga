@@ -17,7 +17,6 @@
 -(id) init
 {
     if( (self=[super init] )) {
-	self.isTouchEnabled = YES;
 	PlayerSpriteManager *playerManager = [[PlayerSpriteManager alloc] init];
 	PlayerBulletSpriteManager *bulletManager = [[PlayerBulletSpriteManager alloc] init];
 	WarpOutSpriteManager *warpOutManager = [[WarpOutSpriteManager alloc] init];

@@ -11,9 +11,29 @@
 #import "SpriteManager.h"
 #import "Globals.h"
 
+@interface WarpOutCircle()
+/**
+ * Converts the energy to a scale factor to scale the sprite to the correct size.
+ * @return The scale factor.
+ */
+-(float)convertEnergyToScaleFactor;
+
+/**
+ * Gets the touchable area of the sprite.
+ * @return The rect that contains the touchable area of the warp in sprite.
+ */
+-(CGRect)getTouchBox;
+
+/**
+ * Checks to see if the point is within the shoot button rect.
+ * @return YES if the player is trying to warp into the shoot button.
+ */
+-(BOOL) isWarpingIntoShootButton:(CGPoint) touchPoint;
+
+@end
+
 @implementation WarpOutCircle
 
-@synthesize energy;
 @synthesize player;
 @synthesize warpIn;
 
@@ -23,7 +43,6 @@
     self = [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
     [self moveTo: thePlayer.position];
     player = thePlayer;
-    energy = [[thePlayer warpEnergy] energy];
     warpIn = NO;
 
     self.scale = [self convertEnergyToScaleFactor];
@@ -41,13 +60,12 @@
 
 -(float)convertEnergyToScaleFactor
 {
-    return (float)self.energy / 300.0f;
+    return (float)[[player warpEnergy] energy] / 300.0f;
 }
 
 -(void)drainEnergy
 {
     [[player warpEnergy] removeEnergy: 1];
-    energy = [[player warpEnergy] energy];
 }
 
 -(void)update
@@ -83,16 +101,16 @@
      touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
      CGRect touchBox = [self getTouchBox];
-     if (CGRectContainsPoint(touchBox, touchPoint) && [self isNotWarpingIntoShootButton:touchPoint]) {
+     if (CGRectContainsPoint(touchBox, touchPoint) && ! [self isWarpingIntoShootButton:touchPoint]) {
 	 [player warpIn:touchPoint];
 	 warpIn = YES;
      }
      return NO;
 }
 
--(BOOL) isNotWarpingIntoShootButton:(CGPoint) touchPoint
+-(BOOL) isWarpingIntoShootButton:(CGPoint) touchPoint
 {
-    return !CGRectContainsPoint([[Globals sharedInstance] shootButtonRect], touchPoint);
+    return CGRectContainsPoint([[Globals sharedInstance] shootButtonRect], touchPoint);
 }
 
 @end

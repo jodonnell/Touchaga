@@ -27,11 +27,6 @@ enum {
     [super dealloc];    
 }
 
--(void) moveTo: (CGPoint) point
-{
-    self.position = point;
-}
-
 -(void) update
 {
     self.position = CGPointMake(self.position.x, self.position.y + kPlayerBulletMovementSpeed);

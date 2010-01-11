@@ -14,7 +14,6 @@
  */
 @interface Globals : NSObject
 {
-@public
     AtlasSpriteManager *playerManager;
     AtlasSpriteManager *bulletManager;
     AtlasSpriteManager *warpOutManager;

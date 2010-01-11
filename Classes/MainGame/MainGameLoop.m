@@ -20,6 +20,51 @@
 
 #define HIGHEST_Z_VALUE 4
 
+@interface MainGameLoop()
+
+/** 
+ * Updates all PlayerBullets, moves them up the screen and checks for collisions.
+ */
+-(void) updatePlayerBullets;
+
+/** 
+ * Shoots a player bullet.
+ */
+-(void) shootBullet;
+
+/** 
+ * Warps the player out, adds the warp out circle to the game layer.
+ */
+-(void) warpPlayerOut;
+
+/** 
+ * Drains the player warp out energy if warped out.
+ */
+-(void) drainPlayerWarpEnergy;
+
+/** 
+ * Warps the player back in.
+ */
+-(void) warpPlayerIn;
+
+/** 
+ * Checks to see if the player is warping in.
+ * @return YES if the player is warping in.
+ */
+-(BOOL) isPlayerWarpingIn;
+
+/** 
+ * Checks to see if the player is shooting.
+ * @return YES if the player is shooting.
+ */
+-(BOOL) isShooting;
+
+/** 
+ * Draws the warp meter on to the MainGameLoop node.
+ */
+-(void) drawWarpMeter;
+@end
+
 @implementation MainGameLoop
 
 @synthesize gameLayer;

@@ -44,6 +44,8 @@
 * DONE create a meter to display the energy, maybe just a line for now
   CLOCK: [2010-01-07 Thu 02:20]--[2010-01-07 Thu 02:48] =>  0:28
 * TODO go back and documentation - make sure to document all functions that return retained object
+  CLOCK: [2010-01-10 Sun 18:21]
 * TODO go back and create tests
 * TODO go back and check memory management
 * TODO i think there needs to be a penalty for warping out
+* TODO make the warp circle touch area more cirle like

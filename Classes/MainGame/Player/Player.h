@@ -24,7 +24,6 @@
  * When the player loses all his lives it is game over.
  */
 @interface Player : TouchagaSprite <TargetedTouchDelegate> {
-@private
     WarpEnergy *warpEnergy;
     int lives;
     int score;
@@ -64,7 +63,7 @@
 
 /**
  * Creates a PlayerBullet that is created right above player position.
- * It is the clients responsibility to release the object.
+ * IMPORTANT: It is the clients responsibility to release the object.
  * @return PlayerBullet that is created right above player position
  */
 -(PlayerBullet *) shoot;
@@ -92,6 +91,7 @@
  * invincible but a timer starts where they start losing warp meter.
  * This will normally be triggered when the player's finger leaves the 
  * screen.
+ * IMPORTANT: Client is responsible for releasing this object.
  * @return The warp sprite to be attached to the screen.
  */
 -(WarpOutCircle *) warpOut;
@@ -120,7 +120,6 @@
  * if they are out of the juice.
  */
 -(BOOL) isOutOfWarpEnergy;
-
 
 /**
  * Determines if a given point is within the shoot button rect. PRIVATE.

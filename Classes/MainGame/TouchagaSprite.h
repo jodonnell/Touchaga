@@ -10,8 +10,10 @@
 
 @class SpriteManager;
 
+/**
+ * A subclass of AtlasSprite, adds some functionality for the sprites in this game.
+ */
 @interface TouchagaSprite : AtlasSprite {
-@public
     SpriteManager *spriteManager;
 }
 

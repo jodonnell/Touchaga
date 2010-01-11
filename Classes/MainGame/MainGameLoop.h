@@ -16,8 +16,12 @@
 @class PlayerInactiveLayer;
 @class Background;
 
+/**
+ * This class holds orchestrates the flow of the game.
+ * It is responsible for controlling what goes on and off the GameLayer.
+ * It also controls updating all the different components and interacting between them.
+ */
 @interface MainGameLoop : CocosNode {
-@private
     GameLayer *gameLayer;
     Player *player;
     ShootButtonLayer *shootButtonLayer;
@@ -48,20 +52,20 @@
 /** The background. */
 @property (retain, nonatomic) Background *background;
 
+/** 
+ * Called every frame, does all the updating for the game.
+ */
 -(void) update: (ccTime) dt;
 
+/** 
+ * Returns the GameLayer.
+ * @return GameLayer The game layer.
+ */
 -(GameLayer *) getGameLayer;
 
+/** 
+ * Returns the shoot button layer.
+ */
 -(ShootButtonLayer *) getShootButtonLayer;
-
-// private
--(void) updatePlayerBullets;
--(void) shootBullet;
--(void) warpPlayerOut;
--(void) drainPlayerWarpEnergy;
--(void) warpPlayerIn;
--(BOOL) isPlayerWarpingIn;
--(BOOL) isShooting;
--(void) drawWarpMeter;
 
 @end
