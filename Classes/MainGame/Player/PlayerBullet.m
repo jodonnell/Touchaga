@@ -23,7 +23,6 @@ enum {
 
 -(void) dealloc
 {
-    [spriteManager release];
     [super dealloc];    
 }
 
