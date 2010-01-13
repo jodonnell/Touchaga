@@ -33,7 +33,8 @@
     [window makeKeyAndVisible];
 	
     // Create and initialize parent and empty Scene
-    SceneManager *sceneManager = [SceneManager new];
+    SceneManager *sceneManager = [[SceneManager alloc] init];
+    [sceneManager release];
 }
 
 - (void) dealloc

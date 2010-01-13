@@ -47,7 +47,7 @@ enum {
 -(id) init
 {
     if( (self=[super init] )) {
-	manager = [[Globals sharedInstance] playerManager];
+	[self setManager: [[Globals sharedInstance] playerManager]];
 	imageRect = CGRectMake(0,0,1,1);
 	tag = kTagPlayer;
 	zIndex = 1;
@@ -62,7 +62,7 @@ enum {
 -(id) init
 {
     if(self=[super init]) {
-	manager = [[Globals sharedInstance] bulletManager];
+	[self setManager: [[Globals sharedInstance] bulletManager]];
 	imageRect = CGRectMake(0,0,8,8);
 	tag = kTagPlayerBullet;
 	zIndex = 1;
@@ -77,7 +77,7 @@ enum {
 -(id) init
 {
     if(self=[super init]) {
-	manager = [[Globals sharedInstance] warpOutManager];
+	[self setManager: [[Globals sharedInstance] warpOutManager]];
 	imageRect = CGRectMake(0,0,100,100);
 	tag = kTagWarpOutSprite;
 	zIndex = 2;
@@ -92,7 +92,7 @@ enum {
 -(id) init
 {
     if(self=[super init]) {
-	manager = [[Globals sharedInstance] backgroundMangaer];
+	[self setManager: [[Globals sharedInstance] backgroundMangaer]];
 	imageRect = CGRectMake(0,0,480,320);
 	tag = kTagBackground;
 	zIndex = 0;

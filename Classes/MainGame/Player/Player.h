@@ -62,13 +62,6 @@
 -(id)init;
 
 /**
- * Creates a PlayerBullet that is created right above player position.
- * IMPORTANT: It is the clients responsibility to release the object.
- * @return PlayerBullet that is created right above player position
- */
--(PlayerBullet *) shoot;
-
-/**
  * Is the player currently invincible?
  * @return YES if the player is currently invincible, NO otherwise.
  */
@@ -91,10 +84,8 @@
  * invincible but a timer starts where they start losing warp meter.
  * This will normally be triggered when the player's finger leaves the 
  * screen.
- * IMPORTANT: Client is responsible for releasing this object.
- * @return The warp sprite to be attached to the screen.
  */
--(WarpOutCircle *) warpOut;
+-(void) warpOut;
 
 /**
  * Warps the player back in at the passed in point.  Makes the player vulnerable again.

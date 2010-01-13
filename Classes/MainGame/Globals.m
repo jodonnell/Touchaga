@@ -40,4 +40,14 @@
     return self;
 }
 
+-(void) dealloc
+{
+    [playerManager release];
+    [bulletManager release];
+    [warpOutManager release];
+    [backgroundMangaer release];
+
+    [super dealloc];
+}
+
 @end

@@ -81,7 +81,7 @@
 
     if ([self isTouchInShootButton:touchPoint]) {
 	self.warpPlayerOut = YES;
-	[self onExit];
+	[self onExit]; // only way i would find to force the touch to get dropped
 	[self onEnter];
     }
 }
@@ -106,11 +106,10 @@
     return score;
 }
 
--(WarpOutCircle *) warpOut
+-(void) warpOut
 {
     warpPlayerOut = NO;
     isWarpedOut = YES;
-    return [[WarpOutCircle alloc] initWithPlayer:self];
 }
 
 -(void) warpIn: (CGPoint) point
@@ -129,13 +128,6 @@
 -(void) loseLife
 {
     lives -= 1;
-}
-
--(PlayerBullet *) shoot
-{
-    PlayerBullet *playerBullet = [[PlayerBullet alloc] init];
-    [playerBullet moveTo:CGPointMake(20, 20)];
-    return playerBullet;
 }
 
 -(BOOL) isOutOfWarpEnergy

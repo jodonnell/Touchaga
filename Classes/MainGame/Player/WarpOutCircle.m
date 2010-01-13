@@ -36,18 +36,19 @@
 @implementation WarpOutCircle
 
 @synthesize player;
-@synthesize warpIn;
+@synthesize isPlayerWarpingIn;
+@synthesize isActive;
 
 -(id) initWithPlayer:(Player *) thePlayer;
 {
-    spriteManager = [[WarpOutSpriteManager alloc] init];
+    [self setSpriteManager: [[WarpOutSpriteManager alloc] init]];
     self = [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
-    [self moveTo: thePlayer.position];
-    player = thePlayer;
-    warpIn = NO;
+    [self setPlayer: thePlayer];
+    self.isPlayerWarpingIn = NO;
 
     self.scale = [self convertEnergyToScaleFactor];
     self.opacity = 120;
+    self.isActive = NO;
 
     return self;
 }
@@ -59,17 +60,19 @@
     [super dealloc];
 }
 
+-(void)startWarpOut:(CGPoint) warpInPoint
+{
+    [self moveTo: warpInPoint];
+    isActive = YES;
+    isPlayerWarpingIn = NO;
+}
+
 -(float)convertEnergyToScaleFactor
 {
     return (float)[[player warpEnergy] energy] / 300.0f;
 }
 
--(void)drainEnergy
-{
-    [[player warpEnergy] removeEnergy: 1];
-}
-
--(void)update
+-(void)updateScaleFactor
 {
     self.scale = [self convertEnergyToScaleFactor];
 }
@@ -112,7 +115,7 @@
 
      if ([self isTouchInWarpCircle:touchPoint] && ! [self isWarpingIntoShootButton:touchPoint]) {
 	 [player warpIn:touchPoint];
-	 warpIn = YES;
+	 isPlayerWarpingIn = YES;
      }
      return NO;
 }

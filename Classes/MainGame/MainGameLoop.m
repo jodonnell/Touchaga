@@ -48,12 +48,6 @@
 -(void) warpPlayerIn;
 
 /** 
- * Checks to see if the player is warping in.
- * @return YES if the player is warping in.
- */
--(BOOL) isPlayerWarpingIn;
-
-/** 
  * Checks to see if the player is shooting.
  * @return YES if the player is shooting.
  */
@@ -82,13 +76,15 @@
 
 	gameLayer = [[GameLayer alloc] init];
 	shootButtonLayer = [[ShootButtonLayer alloc] init];
-	warpOutCircle = nil;
 
  	player = [[Player alloc] init];
  	[gameLayer addSpriteToLayer:player];
 
 	playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
+	[playerInactiveLayer setIsActive:YES];
 	[gameLayer addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
+
+	warpOutCircle = [[WarpOutCircle alloc] initWithPlayer:player];
 
  	background = [[Background alloc] init];
  	[gameLayer addSpriteToLayer:background];
@@ -107,6 +103,7 @@
     [playerBullets release];
     [playerInactiveLayer release];
     [background release];
+    [warpOutCircle release];
 
     [super dealloc];
 }
@@ -123,27 +120,17 @@
 
     if ([player isWarpedOut]) {
 	[self drainPlayerWarpEnergy];
-	[warpOutCircle update];
+	[warpOutCircle updateScaleFactor];
     }
 
-    if ([self isPlayerWarpingIn])
+    if ([warpOutCircle isActive] && [warpOutCircle isPlayerWarpingIn])
 	[self warpPlayerIn];
 
-    if (playerInactiveLayer != nil && [playerInactiveLayer warpIn])
+    if ([playerInactiveLayer isActive] && [playerInactiveLayer isPlayerWarpingIn])
 	[self warpPlayerIn];
 
 
 //    if  [player isOutOfWarpEnergy]
-}
-
--(GameLayer *) getGameLayer
-{
-    return gameLayer;
-}
-
--(ShootButtonLayer *) getShootButtonLayer
-{
-    return shootButtonLayer;
 }
 
 // PRIVATE
@@ -154,7 +141,7 @@
 
 -(void) shootBullet
 {
-    PlayerBullet *playerBullet = (PlayerBullet *)[player shoot];
+    PlayerBullet *playerBullet = [[PlayerBullet alloc] init];
     [playerBullet moveTo:player.position];
     [gameLayer addSpriteToLayer:playerBullet];
 
@@ -175,37 +162,31 @@
 	}
     }
     [playerBullets removeObjectsInArray:removeBullets];
+    [removeBullets release];
 }
 
 -(void) warpPlayerOut
 {
-    warpOutCircle = [player warpOut];
+    [warpOutCircle startWarpOut:player.position];
+    [player warpOut];
     [gameLayer addSpriteToLayer: (TouchagaSprite *)warpOutCircle];
 }
 
 -(void) drainPlayerWarpEnergy
 {
-    if (warpOutCircle != nil)
-	[warpOutCircle drainEnergy];
-    if (playerInactiveLayer != nil)
-	[playerInactiveLayer drainEnergy];
-}
-
--(BOOL) isPlayerWarpingIn
-{
-    return warpOutCircle != nil && ([warpOutCircle warpIn]);
+    if ([warpOutCircle isActive] || [playerInactiveLayer isActive])
+	[[player warpEnergy] removeEnergy: 1];
 }
 
 -(void) warpPlayerIn
 {
-    if (warpOutCircle != nil) {
+    if ([warpOutCircle isActive]) {
 	[gameLayer removeWarpOutCircle:warpOutCircle];
-	warpOutCircle = nil;
+	[warpOutCircle setIsActive:NO];
     }
-    if (playerInactiveLayer != nil) {
+    if ([playerInactiveLayer isActive]) {
 	[gameLayer removeChild:playerInactiveLayer cleanup:YES];
-	[playerInactiveLayer release];
-	playerInactiveLayer = nil;
+	[playerInactiveLayer setIsActive:NO];
     }
 }
 

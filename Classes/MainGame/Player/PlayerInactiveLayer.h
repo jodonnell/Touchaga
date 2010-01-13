@@ -15,12 +15,13 @@
  * when the player starts a new level or after he dies.
  */
 @interface PlayerInactiveLayer : ColorLayer {
-    BOOL warpIn;
+    BOOL isPlayerWarpingIn;
+    BOOL isActive;
     Player *player;
 }
 
 /** A BOOL, when YES it signals the player to warp in. */
-@property (nonatomic) BOOL warpIn;
+@property (nonatomic) BOOL isPlayerWarpingIn;
 
 /** 
  * The Player object, needed so when the layer is touched it can tell the player where to warp in 
@@ -28,6 +29,8 @@
  */
 @property (retain, nonatomic) Player *player;
 
+/** A BOOL, when YES the layer is on screen. */
+@property (nonatomic) BOOL isActive;
 
 /**
  * Constructor
@@ -35,12 +38,6 @@
  * @return id The PlayerInactiveLayer
  */
 -(id) initWithPlayer:(Player *) thePlayer;
-
-
-/**
- * Drains the player's warp energy.
- */
--(void)drainEnergy;
 
 @end
 

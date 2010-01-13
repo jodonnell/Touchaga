@@ -25,6 +25,11 @@
 	[self addChild:bulletManager.manager z:[bulletManager zIndex] tag:[bulletManager tag]];
 	[self addChild:warpOutManager.manager z:[warpOutManager zIndex] tag:[warpOutManager tag]];
 	[self addChild:backgroundMangaer.manager z:[backgroundMangaer zIndex] tag:[backgroundMangaer tag]];
+
+	[playerManager release];
+ 	[bulletManager release];
+ 	[warpOutManager release];
+	[backgroundMangaer release];
     }
     return self;
 }

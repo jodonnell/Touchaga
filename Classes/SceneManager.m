@@ -28,13 +28,14 @@
 {
     Scene *scene = [Scene node];
     MainGameLoop *mainGameLoop = [[MainGameLoop alloc] init];
-    GameLayer *gameLayer = [mainGameLoop getGameLayer];
-    ShootButtonLayer *shootButtonLayer = [mainGameLoop getShootButtonLayer];
+    GameLayer *gameLayer = [mainGameLoop gameLayer];
+    ShootButtonLayer *shootButtonLayer = [mainGameLoop shootButtonLayer];
 
     [scene addChild:gameLayer];
     [scene addChild:shootButtonLayer];
     [scene addChild:mainGameLoop]; // must be attached to run mainGameLoop's timer
     [mainGameLoop release];
+    
     return scene;
 }
 

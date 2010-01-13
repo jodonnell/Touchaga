@@ -57,15 +57,4 @@
  */
 -(void) update: (ccTime) dt;
 
-/** 
- * Returns the GameLayer.
- * @return GameLayer The game layer.
- */
--(GameLayer *) getGameLayer;
-
-/** 
- * Returns the shoot button layer.
- */
--(ShootButtonLayer *) getShootButtonLayer;
-
 @end
