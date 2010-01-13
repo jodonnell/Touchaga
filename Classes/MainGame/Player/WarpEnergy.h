@@ -39,4 +39,9 @@
  */
 -(float) percentEnergyFull;
 
+/**
+ * Resets the energy to the max
+ */
+-(void) maxOutEnergy;
+
 @end

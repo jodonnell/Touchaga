@@ -46,5 +46,9 @@
     return (float)energy / (float)maxEnergy;
 }
 
+-(void) maxOutEnergy
+{
+    energy = maxEnergy;
+}
 
 @end

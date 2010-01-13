@@ -39,5 +39,10 @@
  */
 -(id) initWithPlayer:(Player *) thePlayer;
 
+/**
+ * Resets state variables to showing state.
+ */
+-(void) startWarpOut;
+
 @end
 

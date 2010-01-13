@@ -33,6 +33,12 @@
     [super dealloc];
 }
 
+-(void) startWarpOut
+{
+    isActive = YES;
+    isPlayerWarpingIn = NO;
+}
+
 - (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
      UITouch *touch = [touches anyObject];

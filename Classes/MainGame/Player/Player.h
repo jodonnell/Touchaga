@@ -30,7 +30,7 @@
     BOOL invincible;
     BOOL warpPlayerOut;
     BOOL isWarpedOut;
-    BOOL isDead;
+    BOOL isGameOver;
 }
 
 /** An energy object that represents the players pool of warp energy. */
@@ -51,8 +51,8 @@
 /** A BOOL, when YES the player is warped out. */
 @property (nonatomic) BOOL isWarpedOut;
 
-/** A BOOL, when YES the player is dead. */
-@property (nonatomic) BOOL isDead;
+/** A BOOL, when YES the player is out of lives. */
+@property (nonatomic) BOOL isGameOver;
 
 
 /**
@@ -66,12 +66,6 @@
  * @return YES if the player is currently invincible, NO otherwise.
  */
 -(BOOL) isInvincible;
-
-/**
- * Is the player out of lives?
- * @return YES if the player is currently dead, NO otherwise.
- */
--(BOOL) isDead;
 
 /**
  * Returns the players current score.

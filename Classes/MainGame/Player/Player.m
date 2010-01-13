@@ -21,7 +21,7 @@
 @synthesize score;
 @synthesize warpPlayerOut;
 @synthesize isWarpedOut;
-@synthesize isDead;
+@synthesize isGameOver;
 
 -(id)init
 {
@@ -96,11 +96,6 @@
     return invincible;
 }
 
--(BOOL) isDead
-{
-    return YES;
-}
-
 -(int) getScore
 {
     return score;
@@ -127,13 +122,16 @@
 
 -(void) loseLife
 {
+    [warpEnergy maxOutEnergy];
+
     lives -= 1;
+    if (lives == 0)
+	isGameOver = YES;
 }
 
 -(BOOL) isOutOfWarpEnergy
 {
     if ([warpEnergy energy] == 0) {
-	isDead = YES;
 	return YES;
     }
     return NO;

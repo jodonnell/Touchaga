@@ -57,6 +57,12 @@
  * Draws the warp meter on to the MainGameLoop node.
  */
 -(void) drawWarpMeter;
+
+/** 
+ * The player died, make him lose a life and put the inactive player layer back up.
+ */
+-(void) playerDied;
+
 @end
 
 @implementation MainGameLoop
@@ -129,11 +135,22 @@
     if ([playerInactiveLayer isActive] && [playerInactiveLayer isPlayerWarpingIn])
 	[self warpPlayerIn];
 
+    if ([player isOutOfWarpEnergy])
+	[self playerDied];
 
-//    if  [player isOutOfWarpEnergy]
+    if ([player isGameOver])
+	[[Director sharedDirector] end];
 }
 
 // PRIVATE
+-(void) playerDied
+{
+    [self warpPlayerIn];
+    [player loseLife];
+    [playerInactiveLayer startWarpOut];
+    [gameLayer addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
+}
+
 -(BOOL) isShooting
 {
     return [shootButtonLayer isShooting] && [player isWarpedOut] == NO;
