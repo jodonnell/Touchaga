@@ -116,8 +116,11 @@
 
 -(void) update: (ccTime) dt
 {
-    if ([self isShooting])
+    if ([self isShooting] && [player canShoot])
 	[self shootBullet];
+
+    if ([player canShoot] == NO)
+	[player incrementBulletCoolDown];
 
     [self updatePlayerBullets];
 
@@ -164,6 +167,8 @@
 
     [playerBullets addObject: playerBullet];
     [playerBullet release];
+
+    [player shootBullet];
 }
 
 -(void) updatePlayerBullets

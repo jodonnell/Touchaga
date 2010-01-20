@@ -53,10 +53,16 @@
 
 ** DONE create player dying and game over
    CLOCK: [2010-01-13 Wed 02:40]--[2010-01-13 Wed 03:15] =>  0:35
+** TODO making fire rate
+   CLOCK: [2010-01-20 Wed 02:07]--[2010-01-20 Wed 02:39] =>  0:32
 ** TODO create a scrolling background 
    CLOCK: [2010-01-09 Sat 01:08]--[2010-01-09 Sat 01:20] =>  0:12
 ** TODO go back and create tests
+   :CLOCK:
+   CLOCK: [2010-01-20 Wed 03:05]
+   CLOCK: [2010-01-18 Mon 20:04]--[2010-01-18 Mon 21:04] =>  1:00
    CLOCK: [2010-01-10 Sun 23:44]--[2010-01-10 Sun 23:54] =>  0:10
+   :END:
 ** TODO i think there needs to be a penalty for warping out
 
 * add key so no longer need to type password to checkin

@@ -10,7 +10,7 @@
 #import "SpriteManager.h"
 
 enum {
-    kPlayerBulletMovementSpeed = 5,
+    kPlayerBulletMovementSpeed = 13,
 };
 
 @implementation PlayerBullet

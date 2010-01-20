@@ -31,6 +31,8 @@
     BOOL warpPlayerOut;
     BOOL isWarpedOut;
     BOOL isGameOver;
+    int bulletCoolDown;
+    BOOL canShoot;
 }
 
 /** An energy object that represents the players pool of warp energy. */
@@ -54,6 +56,11 @@
 /** A BOOL, when YES the player is out of lives. */
 @property (nonatomic) BOOL isGameOver;
 
+/** A INT, The counter of cool down time after a bullet has been shot. */
+@property (nonatomic) int bulletCoolDown;
+
+/** A BOOL, when YES the player can shoot. */
+@property (nonatomic) BOOL canShoot;
 
 /**
  * Constructor
@@ -112,5 +119,23 @@
  * @return YES if the touch is in the shoot button, NO otherwise
  */
 -(BOOL) isTouchInShootButton:(CGPoint) touchPoint;
+
+/**
+ * When shooting a button, starts the cool down until another bullet can be shot.
+ */
+-(void) shootBullet;
+
+/**
+ * Increments the bullet cool down counter
+ * NOTE: maybe should change name, it breaks the abstraction
+ */
+-(void) incrementBulletCoolDown;
+
+/**
+ * Checks to see if the player can shoot. Also checks to see if the bullet
+ * cool down time has been reached and return YES if so.
+ * @return Yes if the player can shoot.
+ */
+-(BOOL) canShoot;
 
 @end

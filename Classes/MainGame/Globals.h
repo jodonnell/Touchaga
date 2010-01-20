@@ -6,8 +6,8 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "cocos2d.h"
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
 /**
  * This is a singleton for global objects.

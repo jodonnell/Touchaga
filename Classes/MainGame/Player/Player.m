@@ -13,6 +13,10 @@
 #import "WarpOutCircle.h"
 #import "Globals.h"
 
+enum {
+    kPlayerFireRate = 2,
+};
+
 @implementation Player
 
 @synthesize warpEnergy;
@@ -22,6 +26,8 @@
 @synthesize warpPlayerOut;
 @synthesize isWarpedOut;
 @synthesize isGameOver;
+@synthesize bulletCoolDown;
+@synthesize canShoot;
 
 -(id)init
 {
@@ -32,6 +38,8 @@
     warpEnergy = [[WarpEnergy alloc] init];
     warpPlayerOut = NO;
     isWarpedOut = YES;
+    canShoot = YES;
+    bulletCoolDown = 0;
     return [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
 }
 
@@ -141,5 +149,27 @@
 {
     return CGRectContainsPoint([[Globals sharedInstance] shootButtonRect], touchPoint);
 }
+
+-(void) shootBullet
+{
+    canShoot = NO;
+    bulletCoolDown = 0;
+}
+
+-(void) incrementBulletCoolDown
+{
+    bulletCoolDown++;
+}
+
+-(BOOL) canShoot
+{
+    if (bulletCoolDown > kPlayerFireRate) {
+	canShoot = YES;
+	bulletCoolDown = 0;
+    }
+
+    return canShoot;
+} 
+
 
 @end

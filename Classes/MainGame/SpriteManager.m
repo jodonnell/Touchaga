@@ -63,7 +63,7 @@ enum {
 {
     if(self=[super init]) {
 	[self setManager: [[Globals sharedInstance] bulletManager]];
-	imageRect = CGRectMake(0,0,8,8);
+	imageRect = CGRectMake(0,0,16,32);
 	tag = kTagPlayerBullet;
 	zIndex = 1;
     }
