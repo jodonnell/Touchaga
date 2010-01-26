@@ -75,6 +75,7 @@ enum {
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
     if (CGRectContainsPoint([self getTouchBox], touchPoint)) {
+	[self moveTo:ccp(touchPoint.x, touchPoint.y)];
 	return YES;
     }
     else 
@@ -85,6 +86,7 @@ enum {
 {
     CGPoint touchPoint = [touch locationInView:[touch view]];
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
+
     [self moveTo:CGPointMake(touchPoint.x, touchPoint.y)];
 
     if ([self isTouchInShootButton:touchPoint]) {
@@ -102,11 +104,6 @@ enum {
 -(BOOL) isInvincible
 {
     return invincible;
-}
-
--(int) getScore
-{
-    return score;
 }
 
 -(void) warpOut

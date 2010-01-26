@@ -75,12 +75,6 @@
 -(BOOL) isInvincible;
 
 /**
- * Returns the players current score.
- * @return The players score.
- */
--(int) getScore;
-
-/**
  * The player warps off the screen.  This makes the player
  * invincible but a timer starts where they start losing warp meter.
  * This will normally be triggered when the player's finger leaves the 
