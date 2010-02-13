@@ -15,8 +15,8 @@
 -(id) init
 {
     if( (self=[super init] )) {
-	maxEnergy = 1000;
-	energy = maxEnergy;
+        maxEnergy = 1000;
+        energy = maxEnergy;
     }
     
     return self;
@@ -31,14 +31,14 @@
 {
     energy += inEnergy;
     if (energy > maxEnergy)
-	energy = maxEnergy;
+        energy = maxEnergy;
 }
 
 -(void) removeEnergy: (int) inEnergy
 {
     energy -= inEnergy;
     if (energy < 0)
-	energy = 0;
+        energy = 0;
 }
 
 -(float) percentEnergyFull

@@ -64,22 +64,22 @@ enum {
 {
     [[TouchDispatcher sharedDispatcher] removeDelegate:self];
     [super onExit];
-}	
+}
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
      if (isWarpedOut)
- 	return NO;
+         return NO;
 
     CGPoint touchPoint = [touch locationInView:[touch view]];
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
     if (CGRectContainsPoint([self getTouchBox], touchPoint)) {
-	[self moveTo:ccp(touchPoint.x, touchPoint.y)];
-	return YES;
+        [self moveTo:ccp(touchPoint.x, touchPoint.y)];
+        return YES;
     }
     else 
-	return NO;
+        return NO;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
@@ -90,9 +90,9 @@ enum {
     [self moveTo:CGPointMake(touchPoint.x, touchPoint.y)];
 
     if ([self isTouchInShootButton:touchPoint]) {
-	self.warpPlayerOut = YES;
-	[self onExit]; // only way i would find to force the touch to get dropped
-	[self onEnter];
+        self.warpPlayerOut = YES;
+        [self onExit]; // only way i would find to force the touch to get dropped
+        [self onEnter];
     }
 }
 
@@ -115,8 +115,8 @@ enum {
 -(void) warpIn: (CGPoint) point
 {
     if ( ! [self isTouchInShootButton:point]) {
-	isWarpedOut = NO;
-	[self moveTo:CGPointMake(point.x, point.y)];
+        isWarpedOut = NO;
+        [self moveTo:CGPointMake(point.x, point.y)];
     }
 }
 
@@ -131,13 +131,13 @@ enum {
 
     lives -= 1;
     if (lives == 0)
-	isGameOver = YES;
+        isGameOver = YES;
 }
 
 -(BOOL) isOutOfWarpEnergy
 {
     if ([warpEnergy energy] == 0) {
-	return YES;
+        return YES;
     }
     return NO;
 }
@@ -161,8 +161,8 @@ enum {
 -(BOOL) canShoot
 {
     if (bulletCoolDown > kPlayerFireRate) {
-	canShoot = YES;
-	bulletCoolDown = 0;
+        canShoot = YES;
+        bulletCoolDown = 0;
     }
 
     return canShoot;

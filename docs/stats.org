@@ -70,4 +70,22 @@
     CLOCK: [2010-01-24 Sun 22:54]--[2010-01-24 Sun 23:34] =>  0:40
 ** TODO i think there needs to be a penalty for warping out
 
+* Iteration 2 - Enemy
+** DONE Define format for loading levels
+   CLOCK: [2010-02-08 Mon 21:18]--[2010-02-08 Mon 23:18] =>  2:00
+** TODO Create class to load levels
+   :CLOCK:
+   CLOCK: [2010-02-10 Wed 01:15]--[2010-02-12 Fri 01:00] => 47:45
+   CLOCK: [2010-02-08 Mon 23:18]--[2010-02-09 Tue 00:42] =>  1:24
+   :END:
+** TODO Create enemy format
+** TODO Create factory for creating enemies
+** TODO Create Paths
+   CLOCK: [2010-02-11 Thu 23:43]--[2010-02-12 Fri 01:00] =>  1:17
+** TODO Create Action
+   CLOCK: [2010-02-12 Fri 01:01]--[2010-02-12 Fri 01:12] =>  0:11
+** TODO Create Patterns
+** TODO Create basic enemy.
+   CLOCK: [2010-02-13 Sat 16:51]
+** TODO Load basic enemy and have them move around screen
 * add key so no longer need to type password to checkin

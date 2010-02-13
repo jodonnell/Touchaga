@@ -87,7 +87,7 @@
 {
     [[TouchDispatcher sharedDispatcher] removeDelegate:self];
     [super onExit];
-}	
+}
 
 -(BOOL)isTouchInWarpCircle:(CGPoint) touchPoint
 {
@@ -104,7 +104,7 @@
     int lineLength = sqrt(pow(xDistance, 2) + pow(yDistance, 2));
 
     if (xInBounds && yInBounds && (lineLength <= radius))
-	return YES;
+        return YES;
     return NO;
 }
 
@@ -114,8 +114,8 @@
      touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
      if ([self isTouchInWarpCircle:touchPoint] && ! [self isWarpingIntoShootButton:touchPoint]) {
-	 [player warpIn:touchPoint];
-	 isPlayerWarpingIn = YES;
+         [player warpIn:touchPoint];
+         isPlayerWarpingIn = YES;
      }
      return NO;
 }

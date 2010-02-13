@@ -18,8 +18,8 @@
 -(id) init
 {
     if( (self=[super init] )) {
-	Scene *scene = 	[self initGame];
-	[[Director sharedDirector] runWithScene: scene];
+        Scene *scene = [self initGame];
+        [[Director sharedDirector] runWithScene: scene];
     }
     return self;
 }

@@ -26,7 +26,7 @@
 -(id) init
 {
     if( (self=[super init] )) {
-	shooting = NO;
+        shooting = NO;
     }
     return self;
 }
@@ -56,7 +56,7 @@
 {
     [[TouchDispatcher sharedDispatcher] removeDelegate:self];
     [super onExit];
-}	
+}
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
@@ -64,11 +64,11 @@
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
     if (CGRectContainsPoint([self getButtonRect], touchPoint)) {
-	shooting = YES;
-	return YES;
+        shooting = YES;
+        return YES;
     }
     else 
-	return NO;
+        return NO;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
@@ -77,9 +77,9 @@
     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
 
     if (CGRectContainsPoint([self getButtonRect], touchPoint))
-	shooting = YES;
+        shooting = YES;
     else
-	shooting = NO;
+        shooting = NO;
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event

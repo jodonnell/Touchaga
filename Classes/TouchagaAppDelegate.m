@@ -23,15 +23,15 @@
 
     // Attach cocos2d to the window
     [[Director sharedDirector] attachInWindow:window];
-	
+
     // before creating any layer, set the landscape mode
     [[Director sharedDirector] setDeviceOrientation:CCDeviceOrientationLandscapeLeft];
-	
+
     [Director sharedDirector].displayFPS = YES;
-	
+
     // Make the window visible
     [window makeKeyAndVisible];
-	
+
     // Create and initialize parent and empty Scene
     SceneManager *sceneManager = [[SceneManager alloc] init];
     [sceneManager release];

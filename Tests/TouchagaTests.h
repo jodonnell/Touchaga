@@ -13,6 +13,10 @@
 
 @class Player;
 
+/**
+ * Unfortunately we cannot test anything to do with Touches since Apple gives no way
+ * to create one pragmatically.
+ */
 @interface TouchagaTests : SenTestCase {
     Player *player;
 }

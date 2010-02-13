@@ -18,10 +18,10 @@
 -(id) initWithPlayer:(Player *) thePlayer;
 {
     if( (self=[super initWithColor:ccc4(64,64,64,128)] )) {
-	self.isTouchEnabled = YES;
-	self.player = thePlayer;
-	self.isPlayerWarpingIn = NO;
-	self.isActive = NO;
+        self.isTouchEnabled = YES;
+        self.player = thePlayer;
+        self.isPlayerWarpingIn = NO;
+        self.isActive = NO;
     }
     return self;
 }
@@ -43,11 +43,11 @@
 {
      UITouch *touch = [touches anyObject];
      if( touch ) {
- 	CGPoint location = [touch locationInView: [touch view]];
- 	CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
+         CGPoint location = [touch locationInView: [touch view]];
+         CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 
-	[player warpIn:convertedPoint];
-	isPlayerWarpingIn = YES;
+         [player warpIn:convertedPoint];
+         isPlayerWarpingIn = YES;
      }
      return kEventIgnored; // we want the player touch method to pick this up now
 }

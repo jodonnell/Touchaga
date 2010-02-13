@@ -15,7 +15,7 @@
 -(id)init
 {
     if( (self=[super init] )) {
-	path = [[NSMutableArray alloc] init];
+        path = [[NSMutableArray alloc] init];
     }
 
     return self;
@@ -24,7 +24,7 @@
 -(BOOL) isValid
 {
     if ([self isOnScreenBorder [path objectAtIndex:0]] && [self isOnScreenBorder [path objectAtIndex:[path count] - 1]])
-	return YES;
+        return YES;
     return NO;
 }
 

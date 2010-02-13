@@ -25,34 +25,34 @@
 -(id) initWithLevel:(NSString *)level;
 {
     if( (self=[super init] )) {
-	levelEvents = [[NSMutableArray alloc] init];
+        levelEvents = [[NSMutableArray alloc] init];
 
-	NSStringEncoding encoding;
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:level ofType:@"txt"];  
-	NSString *fileString = [NSString stringWithContentsOfFile:filePath usedEncoding:&encoding error:NULL];
+        NSStringEncoding encoding;
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:level ofType:@"txt"];  
+        NSString *fileString = [NSString stringWithContentsOfFile:filePath usedEncoding:&encoding error:NULL];
 
-	NSArray *lines = [fileString componentsSeparatedByString:@"\n"];
-	for(NSString *line in lines)
-	{
-	    NSArray *lineElements = [line componentsSeparatedByString:@","];
+        NSArray *lines = [fileString componentsSeparatedByString:@"\n"];
+        for(NSString *line in lines)
+        {
+            NSArray *lineElements = [line componentsSeparatedByString:@","];
 
-	    int i = 0;
-	    LevelEvent *levelEvent = [[LevelEvent alloc] init];
-	    for(NSString *element in lineElements) {
-		if (i == 0)
-		    [levelEvent setTime:[element intValue]];
-		else if (i == 1)
-		    [levelEvent setObjId:[element intValue]];
-		else if (i == 3)
-		    [levelEvent setMethod:element];
-		else if (i > 3)
-		    [levelEvent setArgument:[element intValue]];
-		i++;
-	    }
-	
-	    [levelEvents addObject:levelEvent];
+            int i = 0;
+            LevelEvent *levelEvent = [[LevelEvent alloc] init];
+            for(NSString *element in lineElements) {
+                if (i == 0)
+                    [levelEvent setTime:[element intValue]];
+                else if (i == 1)
+                    [levelEvent setObjId:[element intValue]];
+                else if (i == 3)
+                    [levelEvent setMethod:element];
+                else if (i > 3)
+                    [levelEvent setArgument:[element intValue]];
+                i++;
+            }
 
-	}
+            [levelEvents addObject:levelEvent];
+
+        }
     }
     return self;
 }
@@ -64,8 +64,8 @@
     LevelEvent *levelEvent;
     for (levelEvent in levelEvents) 
     {
-	if ([levelEvent time] == time)
-	    [events addObject:levelEvent];
+        if ([levelEvent time] == time)
+            [events addObject:levelEvent];
     }
 
     return events;

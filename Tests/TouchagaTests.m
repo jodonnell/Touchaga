@@ -67,8 +67,14 @@
     STAssertTrue([player isGameOver], @"Should be player game over.");
 }
 
-@end
 
+-(void) testMain
+{
+    MainGameLoop *mainGameLoop = [[MainGameLoop alloc] init];
+    
+}
+
+@end
 
 
 /*

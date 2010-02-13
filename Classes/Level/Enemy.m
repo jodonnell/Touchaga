@@ -16,7 +16,7 @@
 -(id)init
 {
     if( (self=[super init] )) {
-	path = [[Path alloc] init];
+        path = [[Path alloc] init];
     }
 
     return self;

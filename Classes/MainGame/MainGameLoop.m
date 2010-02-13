@@ -15,6 +15,8 @@
 #import "WarpOutCircle.h"
 #import "WarpEnergy.h"
 #import "Background.h"
+#import "Level.h"
+#import "LevelEvent.h"
 
 #import "PlayerInactiveLayer.h"
 
@@ -74,28 +76,32 @@
 @synthesize warpOutCircle;
 @synthesize playerInactiveLayer;
 @synthesize background;
+@synthesize level;
+@synthesize time;
 
 -(id) init
 {
     if( (self=[super init] )) {
-	playerBullets = [[NSMutableArray alloc] init];
+        playerBullets = [[NSMutableArray alloc] init];
+        gameLayer = nil;
+        gameLayer = [[GameLayer alloc] init];
+        shootButtonLayer = [[ShootButtonLayer alloc] init];
 
-	gameLayer = [[GameLayer alloc] init];
-	shootButtonLayer = [[ShootButtonLayer alloc] init];
+        player = [[Player alloc] init];
+        [gameLayer addSpriteToLayer:player];
 
- 	player = [[Player alloc] init];
- 	[gameLayer addSpriteToLayer:player];
+        playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
+        [playerInactiveLayer setIsActive:YES];
+        [gameLayer addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
 
-	playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
-	[playerInactiveLayer setIsActive:YES];
-	[gameLayer addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
+        warpOutCircle = [[WarpOutCircle alloc] initWithPlayer:player];
 
-	warpOutCircle = [[WarpOutCircle alloc] initWithPlayer:player];
+        background = [[Background alloc] init];
+        [gameLayer addSpriteToLayer:background];
 
- 	background = [[Background alloc] init];
- 	[gameLayer addSpriteToLayer:background];
+        level = [[Level alloc] initWithLevel:@"level1"];
 
-	[self schedule:@selector(update:)];
+        [self schedule:@selector(update:)];
     }
     
     return self;
@@ -110,39 +116,46 @@
     [playerInactiveLayer release];
     [background release];
     [warpOutCircle release];
+    [level release];
 
     [super dealloc];
 }
 
 -(void) update: (ccTime) dt
 {
+    NSMutableArray *currentEvents = [level getEventsWithTime:time];
+    if ([currentEvents count])
+        [self executeEvents:currentEvents];
+
     if ([self isShooting] && [player canShoot])
-	[self shootBullet];
+        [self shootBullet];
 
     if ([player canShoot] == NO)
-	[player incrementBulletCoolDown];
+        [player incrementBulletCoolDown];
 
     [self updatePlayerBullets];
 
     if ([player warpPlayerOut])
-	[self warpPlayerOut];
+        [self warpPlayerOut];
 
     if ([player isWarpedOut]) {
-	[self drainPlayerWarpEnergy];
-	[warpOutCircle updateScaleFactor];
+        [self drainPlayerWarpEnergy];
+        [warpOutCircle updateScaleFactor];
     }
 
     if ([warpOutCircle isActive] && [warpOutCircle isPlayerWarpingIn])
-	[self warpPlayerIn];
+        [self warpPlayerIn];
 
     if ([playerInactiveLayer isActive] && [playerInactiveLayer isPlayerWarpingIn])
-	[self warpPlayerIn];
+        [self warpPlayerIn];
 
     if ([player isOutOfWarpEnergy])
-	[self playerDied];
+        [self playerDied];
 
     if ([player isGameOver])
-	[[Director sharedDirector] end];
+        [[Director sharedDirector] end];
+
+    time++;
 }
 
 // PRIVATE
@@ -177,11 +190,11 @@
     PlayerBullet *playerBullet;
     for (playerBullet in playerBullets) 
     {
-	[playerBullet update];
-	if ([playerBullet isOffScreen]) {
-	    [removeBullets addObject:playerBullet];
-	    [gameLayer removePlayerBullet:playerBullet];
-	}
+        [playerBullet update];
+        if ([playerBullet isOffScreen]) {
+            [removeBullets addObject:playerBullet];
+            [gameLayer removePlayerBullet:playerBullet];
+        }
     }
     [playerBullets removeObjectsInArray:removeBullets];
     [removeBullets release];
@@ -197,18 +210,18 @@
 -(void) drainPlayerWarpEnergy
 {
     if ([warpOutCircle isActive] || [playerInactiveLayer isActive])
-	[[player warpEnergy] removeEnergy: 1];
+        [[player warpEnergy] removeEnergy: 1];
 }
 
 -(void) warpPlayerIn
 {
     if ([warpOutCircle isActive]) {
-	[gameLayer removeWarpOutCircle:warpOutCircle];
-	[warpOutCircle setIsActive:NO];
+        [gameLayer removeWarpOutCircle:warpOutCircle];
+        [warpOutCircle setIsActive:NO];
     }
     if ([playerInactiveLayer isActive]) {
-	[gameLayer removeChild:playerInactiveLayer cleanup:YES];
-	[playerInactiveLayer setIsActive:NO];
+        [gameLayer removeChild:playerInactiveLayer cleanup:YES];
+        [playerInactiveLayer setIsActive:NO];
     }
 }
 
@@ -220,9 +233,27 @@
 
 -(void) drawWarpMeter
 {
-    int top_of_meter = (int)(190 * (float)[[player warpEnergy] percentEnergyFull] + 60);
-    drawLine(ccp(450,60), ccp(450, top_of_meter));
+    int xPos = 35;
+    int bottomOfMeter = 100;
+    int topOfMeter = (int)(190 * (float)[[player warpEnergy] percentEnergyFull] + bottomOfMeter);
+    drawLine(ccp(xPos,bottomOfMeter), ccp(xPos, topOfMeter));
 }
+
+
+-(void) executeEvents:(NSMutableArray *) currentEvents;
+{
+    LevelEvent *currentEvent;
+    for (currentEvent in currentEvents) {
+        // get object associated with event OR CREATE
+        if ([[currentEvent method] isEqualToString:@"create"])
+            ;
+        // execute action on object with supplied params
+          // -- what does this mean - scriptedobject adds interface to deal with methods
+
+    }
+}
+
+// need to pass different types of arguments to different functions, can restrict this to an interface
 
 
 @end

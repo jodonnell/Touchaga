@@ -15,6 +15,7 @@
 @class WarpOutCircle;
 @class PlayerInactiveLayer;
 @class Background;
+@class Level;
 
 /**
  * This class holds orchestrates the flow of the game.
@@ -29,6 +30,9 @@
     WarpOutCircle *warpOutCircle;
     PlayerInactiveLayer *playerInactiveLayer;
     Background *background;
+    Level *level;
+    int time;
+    
 }
 
 /** A NSMutableArray that contains all the player bullet sprite objects */
@@ -52,9 +56,17 @@
 /** The background. */
 @property (retain, nonatomic) Background *background;
 
+/** The Level object. */
+@property (retain, nonatomic) Level *level;
+
+/** Time, every tick ups this value. */
+@property (nonatomic) int time;;
+
 /** 
  * Called every frame, does all the updating for the game.
  */
 -(void) update: (ccTime) dt;
+
+-(void) executeEvents:(NSMutableArray *) currentEvents;
 
 @end

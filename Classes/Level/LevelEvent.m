@@ -18,10 +18,10 @@
 -(id) init
 {
     if( (self=[super init] )) {
- 	arguments = [[NSMutableArray alloc] init];
-	method = @"";
-	objId = 0;
-	time = 0;
+        arguments = [[NSMutableArray alloc] init];
+        method = @"";
+        objId = 0;
+        time = 0;
     }
     
     return self;

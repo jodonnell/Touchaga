@@ -35,7 +35,7 @@ enum {
 {
     CGSize s = [[Director sharedDirector] winSize];
     if (s.height < self.position.y)
-	return YES;
+        return YES;
     return NO;
 }
 
