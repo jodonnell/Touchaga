@@ -11,17 +11,16 @@
 /**
  * An action is a non movement action at a given time for a given pattern.
  * A pattern can have many actions throughout it's life.
+ * Constraint: Only one action at any given time.
  */
 @interface ActionPoint : NSObject {
     NSString *action;
-    int time;
 }
 
 /** The string that contains what the action is. */
 @property (retain, nonatomic) NSString *action;
 
-/** The time this action occurs in the context of a pattern. */
-@property (nonatomic) int time;
+-(id)initWithAction:(NSString *) inActionPoint;
 
 /**
  * @return YES if this action is a primary shot.

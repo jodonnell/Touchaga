@@ -8,5 +8,18 @@
 
 #import "BasicEnemy.h"
 
+#import "SpriteManager.h"
+#import "GameLayer.h"
+
 @implementation BasicEnemy
+
+-(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern
+{
+    spriteManager = [[EnemySpriteManager alloc] init];
+    self = [self initWithStartTime:inStartTime andPattern: inPattern andRect:spriteManager.imageRect andManager:spriteManager.manager];
+    GameLayer *gameLayer = [GameLayer sharedInstance];
+    [gameLayer addSpriteToLayer:self];
+    return self;
+}
+
 @end

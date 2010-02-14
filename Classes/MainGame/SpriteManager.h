@@ -66,3 +66,11 @@
 
 }
 @end
+
+/** 
+ * The enemy's sprite manager.
+ */
+@interface EnemySpriteManager : SpriteManager {
+
+}
+@end

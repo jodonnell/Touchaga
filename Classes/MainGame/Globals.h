@@ -18,6 +18,7 @@
     AtlasSpriteManager *bulletManager;
     AtlasSpriteManager *warpOutManager;
     AtlasSpriteManager *backgroundMangaer;
+    AtlasSpriteManager *enemyManager;
 
     CGRect shootButtonRect;
 }
@@ -33,6 +34,9 @@
 
 /** The background image manager AtlasSpriteManager */
 @property (retain, nonatomic) AtlasSpriteManager *backgroundMangaer;
+
+/** The enemy image manager AtlasSpriteManager */
+@property (retain, nonatomic) AtlasSpriteManager *enemyManager;
 
 /** The rect that holds the shoot button. */
 @property (nonatomic) CGRect shootButtonRect;

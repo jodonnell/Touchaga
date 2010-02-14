@@ -20,7 +20,7 @@
 {
     if( (self=[super init] )) {
         path = [[Path alloc] init];
-        actions = [[NSMutableArray alloc] init];
+        actions = [[NSMutableDictionary alloc] init];
     }
 
     return self;
@@ -35,8 +35,7 @@
         int actionsId = [[pathAndActionIds objectAtIndex:1] intValue];
 
         path = [[Path alloc] initWithId:pathId];
-//        actions = [[NSMutableArray alloc] initWithId:actionsId];
-        actions = [[NSMutableArray alloc] init];
+        actions = [self loadActionPointsWithId:actionsId];
     }
 
     return self;
@@ -48,6 +47,12 @@
     [actions release];
 
     [super dealloc];
+}
+
+-(NSMutableDictionary *) loadActionPointsWithId:(int) actionsId
+{
+    SQLite3DataAccess *da = [SQLite3DataAccess sharedInstance];
+    return [da getActionPoints:actionsId];
 }
 
 -(BOOL) isPatternOverAtTime:(int) relativeTime
@@ -62,13 +67,7 @@
 
 -(NSMutableArray *) getActionPointsAtTime:(int) relativeTime
 {
-    NSMutableArray *nowActionPoints = [[NSMutableArray alloc] init];
-    ActionPoint *action;
-    for (action in actions) {
-        if ([action time] == relativeTime)
-            [nowActionPoints addObject:action];
-    }
-    return nowActionPoints;
+    return [actions objectForKey: [NSNumber numberWithInt:relativeTime]];
 }
 
 @end

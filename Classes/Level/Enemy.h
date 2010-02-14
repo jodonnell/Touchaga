@@ -31,8 +31,9 @@
  * @param inStartTime The time the enemy was created.
  * @param inPattern The pattern to load the enemy with.
  * @return The newly created enemy object.
+ * INCOMPLETE DOC.
  */
--(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern;
+-(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern andRect:(CGRect) rect andManager:(AtlasSpriteManager *) manager;
 
 /**
  * Gets the amount of time the pattern has been running

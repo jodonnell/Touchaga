@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 
 /**
+ * NOTE: Probably should have a caching proxy in front of this
  */
 @interface SQLite3DataAccess : NSObject {
     NSString *databaseName;
@@ -32,5 +33,6 @@
 -(NSMutableArray *) getLevel:(int) level;
 -(NSArray *) getPattern:(int) patternId;
 -(NSMutableDictionary *) getPath:(int) pathId;
+-(NSMutableDictionary *) getActionPoints:(int) actionId;
 
 @end

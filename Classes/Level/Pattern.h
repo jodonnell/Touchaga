@@ -18,14 +18,14 @@
  */
 @interface Pattern : NSObject {
     Path *path;
-    NSMutableArray *actions;
+    NSMutableDictionary *actions;
 }
 
 /** The path. */
 @property (retain, nonatomic) Path *path;
 
 /** All the actions. */
-@property (retain, nonatomic) NSMutableArray *actions;
+@property (retain, nonatomic) NSMutableDictionary *actions;
 
 
 /**
@@ -53,5 +53,8 @@
  * @return YES if the pattern is over.
  */
 -(BOOL) isPatternOverAtTime:(int) relativeTime;
+
+
+-(NSMutableDictionary *) loadActionPointsWithId:(int) actionsId;
 
 @end

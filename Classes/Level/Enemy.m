@@ -15,12 +15,11 @@
 @synthesize pattern;
 @synthesize startTime;
 
--(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern
+-(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern andRect:(CGRect) rect andManager:(AtlasSpriteManager *) manager
 {
-    if( (self=[super init] )) {
-        pattern = inPattern;
-        startTime = inStartTime;
-    }
+    self = [self initWithRect:rect spriteManager:manager];
+    pattern = inPattern;
+    startTime = inStartTime;
     return self;
 }
 

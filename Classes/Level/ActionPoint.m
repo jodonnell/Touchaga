@@ -13,12 +13,10 @@ NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot";
 @implementation ActionPoint
 
 @synthesize action;
-@synthesize time;
 
--(id)initWithTime:(int) inTime andActionPoint:(NSString *) inActionPoint
+-(id)initWithAction:(NSString *) inActionPoint
 {
     if( (self=[super init] )) {
-        time = inTime;
         action = inActionPoint;
     }
 

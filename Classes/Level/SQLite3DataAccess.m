@@ -8,6 +8,7 @@
 
 #import "SQLite3DataAccess.h"
 #import "LevelCreateEvent.h"
+#import "ActionPoint.h"
 #import "cocos2d.h"
 
 @implementation SQLite3DataAccess
@@ -37,10 +38,11 @@
         NSString *documentsDir = [documentPaths objectAtIndex:0];
         databasePath = [documentsDir stringByAppendingPathComponent:databaseName];
 
+        [self checkAndCreateDatabase];
+
         if(sqlite3_open([databasePath UTF8String], &database) != SQLITE_OK)
             [NSException raise:@"Could not connect to db" format:@"Invalid."]; // TODO this is no good
 
-//        [self checkAndCreateDatabase];
     }
     return self;
 }
@@ -70,7 +72,7 @@
     success = [fileManager fileExistsAtPath:databasePath];
 
     // If the database already exists then return without doing anything
-    if(success) return;
+//    if(success) return;
 
     // If not then proceed to copy the database from the application to the users filesystem
 
@@ -87,7 +89,7 @@
 {
     NSMutableArray *levelEvents = [[NSMutableArray alloc] init];
 
-    const char *sqlStatement = "select time, pattern, object_types.object_type from levels, object_types where level = ? and levels.object_type == object_types.id;";
+    const char *sqlStatement = "select time, pattern, object_types.object_type from levels, object_types where level = ? and levels.object_type == object_types.id";
     sqlite3_stmt *compiledStatement;
     if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
         if (sqlite3_bind_int(compiledStatement, 1, level) != SQLITE_OK)
@@ -152,5 +154,25 @@
     return path;
 }
 
+-(NSMutableDictionary *) getActionPoints:(int) actionId
+{
+    NSMutableDictionary *actions = [[NSMutableDictionary alloc] init];
+    const char *sqlStatement = "select time, action_name from actions, action where actions.id = ? and actions.action == action.id";
+    sqlite3_stmt *compiledStatement;
+    if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
+        if (sqlite3_bind_int(compiledStatement, 1, actionId) != SQLITE_OK)
+            [NSException raise:@"Could not bind actionId" format:@"Invalid. %i", actionId]; // TODO this is no good
+
+        while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+            NSNumber *time = [NSNumber numberWithInt:sqlite3_column_int(compiledStatement, 0)];
+            NSString *actionName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
+            ActionPoint *ap = [[ActionPoint alloc] initWithAction:(NSString *)actionName];
+            [actions setObject:ap forKey: time];
+        }
+    }
+    sqlite3_finalize(compiledStatement);
+
+    return actions;
+}
 
 @end

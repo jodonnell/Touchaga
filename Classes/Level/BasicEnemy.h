@@ -14,5 +14,6 @@
 @interface BasicEnemy : Enemy {
 }
 
+-(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern;
 
 @end

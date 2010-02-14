@@ -32,7 +32,7 @@ enum {
 -(id)init
 {
     spriteManager = [[PlayerSpriteManager alloc] init];
-    [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
+    self = [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
     lives = 3;
     score = 0;
     warpEnergy = [[WarpEnergy alloc] init];
@@ -40,7 +40,7 @@ enum {
     isWarpedOut = YES;
     canShoot = YES;
     bulletCoolDown = 0;
-    return [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
+    return self;
 }
 
 -(void) dealloc

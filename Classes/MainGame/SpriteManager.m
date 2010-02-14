@@ -15,6 +15,8 @@ enum {
 
     kTagBackground = 3,
     kTagWarpOutSprite = 4,
+    
+    kTagEnemySprite = 5,
 };
 
 
@@ -95,6 +97,21 @@ enum {
         [self setManager: [[Globals sharedInstance] backgroundMangaer]];
         imageRect = CGRectMake(0,0,480,320);
         tag = kTagBackground;
+        zIndex = 0;
+    }
+    return self;
+}
+
+@end
+
+@implementation EnemySpriteManager
+
+-(id) init
+{
+    if(self=[super init]) {
+        [self setManager: [[Globals sharedInstance] enemyManager]];
+        imageRect = CGRectMake(0,0,22,22);
+        tag = kTagEnemySprite;
         zIndex = 0;
     }
     return self;

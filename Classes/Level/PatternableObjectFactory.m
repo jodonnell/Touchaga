@@ -14,11 +14,12 @@
 +(id)initWithType:(NSString *) objectType andPattern:(Pattern *) pattern andStartTime:(int) startTime
 {
     if( (self=[super init] )) {
-        if (objectType == @"basic_enemy")
+        if ([objectType isEqualToString:@"basic_enemy"]) {
             return [[BasicEnemy alloc] initWithStartTime:startTime andPattern:pattern];
+        }
     }
 
-    // throw error
+    [NSException raise:@"Non-existant object type" format:@"%@", objectType]; // TODO this is no good
 }
 
 

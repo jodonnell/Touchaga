@@ -94,10 +94,12 @@
 ** TODO Create basic enemy.
    CLOCK: [2010-02-13 Sat 16:51]--[2010-02-13 Sat 18:16] =>  1:25
 ** TODO Load basic enemy and have them move around screen
+   CLOCK: [2010-02-14 Sun 16:12]
 ** TODO Make GameLayer a singleton
    CLOCK: [2010-02-13 Sat 19:01]--[2010-02-13 Sat 20:20] =>  1:19
-** TODO Create mysql backend for storing level elements
+** DONE Create mysql backend for storing level elements
    :CLOCK:
+   CLOCK: [2010-02-14 Sun 15:47]--[2010-02-14 Sun 16:10] =>  0:23
    CLOCK: [2010-02-14 Sun 14:18]--[2010-02-14 Sun 14:50] =>  0:32
    CLOCK: [2010-02-14 Sun 11:26]--[2010-02-14 Sun 12:40] =>  1:14
    CLOCK: [2010-02-13 Sat 22:27]--[2010-02-14 Sun 02:16] =>  3:49

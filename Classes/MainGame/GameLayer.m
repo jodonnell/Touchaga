@@ -32,15 +32,18 @@
         PlayerBulletSpriteManager *bulletManager = [[PlayerBulletSpriteManager alloc] init];
         WarpOutSpriteManager *warpOutManager = [[WarpOutSpriteManager alloc] init];
         BackgroundSpriteManager *backgroundMangaer = [[BackgroundSpriteManager alloc] init];
+        EnemySpriteManager *enemyManager = [[EnemySpriteManager alloc] init];
         [self addChild:playerManager.manager z:[playerManager zIndex] tag:[playerManager tag]];
         [self addChild:bulletManager.manager z:[bulletManager zIndex] tag:[bulletManager tag]];
         [self addChild:warpOutManager.manager z:[warpOutManager zIndex] tag:[warpOutManager tag]];
         [self addChild:backgroundMangaer.manager z:[backgroundMangaer zIndex] tag:[backgroundMangaer tag]];
+        [self addChild:enemyManager.manager z:[enemyManager zIndex] tag:[enemyManager tag]];
 
         [playerManager release];
         [bulletManager release];
         [warpOutManager release];
         [backgroundMangaer release];
+        [enemyManager release];
     }
     return self;
 }

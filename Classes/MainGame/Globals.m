@@ -14,6 +14,7 @@
 @synthesize bulletManager;
 @synthesize warpOutManager;
 @synthesize backgroundMangaer;
+@synthesize enemyManager;
 @synthesize shootButtonRect;
 
 +(Globals *) sharedInstance
@@ -34,6 +35,7 @@
         bulletManager = [AtlasSpriteManager spriteManagerWithFile:@"bullet.png" capacity:50];
         warpOutManager = [AtlasSpriteManager spriteManagerWithFile:@"warpCircle.png" capacity:50];
         backgroundMangaer = [AtlasSpriteManager spriteManagerWithFile:@"background.png" capacity:50];
+        enemyManager = [AtlasSpriteManager spriteManagerWithFile:@"enemies.png" capacity:50];
         shootButtonRect = CGRectMake(0,0,80,80);
     }
     return self;
@@ -45,6 +47,7 @@
     [bulletManager release];
     [warpOutManager release];
     [backgroundMangaer release];
+    [enemyManager release];
 
     [super dealloc];
 }

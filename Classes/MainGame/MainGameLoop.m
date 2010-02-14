@@ -133,6 +133,9 @@
     if ([currentEvents count])
         [self executeCreateEvents:currentEvents];
 
+    if ([patternableObjects count])
+        [self updatePatternableObjects];
+
     if ([self isShooting] && [player canShoot])
         [self shootBullet];
 
@@ -257,4 +260,11 @@
     }
 }
 
+-(void) updatePatternableObjects
+{
+    Enemy *patternableObject;
+    for (patternableObject in patternableObjects) {
+        [patternableObject moveToAtTime:time];
+    }
+}
 @end
