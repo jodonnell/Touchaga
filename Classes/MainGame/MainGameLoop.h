@@ -32,7 +32,7 @@
     Background *background;
     Level *level;
     int time;
-    
+    NSMutableArray *patternableObjects;
 }
 
 /** A NSMutableArray that contains all the player bullet sprite objects */
@@ -60,13 +60,20 @@
 @property (retain, nonatomic) Level *level;
 
 /** Time, every tick ups this value. */
-@property (nonatomic) int time;;
+@property (nonatomic) int time;
+
+/** An array of all the onscreen objects that use a pattern. */
+@property (nonatomic, retain) NSMutableArray *patternableObjects;
 
 /** 
  * Called every frame, does all the updating for the game.
  */
 -(void) update: (ccTime) dt;
 
--(void) executeEvents:(NSMutableArray *) currentEvents;
 
+/** 
+ * Executes all create events in the given array
+ * @param currentEvents The list of create events to run
+ */
+-(void) executeCreateEvents:(NSMutableArray *) currentEvents;
 @end

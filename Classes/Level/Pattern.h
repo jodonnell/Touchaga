@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Path
+@class Path;
 
 /**
  * The Pattern object represents an enemy or object who follows some scripted action and

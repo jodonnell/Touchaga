@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class Path
+@class Pattern;
 
 /**
-
+ *
  */
 @interface PatternableObjectFactory : NSObject {
 

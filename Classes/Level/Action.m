@@ -8,7 +8,7 @@
 
 #import "Action.h"
 
-NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot"
+NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot";
 
 @implementation Action
 

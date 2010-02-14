@@ -17,6 +17,9 @@
 #import "Background.h"
 #import "Level.h"
 #import "LevelEvent.h"
+#import "Pattern.h"
+#import "Enemy.h"
+#import "PatternableObjectFactory.h"
 
 #import "PlayerInactiveLayer.h"
 
@@ -78,10 +81,12 @@
 @synthesize background;
 @synthesize level;
 @synthesize time;
+@synthesize patternableObjects;
 
 -(id) init
 {
     if( (self=[super init] )) {
+        patternableObjects = [[NSMutableArray alloc] init];
         playerBullets = [[NSMutableArray alloc] init];
         gameLayer = nil;
         gameLayer = [GameLayer sharedInstance];
@@ -117,6 +122,7 @@
     [background release];
     [warpOutCircle release];
     [level release];
+    [patternableObjects release];
 
     [super dealloc];
 }
@@ -244,7 +250,7 @@
 {
     LevelEvent *currentEvent;
     for (currentEvent in currentEvents) {
-        Pattern *pattern = [[Pattern alloc] initWithId:[currentEvents pattern Id]];
+        Pattern *pattern = [[Pattern alloc] initWithId:[currentEvent patternId]];
 
         Enemy *patternableObject = [PatternableObjectFactory initWithType:[currentEvent objectType] andPattern:pattern andStartTime:time];
         [patternableObjects addObject:patternableObject];

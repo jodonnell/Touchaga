@@ -6,15 +6,15 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "TouchagaSprite.h"
 
-@class Pattern
+@class Pattern;
 
 /**
  * A base class for all enemy objects, contains the necessary logic to have enemies
  * interact with the pattern they follow.
  */
-@interface Enemy : NSObject {
+@interface Enemy : TouchagaSprite {
     Pattern *pattern;
     int startTime;
 }
@@ -32,7 +32,7 @@
  * @param inPattern The pattern to load the enemy with.
  * @return The newly created enemy object.
  */
--(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern
+-(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern;
 
 /**
  * Gets the amount of time the pattern has been running

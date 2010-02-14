@@ -7,6 +7,7 @@
 //
 
 #import "Path.h"
+#import "cocos2d.h"
 
 @implementation Path
 
@@ -30,21 +31,19 @@
 
 -(BOOL) isValid
 {
-    if ([self isOnScreenBorder [path objectAtIndex:0]] && [self isOnScreenBorder [path objectAtIndex:[path count] - 1]])
-        return YES;
-    return NO;
+//     if ([self isOnScreenBorder [path objectAtIndex:0]] && [self isOnScreenBorder [path objectAtIndex:[path count] - 1]])
+//         return YES;
+//     return NO;
 }
 
 -(void) addPoint:(CGPoint) point
 {
-    NSPoint point1 = {point.x, point.y};
-    [path addObject: [NSValue valueWithPoint:point1]];
+    [path addObject: [NSValue valueWithCGPoint:point]];
 }
 
 -(CGPoint) getPosAtTime:(int) time
 {
-    NSPoint point = [path getObjectAtIndex: time];
-    return ccp(point.x, point.y);
+    return [[path objectAtIndex: time] CGPointValue];
 }
 
 -(BOOL) isPathOverAtTime:(int) time

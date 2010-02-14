@@ -8,6 +8,7 @@
 
 #import "Enemy.h"
 #import "Pattern.h"
+#import "Action.h"
 
 @implementation Enemy
 
@@ -39,6 +40,7 @@
     int relativeTime = [self getRelativeTime:currentTime];
     NSMutableArray *actions = [pattern getActionsAtTime:relativeTime];
 
+    Action *action;
     for (action in actions) {
         if ([action isActionPrimaryShoot])
             [self primaryShoot];

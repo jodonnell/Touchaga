@@ -56,6 +56,7 @@
 -(NSMutableArray *) getActionsAtTime:(int) relativeTime
 {
     NSMutableArray *nowActions = [[NSMutableArray alloc] init];
+    Action *action;
     for (action in actions) {
         if ([action time] == relativeTime)
             [nowActions addObject:action];
