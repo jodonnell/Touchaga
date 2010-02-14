@@ -51,7 +51,7 @@
  * Executes all actions that exist at a current time.
  * @param currentTime The current time since the level started.
  */
--(void)doActionsAtTime:(int) currentTime;
+-(void)doActionPointsAtTime:(int) currentTime;
 
 /**
  * Abstract method that shoots a primary shot.

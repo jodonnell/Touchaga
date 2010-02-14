@@ -75,7 +75,6 @@
    CLOCK: [2010-02-08 Mon 21:18]--[2010-02-08 Mon 23:18] =>  2:00
 ** TODO Create class to load levels
    :CLOCK:
-   CLOCK: [2010-02-10 Wed 01:15]--[2010-02-12 Fri 01:00] => 47:45
    CLOCK: [2010-02-08 Mon 23:18]--[2010-02-09 Tue 00:42] =>  1:24
    :END:
 ** TODO Create enemy format
@@ -98,5 +97,5 @@
 ** TODO Make GameLayer a singleton
    CLOCK: [2010-02-13 Sat 19:01]--[2010-02-13 Sat 20:20] =>  1:19
 ** TODO Create mysql backend for storing level elements
-   CLOCK: [2010-02-13 Sat 22:27]
+   CLOCK: [2010-02-13 Sat 22:27]--[2010-02-14 Sun 02:16] =>  3:49
 * add key so no longer need to type password to checkin

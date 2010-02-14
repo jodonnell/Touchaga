@@ -46,7 +46,7 @@
  * @param relativeTime The amount of time the action is through.
  * @return Returns an NSMutableArray that contains all actions at a given time.
  */
--(NSMutableArray *) getActionsAtTime:(int) relativeTime;
+-(NSMutableArray *) getActionPointsAtTime:(int) relativeTime;
 
 /**
  * @param time The time you are checking to see if the pattern is over at.

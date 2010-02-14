@@ -8,7 +8,7 @@
 
 #import "Pattern.h"
 #import "Path.h"
-#import "Action.h"
+#import "ActionPoint.h"
 
 @implementation Pattern
 
@@ -53,15 +53,15 @@
    return [path getPosAtTime:relativeTime];
 }
 
--(NSMutableArray *) getActionsAtTime:(int) relativeTime
+-(NSMutableArray *) getActionPointsAtTime:(int) relativeTime
 {
-    NSMutableArray *nowActions = [[NSMutableArray alloc] init];
-    Action *action;
+    NSMutableArray *nowActionPoints = [[NSMutableArray alloc] init];
+    ActionPoint *action;
     for (action in actions) {
         if ([action time] == relativeTime)
-            [nowActions addObject:action];
+            [nowActionPoints addObject:action];
     }
-    return nowActions;
+    return nowActionPoints;
 }
 
 @end

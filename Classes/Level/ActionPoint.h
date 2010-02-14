@@ -1,5 +1,5 @@
 //
-//  Action.h
+//  ActionPoint.h
 //  Touchaga
 //
 //  Created by Jacob O'Donnell on 2/13/10.
@@ -12,7 +12,7 @@
  * An action is a non movement action at a given time for a given pattern.
  * A pattern can have many actions throughout it's life.
  */
-@interface Action : NSObject {
+@interface ActionPoint : NSObject {
     NSString *action;
     int time;
 }
@@ -26,6 +26,6 @@
 /**
  * @return YES if this action is a primary shot.
  */
--(BOOL) isActionPrimaryShoot;
+-(BOOL) isActionPointPrimaryShoot;
 
 @end

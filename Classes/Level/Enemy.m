@@ -8,7 +8,7 @@
 
 #import "Enemy.h"
 #import "Pattern.h"
-#import "Action.h"
+#import "ActionPoint.h"
 
 @implementation Enemy
 
@@ -35,14 +35,14 @@
     [self moveTo:[pattern getPosAtTime:relativeTime]];
 }
 
--(void)doActionsAtTime:(int) currentTime
+-(void)doActionPointsAtTime:(int) currentTime
 {
     int relativeTime = [self getRelativeTime:currentTime];
-    NSMutableArray *actions = [pattern getActionsAtTime:relativeTime];
+    NSMutableArray *actions = [pattern getActionPointsAtTime:relativeTime];
 
-    Action *action;
+    ActionPoint *action;
     for (action in actions) {
-        if ([action isActionPrimaryShoot])
+        if ([action isActionPointPrimaryShoot])
             [self primaryShoot];
     }
 }

@@ -1,25 +1,25 @@
 //
-//  Action.m
+//  ActionPoint.m
 //  MyFirstGame
 //
 //  Created by Jacob O'Donnell on 2/13/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "Action.h"
+#import "ActionPoint.h"
 
 NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot";
 
-@implementation Action
+@implementation ActionPoint
 
 @synthesize action;
 @synthesize time;
 
--(id)initWithTime:(int) inTime andAction:(NSString *) inAction
+-(id)initWithTime:(int) inTime andActionPoint:(NSString *) inActionPoint
 {
     if( (self=[super init] )) {
         time = inTime;
-        action = inAction;
+        action = inActionPoint;
     }
 
     return self;
@@ -30,7 +30,7 @@ NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot";
     [super dealloc];
 }
 
--(BOOL) isActionPrimaryShoot
+-(BOOL) isActionPointPrimaryShoot
 {
     if (action == ACTION_PRIMARY_SHOOT)
         return YES;
