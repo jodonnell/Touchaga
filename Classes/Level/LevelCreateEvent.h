@@ -1,5 +1,5 @@
 //
-//  LevelEvent.h
+//  LevelCreateEvent.h
 //  Touchaga
 //
 //  Created by Jacob O'Donnell on 2/9/10.
@@ -12,7 +12,7 @@
  * A create object event, holds the time an object is to be created,
  * the pattern to follow, and the class of the object to instantiate.
  */
-@interface LevelEvent : NSObject {
+@interface LevelCreateEvent : NSObject {
     int time;
     int patternId;
     NSString *objectType;

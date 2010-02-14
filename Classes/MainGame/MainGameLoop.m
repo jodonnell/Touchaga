@@ -16,7 +16,7 @@
 #import "WarpEnergy.h"
 #import "Background.h"
 #import "Level.h"
-#import "LevelEvent.h"
+#import "LevelCreateEvent.h"
 #import "Pattern.h"
 #import "Enemy.h"
 #import "PatternableObjectFactory.h"
@@ -248,7 +248,7 @@
 
 -(void) executeCreateEvents:(NSMutableArray *) currentEvents;
 {
-    LevelEvent *currentEvent;
+    LevelCreateEvent *currentEvent;
     for (currentEvent in currentEvents) {
         Pattern *pattern = [[Pattern alloc] initWithId:[currentEvent patternId]];
 

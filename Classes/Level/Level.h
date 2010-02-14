@@ -26,8 +26,4 @@
  */
 -(NSMutableArray *) getEventsWithTime:(int) time;
 
-
--(void) checkAndCreateDatabase;
--(void) readAnimalsFromDatabase;
-
 @end

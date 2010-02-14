@@ -9,6 +9,7 @@
 #import "Pattern.h"
 #import "Path.h"
 #import "ActionPoint.h"
+#import "SQLite3DataAccess.h"
 
 @implementation Pattern
 
@@ -28,7 +29,13 @@
 -(id)initWithId:(int) patternId
 {
     if( (self=[super init] )) {
-        path = [[Path alloc] init];
+        SQLite3DataAccess *da = [SQLite3DataAccess sharedInstance];
+        NSArray *pathAndActionIds = [da getPattern:patternId];
+        int pathId = [[pathAndActionIds objectAtIndex:0] intValue];
+        int actionsId = [[pathAndActionIds objectAtIndex:1] intValue];
+
+        path = [[Path alloc] initWithId:pathId];
+//        actions = [[NSMutableArray alloc] initWithId:actionsId];
         actions = [[NSMutableArray alloc] init];
     }
 

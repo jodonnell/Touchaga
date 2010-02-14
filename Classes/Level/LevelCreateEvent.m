@@ -1,14 +1,14 @@
 //
-//  LevelEvent.m
+//  LevelCreateEvent.m
 //  Touchaga
 //
 //  Created by Jacob O'Donnell on 2/9/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "LevelEvent.h"
+#import "LevelCreateEvent.h"
 
-@implementation LevelEvent
+@implementation LevelCreateEvent
 
 @synthesize objectType;
 @synthesize time;

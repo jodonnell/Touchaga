@@ -8,6 +8,7 @@
 
 #import "Path.h"
 #import "cocos2d.h"
+#import "SQLite3DataAccess.h"
 
 @implementation Path
 
@@ -16,7 +17,16 @@
 -(id)init
 {
     if( (self=[super init] )) {
-        path = [[NSMutableArray alloc] init];
+        path = [[NSMutableDictionary alloc] init];
+    }
+
+    return self;
+}
+
+-(id)initWithId:(int) pathId
+{
+    if( (self=[super init] )) {
+        path = [[SQLite3DataAccess sharedInstance] getPath:pathId];
     }
 
     return self;
@@ -36,21 +46,27 @@
 //     return NO;
 }
 
--(void) addPoint:(CGPoint) point
+-(void) addPoint:(CGPoint) point atTime:(int) time
 {
-    [path addObject: [NSValue valueWithCGPoint:point]];
+    [path setObject: [NSValue valueWithCGPoint:point] forKey:[NSNumber numberWithInt:time]];
 }
 
 -(CGPoint) getPosAtTime:(int) time
 {
-    return [[path objectAtIndex: time] CGPointValue];
+    return [[path objectForKey: [NSNumber numberWithInt:time]] CGPointValue];
 }
 
 -(BOOL) isPathOverAtTime:(int) time
 {
-    if (time > [path count])
-        return YES;
-    return NO;
+    BOOL isPathOverAtTime = YES;
+    NSArray *allTimes = [path allKeys];
+    NSNumber *value;
+    for (value in allTimes) {
+        if (value > [NSNumber numberWithInt:time])
+            isPathOverAtTime = YES;
+    }
+
+    return isPathOverAtTime;
 }
 
 @end

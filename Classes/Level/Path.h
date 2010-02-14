@@ -13,16 +13,23 @@
  * Maybe should be an iterator.
  */
 @interface Path : NSObject {
-    NSMutableArray *path;
+    NSMutableDictionary *path;
 }
 
 /** A list of CGPoints that make up the path. */
-@property (retain, nonatomic) NSMutableArray *path;
+@property (retain, nonatomic) NSMutableDictionary *path;
+
+/**
+ * Creates a path based on an ID.
+ * @param pathId The pattern ID for the pattern to load.
+ * @return Newly constructed object.
+ */
+-(id)initWithId:(int) pathId;
 
 /**
  * Adds a point to the path.
  */
--(void) addPoint:(CGPoint) point;
+-(void) addPoint:(CGPoint) point atTime:(int) time;
 
 /**
  * If the path is valid returns YES, checks if start and finish of path touch screen edges.
