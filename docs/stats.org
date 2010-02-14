@@ -97,4 +97,6 @@
 ** TODO Load basic enemy and have them move around screen
 ** TODO Make GameLayer a singleton
    CLOCK: [2010-02-13 Sat 19:01]--[2010-02-13 Sat 20:20] =>  1:19
+** TODO Create mysql backend for storing level elements
+   CLOCK: [2010-02-13 Sat 22:27]
 * add key so no longer need to type password to checkin
