@@ -21,6 +21,13 @@
     return self;
 }
 
+-(void) dealloc
+{
+    [path release];
+
+    [super dealloc];
+}
+
 -(BOOL) isValid
 {
     if ([self isOnScreenBorder [path objectAtIndex:0]] && [self isOnScreenBorder [path objectAtIndex:[path count] - 1]])
@@ -32,6 +39,19 @@
 {
     NSPoint point1 = {point.x, point.y};
     [path addObject: [NSValue valueWithPoint:point1]];
+}
+
+-(CGPoint) getPosAtTime:(int) time
+{
+    NSPoint point = [path getObjectAtIndex: time];
+    return ccp(point.x, point.y);
+}
+
+-(BOOL) isPathOverAtTime:(int) time
+{
+    if (time > [path count])
+        return YES;
+    return NO;
 }
 
 @end

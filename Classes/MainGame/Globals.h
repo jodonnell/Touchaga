@@ -41,5 +41,5 @@
  * Constructor
  * @return Globals The shared instance of the singleton.
  */
-+ (Globals *)sharedInstance;
++(Globals *) sharedInstance;
 @end

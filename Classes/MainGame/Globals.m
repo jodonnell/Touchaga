@@ -16,7 +16,7 @@
 @synthesize backgroundMangaer;
 @synthesize shootButtonRect;
 
-+ (Globals *)sharedInstance
++(Globals *) sharedInstance
 {
     static Globals *myInstance = nil;
  

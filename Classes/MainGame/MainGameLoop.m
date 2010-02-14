@@ -84,7 +84,7 @@
     if( (self=[super init] )) {
         playerBullets = [[NSMutableArray alloc] init];
         gameLayer = nil;
-        gameLayer = [[GameLayer alloc] init];
+        gameLayer = [GameLayer sharedInstance];
         shootButtonLayer = [[ShootButtonLayer alloc] init];
 
         player = [[Player alloc] init];
@@ -125,7 +125,7 @@
 {
     NSMutableArray *currentEvents = [level getEventsWithTime:time];
     if ([currentEvents count])
-        [self executeEvents:currentEvents];
+        [self executeCreateEvents:currentEvents];
 
     if ([self isShooting] && [player canShoot])
         [self shootBullet];
@@ -240,20 +240,15 @@
 }
 
 
--(void) executeEvents:(NSMutableArray *) currentEvents;
+-(void) executeCreateEvents:(NSMutableArray *) currentEvents;
 {
     LevelEvent *currentEvent;
     for (currentEvent in currentEvents) {
-        // get object associated with event OR CREATE
-        if ([[currentEvent method] isEqualToString:@"create"])
-            ;
-        // execute action on object with supplied params
-          // -- what does this mean - scriptedobject adds interface to deal with methods
+        Pattern *pattern = [[Pattern alloc] initWithId:[currentEvents pattern Id]];
 
+        Enemy *patternableObject = [PatternableObjectFactory initWithType:[currentEvent objectType] andPattern:pattern andStartTime:time];
+        [patternableObjects addObject:patternableObject];
     }
 }
-
-// need to pass different types of arguments to different functions, can restrict this to an interface
-
 
 @end

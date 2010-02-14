@@ -20,6 +20,12 @@
 }
 
 /**
+ * Constructor
+ * @return GameLayer The shared instance of the singleton.
+ */
++(GameLayer *) sharedInstance;
+
+/**
  * Add a sprite to the game layer.
  * @param sprite The sprite to add to the game layer.
  */

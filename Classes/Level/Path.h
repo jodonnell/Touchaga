@@ -29,4 +29,16 @@
  */
 -(BOOL) isValid;
 
+/**
+ * @param time The time you are looking the coordinates for.
+ * @return The position the object should be at at a given time.
+ */
+-(CGPoint) getPosAtTime:(int) time;
+
+/**
+ * @param time The time you are checking to see if the path is over at.
+ * @return YES if the path is over.
+ */
+-(BOOL) isPathOverAtTime:(int) time;
+
 @end

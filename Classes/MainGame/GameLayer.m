@@ -14,6 +14,17 @@
 
 @implementation GameLayer
 
++(GameLayer *)sharedInstance
+{
+    static GameLayer *myInstance = nil;
+ 
+    if (nil == myInstance) {
+        myInstance  = [[[self class] alloc] init];
+    }
+
+    return myInstance;
+}
+
 -(id) init
 {
     if( (self=[super init] )) {

@@ -42,16 +42,13 @@
                 if (i == 0)
                     [levelEvent setTime:[element intValue]];
                 else if (i == 1)
-                    [levelEvent setObjId:[element intValue]];
+                    [levelEvent setPatternId:[element intValue]];
                 else if (i == 3)
-                    [levelEvent setMethod:element];
-                else if (i > 3)
-                    [levelEvent setArgument:[element intValue]];
+                    [levelEvent setObjectType:element];
                 i++;
             }
 
             [levelEvents addObject:levelEvent];
-
         }
     }
     return self;

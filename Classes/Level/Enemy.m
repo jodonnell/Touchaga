@@ -7,19 +7,46 @@
 //
 
 #import "Enemy.h"
-#import "Path.h"
+#import "Pattern.h"
 
 @implementation Enemy
 
-@synthesize path;
+@synthesize pattern;
+@synthesize startTime;
 
--(id)init
+-(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern
 {
     if( (self=[super init] )) {
-        path = [[Path alloc] init];
+        pattern = inPattern;
+        startTime = inStartTime;
     }
-
     return self;
+}
+
+-(int) getRelativeTime:(int) currentTime
+{
+    return currentTime - startTime;
+}
+
+-(void)moveToAtTime:(int) currentTime
+{
+    int relativeTime = [self getRelativeTime:currentTime];
+    [self moveTo:[pattern getPosAtTime:relativeTime]];
+}
+
+-(void)doActionsAtTime:(int) currentTime
+{
+    int relativeTime = [self getRelativeTime:currentTime];
+    NSMutableArray *actions = [pattern getActionsAtTime:relativeTime];
+
+    for (action in actions) {
+        if ([action isActionPrimaryShoot])
+            [self primaryShoot];
+    }
+}
+
+-(void) primaryShoot
+{
 }
 
 @end

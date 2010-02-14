@@ -10,37 +10,25 @@
 
 @implementation LevelEvent
 
-@synthesize arguments;
-@synthesize method;
+@synthesize objectType;
 @synthesize time;
-@synthesize objId;
+@synthesize patternId;
 
 -(id) init
 {
     if( (self=[super init] )) {
-        arguments = [[NSMutableArray alloc] init];
-        method = @"";
-        objId = 0;
+        objectType = @"";
+        patternId = 0;
         time = 0;
     }
-    
     return self;
 }
 
-
 -(void) dealloc
 {
-    [arguments release];
-    [method release];
+    [objectType release];
 
     [super dealloc];
-}
-
--(void) setArgument: (int) argument
-{
-    // maybe should add argument type depending on method
-    NSNumber *arg = [[NSNumber alloc] initWithInt:argument];
-    [arguments addObject:arg];
 }
 
 @end

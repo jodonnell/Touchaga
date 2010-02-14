@@ -9,21 +9,22 @@
 #import <Foundation/Foundation.h>
 
 /**
+ * A create object event, holds the time an object is to be created,
+ * the pattern to follow, and the class of the object to instantiate.
  */
 @interface LevelEvent : NSObject {
     int time;
-    int objId;
-    NSString *method;
-    NSMutableArray *arguments;
+    int patternId;
+    NSString *objectType;
 }
 
-@property (retain, nonatomic) NSMutableArray *arguments;
-@property (retain, nonatomic) NSString *method;
-@property (nonatomic) int time;
-@property (nonatomic) int objId;
+/** The object type to instantiate. */
+@property (retain, nonatomic) NSString *objectType;
 
-/**
- */
--(void) setArgument:(int) argument;
+/** The time to instantiate the object. */
+@property (nonatomic) int time;
+
+/** The pattern id that the object will follow. */
+@property (nonatomic) int patternId;
 
 @end

@@ -25,6 +25,16 @@
     return self;
 }
 
+-(id)initWithId:(int) patternId
+{
+    if( (self=[super init] )) {
+        path = [[Path alloc] init];
+        actions = [[NSMutableArray alloc] init];
+    }
+
+    return self;
+}
+
 -(void) dealloc
 {
     [path release];
@@ -33,21 +43,24 @@
     [super dealloc];
 }
 
+-(BOOL) isPatternOverAtTime:(int) relativeTime
+{
+    return [path isPathOverAtTime:relativeTime];
+}
 
 -(CGPoint) getPosAtTime:(int) relativeTime
 {
-    return [path getPosAtTime:relativeTime];
+   return [path getPosAtTime:relativeTime];
 }
 
--(BOOL) didFirePrimaryShotAtTime:(int) relativeTime
+-(NSMutableArray *) getActionsAtTime:(int) relativeTime
 {
-    didFirePrimaryShotAtTime = NO;
+    NSMutableArray *nowActions = [[NSMutableArray alloc] init];
     for (action in actions) {
-        if ([action didFirePrimaryShotAtTime:relativeTime]) {
-            didFirePrimaryShotAtTime = YES;
-            break;
-        }
+        if ([action time] == relativeTime)
+            [nowActions addObject:action];
     }
-    return didFirePrimaryShotAtTime;
+    return nowActions;
 }
+
 @end
