@@ -103,7 +103,7 @@
     NSMutableArray *currentEvents = [level getEventsWithTime:time];
     if ([currentEvents count])
         [self executeCreateEvents:currentEvents];
-
+    
     if ([patternableObjects count])
         [self updatePatternableObjects];
 

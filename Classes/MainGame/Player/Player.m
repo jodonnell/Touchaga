@@ -105,7 +105,7 @@ enum {
          return NO;
 
     CGPoint touchPoint = [touch locationInView:[touch view]];
-    touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
+    touchPoint = [[Director sharedDirector] convertToGL:touchPoint];
 
     if (CGRectContainsPoint([self getTouchBox], touchPoint)) {
         [self moveTo:ccp(touchPoint.x, touchPoint.y)];
@@ -118,7 +118,7 @@ enum {
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint touchPoint = [touch locationInView:[touch view]];
-    touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
+    touchPoint = [[Director sharedDirector] convertToGL:touchPoint];
 
     [self moveTo:CGPointMake(touchPoint.x, touchPoint.y)];
 

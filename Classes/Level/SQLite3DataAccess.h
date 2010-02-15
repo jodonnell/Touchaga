@@ -11,6 +11,7 @@
 
 /**
  * NOTE: Probably should have a caching proxy in front of this
+ * NOTE: currently always recreates db
  */
 @interface SQLite3DataAccess : NSObject {
     NSString *databaseName;

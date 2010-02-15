@@ -109,7 +109,7 @@
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
      CGPoint touchPoint = [touch locationInView:[touch view]];
-     touchPoint = [[Director sharedDirector] convertCoordinate:touchPoint];
+     touchPoint = [[Director sharedDirector] convertToGL:touchPoint];
 
      if ([self isTouchInWarpCircle:touchPoint] && ! [self isWarpingIntoShootButton:touchPoint]) {
          [player warpIn:touchPoint];

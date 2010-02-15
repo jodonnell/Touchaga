@@ -37,7 +37,7 @@
      UITouch *touch = [touches anyObject];
      if( touch ) {
          CGPoint location = [touch locationInView: [touch view]];
-         CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
+         CGPoint convertedPoint = [[Director sharedDirector] convertToGL:location];
 
          [player warpIn:convertedPoint];
      }

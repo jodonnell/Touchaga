@@ -71,13 +71,12 @@
     // Check if the database has already been created in the users filesystem
     success = [fileManager fileExistsAtPath:databasePath];
 
-    // If the database already exists then return without doing anything
-//    if(success) return;
-
-    // If not then proceed to copy the database from the application to the users filesystem
 
     // Get the path to the database in the application package
     NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
+
+    if(success) 
+        [fileManager removeItemAtPath:databasePath error:nil];
 
     // Copy the database from the package to the users filesystem
     [fileManager copyItemAtPath:databasePathFromApp toPath:databasePath error:nil];

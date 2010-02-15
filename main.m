@@ -1,17 +1,16 @@
 //
 //  main.m
-//  MyFirstGame
+//  Touchaga
 //
-//  Created by Ricardo Quesada on 17/07/09.
-//  Copyright Sapus Media 2009. All rights reserved.
+//  Created by Jacob O'Donnell on 2/15/10.
+//  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 int main(int argc, char *argv[]) {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, @"TouchagaAppDelegate");
-    [pool release];
-    return retVal;
+	NSAutoreleasePool *pool = [NSAutoreleasePool new];
+	int retVal = UIApplicationMain(argc, argv, nil, @"TouchagaAppDelegate");
+	[pool release];
+	return retVal;
 }

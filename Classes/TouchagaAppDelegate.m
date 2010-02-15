@@ -21,6 +21,9 @@
     [window setUserInteractionEnabled:YES];
     [window setMultipleTouchEnabled:YES];
 
+    if( ! [Director setDirectorType:CCDirectorTypeDisplayLink] )
+        [Director setDirectorType:CCDirectorTypeDefault];
+
     // Attach cocos2d to the window
     [[Director sharedDirector] attachInWindow:window];
 
@@ -28,9 +31,6 @@
     [[Director sharedDirector] setDeviceOrientation:CCDeviceOrientationLandscapeLeft];
 
     [Director sharedDirector].displayFPS = YES;
-
-    if( ! [Director setDirectorType:CCDirectorTypeDisplayLink] )
-        [Director setDirectorType:CCDirectorTypeDefault];
 
     // Make the window visible
     [window makeKeyAndVisible];

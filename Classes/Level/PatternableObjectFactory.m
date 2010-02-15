@@ -18,8 +18,8 @@
             return [[BasicEnemy alloc] initWithStartTime:startTime andPattern:pattern];
         }
     }
-
-    [NSException raise:@"Non-existant object type" format:@"%@", objectType]; // TODO this is no good
+    NSLog(@"Non-existant object type %@", objectType);
+    return nil;
 }
 
 
