@@ -10,7 +10,6 @@
 #import "PlayerBullet.h"
 #import "SpriteManager.h"
 #import "WarpEnergy.h"
-#import "WarpOutCircle.h"
 #import "Globals.h"
 
 enum {
