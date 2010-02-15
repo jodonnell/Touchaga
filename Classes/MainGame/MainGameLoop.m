@@ -23,6 +23,8 @@
 
 #import "PlayerInactiveLayer.h"
 
+#import "cocos2d.h"
+
 #define HIGHEST_Z_VALUE 4
 
 @interface MainGameLoop()
@@ -144,8 +146,10 @@
 
     [self updatePlayerBullets];
 
-    if ([player warpPlayerOut])
+    if ([player warpPlayerOut]) {
+        NSLog(@"warp player out is true");
         [self warpPlayerOut];
+    }
 
     if ([player isWarpedOut]) {
         [self drainPlayerWarpEnergy];
@@ -155,14 +159,21 @@
     if ([warpOutCircle isActive] && [warpOutCircle isPlayerWarpingIn])
         [self warpPlayerIn];
 
-    if ([playerInactiveLayer isActive] && [playerInactiveLayer isPlayerWarpingIn])
+    if ([playerInactiveLayer isActive] && [playerInactiveLayer isPlayerWarpingIn]) {
         [self warpPlayerIn];
+        NSLog(@"warping in pal");
+    }
 
-    if ([player isOutOfWarpEnergy])
+    if ([player isOutOfWarpEnergy]) {
         [self playerDied];
+    }
 
-    if ([player isGameOver])
+    [self checkForCollusions];
+
+    if ([player isGameOver]) {
+        NSLog(@"game over");
         [[Director sharedDirector] end];
+    }
 
     time++;
 }
@@ -170,10 +181,12 @@
 // PRIVATE
 -(void) playerDied
 {
+    NSLog(@"died.");
     [self warpPlayerIn];
     [player loseLife];
+    [player warpOut];
     [playerInactiveLayer startWarpOut];
-    [gameLayer addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
+    [[GameLayer sharedInstance] addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
 }
 
 -(BOOL) isShooting
@@ -267,4 +280,17 @@
         [patternableObject moveToAtTime:time];
     }
 }
+
+-(void) checkForCollusions
+{
+    Enemy *patternableObject;
+    for (patternableObject in patternableObjects) {
+        if (CGRectIntersectsRect([patternableObject makeRect], [player makeRect]) && ! [player isWarpedOut]) {
+            [self playerDied];
+            [player endTouch];
+        }
+    }
+
+}
+
 @end

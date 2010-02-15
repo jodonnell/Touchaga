@@ -29,6 +29,9 @@
 
     [Director sharedDirector].displayFPS = YES;
 
+//    if( ! [Director setDirectorType:CCDirectorTypeDisplayLink] )
+//        [Director setDirectorType:CCDirectorTypeDefault];
+
     // Make the window visible
     [window makeKeyAndVisible];
 

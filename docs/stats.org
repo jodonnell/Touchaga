@@ -94,7 +94,7 @@
 ** TODO Create basic enemy.
    CLOCK: [2010-02-13 Sat 16:51]--[2010-02-13 Sat 18:16] =>  1:25
 ** TODO Load basic enemy and have them move around screen
-   CLOCK: [2010-02-14 Sun 16:12]
+   CLOCK: [2010-02-14 Sun 16:12]--[2010-02-14 Sun 18:11] =>  1:59
 ** TODO Make GameLayer a singleton
    CLOCK: [2010-02-13 Sat 19:01]--[2010-02-13 Sat 20:20] =>  1:19
 ** DONE Create mysql backend for storing level elements
@@ -105,4 +105,16 @@
    CLOCK: [2010-02-13 Sat 22:27]--[2010-02-14 Sun 02:16] =>  3:49
    :END:
 ** TODO check memory management
+** TODO make enemy collide with player bullet
+** TODO make enemy collide with player
+   :CLOCK:
+   CLOCK: [2010-02-14 Sun 19:34]--[2010-02-14 Sun 20:13] =>  0:39
+   CLOCK: [2010-02-14 Sun 18:18]--[2010-02-14 Sun 18:38] =>  0:20
+   :END:
+** TODO make enemy disappear when off screen
+** TODO figure out way to refresh database
+** TODO add caching proxy
+** TODO need to upgrade cocos2d
+** TODO need to make maingameloop and player interfaces more intuitive
+   CLOCK: [2010-02-14 Sun 22:02]
 * add key so no longer need to type password to checkin

@@ -76,4 +76,7 @@
  * @param currentEvents The list of create events to run
  */
 -(void) executeCreateEvents:(NSMutableArray *) currentEvents;
+
+-(void) updatePatternableObjects;
+-(void) checkForCollusions;
 @end
