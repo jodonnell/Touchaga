@@ -115,7 +115,8 @@
 ** TODO figure out way to refresh database
 ** TODO add caching proxy
 ** TODO need to upgrade cocos2d
+   CLOCK: [2010-02-15 Mon 00:53]
 ** TODO need to make maingameloop and player interfaces more intuitive
-   CLOCK: [2010-02-14 Sun 22:02]
+   CLOCK: [2010-02-14 Sun 22:02]--[2010-02-15 Mon 00:53] =>  2:51
 ** TODO make sure all is documented
 * add key so no longer need to type password to checkin
