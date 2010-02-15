@@ -32,4 +32,10 @@
  */
 -(CGRect) makeRect;
 
+/**
+ * Checks to see if the player bullet is no longer on the screen.
+ * @param YES if the player bullet is off screen.
+ */
+-(BOOL) isOffScreen;
+
 @end

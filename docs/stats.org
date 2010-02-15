@@ -73,29 +73,27 @@
 * Iteration 2 - Enemy
 ** DONE Define format for loading levels
    CLOCK: [2010-02-08 Mon 21:18]--[2010-02-08 Mon 23:18] =>  2:00
-** TODO Create class to load levels
+** DONE Create class to load levels
    :CLOCK:
    CLOCK: [2010-02-08 Mon 23:18]--[2010-02-09 Tue 00:42] =>  1:24
    :END:
-** TODO Create enemy format
-** TODO Create factory for creating enemies
-** TODO Create Paths
+** DONE Create Paths
    CLOCK: [2010-02-11 Thu 23:43]--[2010-02-12 Fri 01:00] =>  1:17
 ** TODO Create Action
    :CLOCK:
    CLOCK: [2010-02-13 Sat 18:16]--[2010-02-13 Sat 19:01] =>  0:45
    CLOCK: [2010-02-12 Fri 01:01]--[2010-02-12 Fri 01:12] =>  0:11
    :END:
-** TODO Create Patterns
+** DONE Create Patterns
    :CLOCK:
    CLOCK: [2010-02-13 Sat 21:45]--[2010-02-13 Sat 21:53] =>  0:08
    CLOCK: [2010-02-13 Sat 20:20]--[2010-02-13 Sat 21:04] =>  0:44
    :END:
-** TODO Create basic enemy.
+** DONE Create basic enemy.
    CLOCK: [2010-02-13 Sat 16:51]--[2010-02-13 Sat 18:16] =>  1:25
-** TODO Load basic enemy and have them move around screen
+** DONE Load basic enemy and have them move around screen
    CLOCK: [2010-02-14 Sun 16:12]--[2010-02-14 Sun 18:11] =>  1:59
-** TODO Make GameLayer a singleton
+** DONE Make GameLayer a singleton
    CLOCK: [2010-02-13 Sat 19:01]--[2010-02-13 Sat 20:20] =>  1:19
 ** DONE Create mysql backend for storing level elements
    :CLOCK:
@@ -105,18 +103,26 @@
    CLOCK: [2010-02-13 Sat 22:27]--[2010-02-14 Sun 02:16] =>  3:49
    :END:
 ** TODO check memory management
-** TODO make enemy collide with player bullet
-** TODO make enemy collide with player
+** DONE make enemy collide with player bullet
+   CLOCK: [2010-02-15 Mon 03:32]--[2010-02-15 Mon 03:41] =>  0:09
+** DONE make enemy collide with player
    :CLOCK:
+   CLOCK: [2010-02-15 Mon 03:31]--[2010-02-15 Mon 03:31] =>  0:00
+   CLOCK: [2010-02-15 Mon 03:22]--[2010-02-15 Mon 03:31] =>  0:09
    CLOCK: [2010-02-14 Sun 19:34]--[2010-02-14 Sun 20:13] =>  0:39
    CLOCK: [2010-02-14 Sun 18:18]--[2010-02-14 Sun 18:38] =>  0:20
    :END:
-** TODO make enemy disappear when off screen
-** TODO figure out way to refresh database
+** DONE make enemy disappear when off screen
+   CLOCK: [2010-02-15 Mon 03:53]--[2010-02-15 Mon 04:04] =>  0:11
+** DONE figure out way to refresh database
+   CLOCK: [2010-02-15 Mon 02:35]--[2010-02-15 Mon 02:46] =>  0:11
 ** TODO add caching proxy
-** TODO need to upgrade cocos2d
-   CLOCK: [2010-02-15 Mon 00:53]
+** DONE need to upgrade cocos2d
+   CLOCK: [2010-02-15 Mon 00:53]--[2010-02-15 Mon 02:35] =>  1:42
 ** TODO need to make maingameloop and player interfaces more intuitive
    CLOCK: [2010-02-14 Sun 22:02]--[2010-02-15 Mon 00:53] =>  2:51
 ** TODO make sure all is documented
-* add key so no longer need to type password to checkin
+** TODO Figure out better directory structure
+** DONE Bug when you fly into the shoot button
+   CLOCK: [2010-02-15 Mon 04:04]--[2010-02-15 Mon 04:10] =>  0:06
+

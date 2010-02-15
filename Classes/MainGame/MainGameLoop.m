@@ -196,20 +196,39 @@
 
 -(void) updatePatternableObjects
 {
+    NSMutableArray *removeEnemies = [[NSMutableArray alloc] init];
+
     Enemy *patternableObject;
     for (patternableObject in patternableObjects) {
         [patternableObject moveToAtTime:time];
+
+        if ([patternableObject isOffScreen]) {
+            [removeEnemies addObject:patternableObject];
+            [gameLayer removeEnemy:patternableObject];
+        }
     }
+    [patternableObjects removeObjectsInArray:removeEnemies];
 }
 
 -(void) checkForCollusions
 {
+    NSMutableArray *removeEnemies = [[NSMutableArray alloc] init];
     Enemy *patternableObject;
     for (patternableObject in patternableObjects) {
         if (CGRectIntersectsRect([patternableObject makeRect], [player makeRect]) && ! [player isWarpedOut]) {
             [player loseLife];
         }
+
+        PlayerBullet *playerBullet;
+        for (playerBullet in playerBullets) 
+        {
+            if (CGRectIntersectsRect([patternableObject makeRect], [playerBullet makeRect])) {
+                [gameLayer removeEnemy:patternableObject];
+                [removeEnemies addObject:patternableObject];}
+        }
+
     }
+    [patternableObjects removeObjectsInArray:removeEnemies];
 
 }
 

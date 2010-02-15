@@ -39,5 +39,20 @@
     return CGRectMake(point.x, point.y, w, h);
 }
 
+-(BOOL) isOffScreen
+{
+    CGSize s = [[Director sharedDirector] winSize];
+
+    if (s.height < self.position.y)
+        return YES;
+    if (0 > self.position.y)
+        return YES;
+    if (s.width < self.position.x)
+        return YES;
+    if (0 > self.position.x)
+        return YES;
+    return NO;
+}
+
 @end
 

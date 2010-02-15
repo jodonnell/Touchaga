@@ -49,6 +49,7 @@ enum {
 
 -(void) deactivate
 {
+    isWarpedOut = YES;
     [[GameLayer sharedInstance] addInactiveLayer:inactiveLayer];
 }
 
@@ -76,8 +77,8 @@ enum {
     if ([[GameLayer sharedInstance] isInactiveLayerOn])
         return;
 
-    [warpOutCircle startWarpOut:self.position];
     isWarpedOut = YES;
+    [warpOutCircle startWarpOut:self.position];
     [[GameLayer sharedInstance] addSpriteToLayer: (TouchagaSprite *)warpOutCircle];
 }
 
@@ -123,9 +124,10 @@ enum {
     [self moveTo:CGPointMake(touchPoint.x, touchPoint.y)];
 
     if ([self isTouchInShootButton:touchPoint]) {
-        [self warpOut];
         [self onExit]; // only way i would find to force the touch to get dropped
         [self onEnter];
+
+        [self warpOut];
     }
 }
 

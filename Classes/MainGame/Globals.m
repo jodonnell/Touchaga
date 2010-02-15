@@ -30,7 +30,7 @@
 
 -(id) init
 {
-    if(self=[super init]) {
+    if( (self=[super init] )) {
         playerManager = [AtlasSpriteManager spriteManagerWithFile:@"player.png" capacity:50];
         bulletManager = [AtlasSpriteManager spriteManagerWithFile:@"bullet.png" capacity:50];
         warpOutManager = [AtlasSpriteManager spriteManagerWithFile:@"warpCircle.png" capacity:50];

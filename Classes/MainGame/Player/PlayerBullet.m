@@ -31,12 +31,4 @@ enum {
     self.position = CGPointMake(self.position.x, self.position.y + kPlayerBulletMovementSpeed);
 }
 
--(BOOL) isOffScreen
-{
-    CGSize s = [[Director sharedDirector] winSize];
-    if (s.height < self.position.y)
-        return YES;
-    return NO;
-}
-
 @end

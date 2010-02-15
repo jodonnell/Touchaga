@@ -12,6 +12,7 @@
 @class PlayerBullet;
 @class WarpOutCircle;
 @class PlayerInactiveLayer;
+@class Enemy;
 
 /**
  * This layer contains all the objects in the main game.
@@ -48,6 +49,7 @@
 -(BOOL) isInactiveLayerOn;
 -(void) addInactiveLayer: (PlayerInactiveLayer *) inactiveLayer;
 -(void) removeInactiveLayer: (PlayerInactiveLayer *) inactiveLayer;
+-(void) removeEnemy: (Enemy *) enemy;
 
 @end
 

@@ -114,7 +114,7 @@
 
 -(NSArray *) getPattern:(int) patternId
 {
-    NSArray *pathAndActionIds;
+    NSArray *pathAndActionIds = nil;
     const char *sqlStatement = "select path_id, actions_id from pattern where id = ?";
     sqlite3_stmt *compiledStatement;
     if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
