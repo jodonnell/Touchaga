@@ -119,10 +119,15 @@
 ** TODO add caching proxy
 ** DONE need to upgrade cocos2d
    CLOCK: [2010-02-15 Mon 00:53]--[2010-02-15 Mon 02:35] =>  1:42
-** TODO need to make maingameloop and player interfaces more intuitive
+** DONE need to make maingameloop and player interfaces more intuitive
+   :CLOCK:
+   CLOCK: [2010-02-15 Mon 14:28]--[2010-02-15 Mon 15:08] =>  0:40
    CLOCK: [2010-02-14 Sun 22:02]--[2010-02-15 Mon 00:53] =>  2:51
+   :END:
 ** TODO make sure all is documented
+   CLOCK: [2010-02-15 Mon 15:26]
 ** TODO Figure out better directory structure
 ** DONE Bug when you fly into the shoot button
    CLOCK: [2010-02-15 Mon 04:04]--[2010-02-15 Mon 04:10] =>  0:06
+
 

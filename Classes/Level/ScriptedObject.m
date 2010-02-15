@@ -1,16 +1,16 @@
 //
-//  Enemy.m
+//  ScriptedObject.m
 //  MyFirstGame
 //
 //  Created by Jacob O'Donnell on 2/12/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "Enemy.h"
+#import "ScriptedObject.h"
 #import "Pattern.h"
 #import "ActionPoint.h"
 
-@implementation Enemy
+@implementation ScriptedObject
 
 @synthesize pattern;
 @synthesize startTime;

@@ -17,8 +17,8 @@
 #import "Level.h"
 #import "LevelCreateEvent.h"
 #import "Pattern.h"
-#import "Enemy.h"
-#import "PatternableObjectFactory.h"
+#import "ScriptedObject.h"
+#import "ScriptedObjectFactory.h"
 
 #import "PlayerInactiveLayer.h"
 
@@ -59,12 +59,12 @@
 @synthesize background;
 @synthesize level;
 @synthesize time;
-@synthesize patternableObjects;
+@synthesize scriptedObjects;
 
 -(id) init
 {
     if( (self=[super init] )) {
-        patternableObjects = [[NSMutableArray alloc] init];
+        scriptedObjects = [[NSMutableArray alloc] init];
         playerBullets = [[NSMutableArray alloc] init];
         gameLayer = nil;
         gameLayer = [GameLayer sharedInstance];
@@ -93,35 +93,23 @@
     [playerBullets release];
     [background release];
     [level release];
-    [patternableObjects release];
+    [scriptedObjects release];
 
     [super dealloc];
 }
 
 -(void) update: (ccTime) dt
 {
-    NSMutableArray *currentEvents = [level getEventsWithTime:time];
-    if ([currentEvents count])
-        [self executeCreateEvents:currentEvents];
+    [self executeCreateEvents];
     
-    if ([patternableObjects count])
-        [self updatePatternableObjects];
+    [self updateScriptedObjects];
 
-    if ([self isShooting] && [player canShoot])
+    if ([self isShooting])
         [self shootBullet];
 
-    if ([player canShoot] == NO)
-        [player incrementBulletCoolDown];
+    [player update];
 
     [self updatePlayerBullets];
-
-    if ([player isWarpedOut]) {
-        [player playerDrainEnergy];
-    }
-
-    if ([player isOutOfWarpEnergy]) {
-        [player loseLife];
-    }
 
     [self checkForCollusions];
 
@@ -137,7 +125,7 @@
 
 -(BOOL) isShooting
 {
-    return [shootButtonLayer isShooting] && [player isWarpedOut] == NO;
+    return [shootButtonLayer isShooting] && [player isWarpedOut] == NO && [player canShoot];
 }
 
 -(void) shootBullet
@@ -183,53 +171,66 @@
 }
 
 
--(void) executeCreateEvents:(NSMutableArray *) currentEvents;
+-(void) executeCreateEvents
 {
+    NSMutableArray *currentEvents = [level getEventsWithTime:time];
+
     LevelCreateEvent *currentEvent;
     for (currentEvent in currentEvents) {
         Pattern *pattern = [[Pattern alloc] initWithId:[currentEvent patternId]];
 
-        Enemy *patternableObject = [PatternableObjectFactory initWithType:[currentEvent objectType] andPattern:pattern andStartTime:time];
-        [patternableObjects addObject:patternableObject];
+        ScriptedObject *scriptedObject = [ScriptedObjectFactory initWithType:[currentEvent objectType] andPattern:pattern andStartTime:time];
+        [scriptedObjects addObject:scriptedObject];
     }
 }
 
--(void) updatePatternableObjects
+-(void) updateScriptedObjects
 {
     NSMutableArray *removeEnemies = [[NSMutableArray alloc] init];
 
-    Enemy *patternableObject;
-    for (patternableObject in patternableObjects) {
-        [patternableObject moveToAtTime:time];
+    ScriptedObject *scriptedObject;
+    for (scriptedObject in scriptedObjects) {
+        [scriptedObject moveToAtTime:time];
 
-        if ([patternableObject isOffScreen]) {
-            [removeEnemies addObject:patternableObject];
-            [gameLayer removeEnemy:patternableObject];
+        if ([scriptedObject isOffScreen]) {
+            [removeEnemies addObject:scriptedObject];
+            [gameLayer removeScriptedObject:scriptedObject];
         }
     }
-    [patternableObjects removeObjectsInArray:removeEnemies];
+    [scriptedObjects removeObjectsInArray:removeEnemies];
 }
 
 -(void) checkForCollusions
 {
     NSMutableArray *removeEnemies = [[NSMutableArray alloc] init];
-    Enemy *patternableObject;
-    for (patternableObject in patternableObjects) {
-        if (CGRectIntersectsRect([patternableObject makeRect], [player makeRect]) && ! [player isWarpedOut]) {
-            [player loseLife];
-        }
+    ScriptedObject *scriptedObject;
+    for (scriptedObject in scriptedObjects) {
+        [self checkForPlayerCollusion:scriptedObject];
 
-        PlayerBullet *playerBullet;
-        for (playerBullet in playerBullets) 
-        {
-            if (CGRectIntersectsRect([patternableObject makeRect], [playerBullet makeRect])) {
-                [gameLayer removeEnemy:patternableObject];
-                [removeEnemies addObject:patternableObject];}
-        }
-
+        if ([self checkForBulletCollusion:scriptedObject])
+            [removeEnemies addObject:scriptedObject];
     }
-    [patternableObjects removeObjectsInArray:removeEnemies];
+    [scriptedObjects removeObjectsInArray:removeEnemies];
+}
 
+-(void) checkForPlayerCollusion:(ScriptedObject *)scriptedObject
+{
+    if (CGRectIntersectsRect([scriptedObject makeRect], [player makeRect]) && ! [player isWarpedOut]) {
+        [player loseLife];
+    }
+}
+
+-(BOOL) checkForBulletCollusion:(ScriptedObject *)scriptedObject
+{
+    PlayerBullet *playerBullet;
+    for (playerBullet in playerBullets) 
+    {
+        if (CGRectIntersectsRect([scriptedObject makeRect], [playerBullet makeRect])) {
+            [gameLayer removeScriptedObject:scriptedObject];
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

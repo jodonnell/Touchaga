@@ -20,6 +20,9 @@
 /** The string that contains what the action is. */
 @property (retain, nonatomic) NSString *action;
 
+/**
+ * Loads an action given an action point id.
+ */
 -(id)initWithAction:(NSString *) inActionPoint;
 
 /**

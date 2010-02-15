@@ -207,5 +207,17 @@ enum {
     return canShoot;
 } 
 
+-(void) update
+{
+    if ([self canShoot] == NO)
+        [self incrementBulletCoolDown];
+
+    if ([self isWarpedOut])
+        [self playerDrainEnergy];
+
+    if ([self isOutOfWarpEnergy])
+        [self loseLife];
+
+}
 
 @end

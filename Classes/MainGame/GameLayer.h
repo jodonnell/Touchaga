@@ -12,7 +12,7 @@
 @class PlayerBullet;
 @class WarpOutCircle;
 @class PlayerInactiveLayer;
-@class Enemy;
+@class ScriptedObject;
 
 /**
  * This layer contains all the objects in the main game.
@@ -45,11 +45,28 @@
  */
 -(void) removeWarpOutCircle: (WarpOutCircle *) warpOutCircle;
 
-/** TODO document */
+/**
+ * @return YES if the inactiveLayer is currently on.
+ */
 -(BOOL) isInactiveLayerOn;
+
+/**
+ * Adds the inactiveLayer.
+ * @param The inactive layer.
+ */
 -(void) addInactiveLayer: (PlayerInactiveLayer *) inactiveLayer;
+
+/**
+ * Removes the inactive layer, but only if it is active!
+ * @param The inactive layer.
+ */
 -(void) removeInactiveLayer: (PlayerInactiveLayer *) inactiveLayer;
--(void) removeEnemy: (Enemy *) enemy;
+
+/**
+ * Removes the given scripted object.
+ * @param The given scripted object to remove.
+ */
+-(void) removeScriptedObject: (ScriptedObject *) scriptedObject;
 
 @end
 

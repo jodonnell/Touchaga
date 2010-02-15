@@ -15,11 +15,11 @@
 
 @synthesize levelEvents;
 
--(id) initWithLevel:(NSString *)level;
+-(id) initWithLevel:(int) level
 {
     if( (self=[super init] )) {
         SQLite3DataAccess *da = [SQLite3DataAccess sharedInstance];
-        levelEvents = [da getLevel:1];
+        levelEvents = [da getLevel:level];
     }
     return self;
 }

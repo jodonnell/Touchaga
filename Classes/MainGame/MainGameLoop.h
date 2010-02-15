@@ -12,10 +12,9 @@
 @class Player;
 @class ShootButtonLayer;
 @class PlayerBullet;
-@class WarpOutCircle;
-@class PlayerInactiveLayer;
 @class Background;
 @class Level;
+@class ScriptedObject;
 
 /**
  * This class holds orchestrates the flow of the game.
@@ -30,7 +29,7 @@
     Background *background;
     Level *level;
     int time;
-    NSMutableArray *patternableObjects;
+    NSMutableArray *scriptedObjects;
 }
 
 /** A NSMutableArray that contains all the player bullet sprite objects */
@@ -55,7 +54,7 @@
 @property (nonatomic) int time;
 
 /** An array of all the onscreen objects that use a pattern. */
-@property (nonatomic, retain) NSMutableArray *patternableObjects;
+@property (nonatomic, retain) NSMutableArray *scriptedObjects;
 
 /** 
  * Called every frame, does all the updating for the game.
@@ -65,10 +64,13 @@
 
 /** 
  * Executes all create events in the given array
- * @param currentEvents The list of create events to run
  */
--(void) executeCreateEvents:(NSMutableArray *) currentEvents;
+-(void) executeCreateEvents;
 
--(void) updatePatternableObjects;
+-(void) updateScriptedObjects;
 -(void) checkForCollusions;
+
+-(void) checkForPlayerCollusion:(ScriptedObject *)scriptedObject;
+-(BOOL) checkForBulletCollusion:(ScriptedObject *)scriptedObject;
+
 @end

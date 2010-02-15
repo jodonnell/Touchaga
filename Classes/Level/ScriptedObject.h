@@ -1,5 +1,5 @@
 //
-//  Enemy.h
+//  ScriptedObject.h
 //  Touchaga
 //
 //  Created by Jacob O'Donnell on 2/12/10.
@@ -14,7 +14,7 @@
  * A base class for all enemy objects, contains the necessary logic to have enemies
  * interact with the pattern they follow.
  */
-@interface Enemy : TouchagaSprite {
+@interface ScriptedObject : TouchagaSprite {
     Pattern *pattern;
     int startTime;
 }
@@ -30,8 +30,9 @@
  * Constructor 
  * @param inStartTime The time the enemy was created.
  * @param inPattern The pattern to load the enemy with.
+ * @param rect The objcets rect within the sprite manager.
+ * @param manager The sprite manager.
  * @return The newly created enemy object.
- * INCOMPLETE DOC.
  */
 -(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern andRect:(CGRect) rect andManager:(AtlasSpriteManager *) manager;
 

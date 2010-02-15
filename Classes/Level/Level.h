@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
+ * 
  */
 @interface Level : NSObject {
     NSMutableArray *levelEvents;
@@ -17,8 +18,10 @@
 @property (retain, nonatomic) NSMutableArray *levelEvents;
 
 /**
+ * Loads the given level object.
+ * @param level Will load the given level.
  */
--(id) initWithLevel:(NSString *) level;
+-(id) initWithLevel:(int) level;
 
 /**
  * Returns all events that have the given time.

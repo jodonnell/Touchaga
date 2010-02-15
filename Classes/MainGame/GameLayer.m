@@ -12,7 +12,7 @@
 #import "SpriteManager.h"
 #import "WarpOutCircle.h"
 #import "PlayerInactiveLayer.h"
-#import "Enemy.h"
+#import "ScriptedObject.h"
 
 @implementation GameLayer
 
@@ -71,10 +71,10 @@
     [mgr removeChild:(TouchagaSprite *)playerBullet cleanup:YES];
 }
 
--(void) removeEnemy: (Enemy *) enemy
+-(void) removeScriptedObject: (ScriptedObject *) scriptedObject
 {
-    AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag:[[enemy spriteManager] tag]];
-    [mgr removeChild:(TouchagaSprite *)enemy cleanup:YES];
+    AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag:[[scriptedObject spriteManager] tag]];
+    [mgr removeChild:(TouchagaSprite *)scriptedObject cleanup:YES];
 }
 
 -(void) removeWarpOutCircle: (WarpOutCircle *) warpOutCircle

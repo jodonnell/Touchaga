@@ -54,7 +54,11 @@
  */
 -(BOOL) isPatternOverAtTime:(int) relativeTime;
 
-
+/**
+ * Loads all action points using their id.
+ * @param actionId the Action Point Id.
+ * @return A dictionary of time to action id.
+ */
 -(NSMutableDictionary *) loadActionPointsWithId:(int) actionsId;
 
 @end

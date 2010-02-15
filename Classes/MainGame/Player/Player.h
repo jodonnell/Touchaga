@@ -15,13 +15,16 @@
 @class PlayerInactiveLayer;
 
 /**
- * The player sprite.  Implements the TargetedTouchDelegate protocol, the player is moved by touching
- * your finger to the player sprite and then as you move your finger the sprite follows it, until you 
- * lift your finger.
- * The player can shoot a stream of unlimited bullets by holding down a shoot button.
+ * The player sprite.  Implements the TargetedTouchDelegate protocol.
+ * The player starts its life off in the inactive state.  Here your warp energy is draining,
+ * the player is warped out and can warp in anywhere on the screen.
+ * The player can than warp out at any time by lifting their finger off the screen.  They can 
+ * warp back in anywhere in a circle that is created around the point from where they warped out.
+ * The size of the circle is dependant on the amount of warp energy the player has.  Their energy will drain
+ * in the warped out state.  When the player is warped in their position is directly under the player finger.  The player
+ * finger act as the ship.
+ * The player can never warp in on top of the shoot button.
  * The player has a score.
- * The player can warp off the screen when the player removes his finger from the screen.
- * He can warp back in by touching his finger back to the screen.
  * When the player loses all his lives it is game over.
  */
 @interface Player : TouchagaSprite <TargetedTouchDelegate> {
@@ -37,8 +40,10 @@
     PlayerInactiveLayer *inactiveLayer;
 }
 
-/** TODO document. */
+/** The player inactive layer, attached to screen when player dies or start of level. */
 @property (retain, nonatomic) PlayerInactiveLayer *inactiveLayer;
+
+/** The Warp out circle, gets attached to screen when the player warps out. */
 @property (retain, nonatomic) WarpOutCircle *warpOutCircle;
 
 /** An energy object that represents the players pool of warp energy. */
@@ -64,11 +69,6 @@
 
 /** A BOOL, when YES the player can shoot. */
 @property (nonatomic) BOOL canShoot;
-
-/** TODO needs doc */
--(void) playerDrainEnergy;
--(void) deactivate;
--(void) removeWarps;
 
 /**
  * Constructor
@@ -139,5 +139,25 @@
  * @return Yes if the player can shoot.
  */
 -(BOOL) canShoot;
+
+/**
+ * Drains the player energy.
+ */
+-(void) playerDrainEnergy;
+
+/**
+ * Deactivates the player and turns on the inactive layer.
+ */
+-(void) deactivate;
+
+/**
+ * Removes both the inactive layer and warp out layer if either are active.
+ */
+-(void) removeWarps;
+
+/**
+ * Updates player things that need to be updated on every frame.
+ */
+-(void) update;
 
 @end

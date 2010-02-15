@@ -6,12 +6,12 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "Enemy.h"
+#import "ScriptedObject.h"
 
 /**
-
+ * A testing simple enemey.
  */
-@interface BasicEnemy : Enemy {
+@interface BasicEnemy : ScriptedObject {
 }
 
 -(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern;
