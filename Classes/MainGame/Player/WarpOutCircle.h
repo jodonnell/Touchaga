@@ -20,19 +20,14 @@
  * handler handles the same touch.
  */
 @interface WarpOutCircle : TouchagaSprite <TargetedTouchDelegate> {
-    BOOL isPlayerWarpingIn;
-    BOOL isActive;
     Player *player;
 }
 
-/** A BOOL, when YES it signals the player to warp in. */
-@property (nonatomic) BOOL isPlayerWarpingIn;
-
-/** A BOOL, when YES the sprite is on screen. */
-@property (nonatomic) BOOL isActive;
-
 /** The player object. */
 @property (retain, nonatomic) Player *player;
+
+/** TODO needs doc */
+-(void) removePlayer;
 
 /**
  * Constructor

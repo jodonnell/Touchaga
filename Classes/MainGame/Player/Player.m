@@ -11,6 +11,9 @@
 #import "SpriteManager.h"
 #import "WarpEnergy.h"
 #import "Globals.h"
+#import "WarpOutCircle.h"
+#import "GameLayer.h"
+#import "PlayerInactiveLayer.h"
 
 enum {
     kPlayerFireRate = 2,
@@ -22,11 +25,12 @@ enum {
 @synthesize lives;
 @synthesize invincible;
 @synthesize score;
-@synthesize warpPlayerOut;
 @synthesize isWarpedOut;
 @synthesize isGameOver;
 @synthesize bulletCoolDown;
 @synthesize canShoot;
+@synthesize warpOutCircle;
+@synthesize inactiveLayer;
 
 -(id)init
 {
@@ -35,18 +39,48 @@ enum {
     lives = 3;
     score = 0;
     warpEnergy = [[WarpEnergy alloc] init];
-    warpPlayerOut = NO;
     isWarpedOut = YES;
     canShoot = YES;
     bulletCoolDown = 0;
+    warpOutCircle = [[WarpOutCircle alloc] initWithPlayer:self];
+    inactiveLayer = [[PlayerInactiveLayer alloc] initWithPlayer:self];
     return self;
+}
+
+-(void) deactivate
+{
+    [[GameLayer sharedInstance] addInactiveLayer:inactiveLayer];
 }
 
 -(void) dealloc
 {
     [warpEnergy release];
+    [warpOutCircle release]; // dangerous loop
+    
     [super dealloc];
 }
+
+-(void) removePlayer
+{
+    [warpOutCircle removePlayer];
+}
+
+-(void) playerDrainEnergy
+{
+    [warpEnergy removeEnergy: 1];
+    [warpOutCircle updateScaleFactor];
+}
+
+-(void) warpOut
+{
+    if ([[GameLayer sharedInstance] isInactiveLayerOn])
+        return;
+
+    [warpOutCircle startWarpOut:self.position];
+    isWarpedOut = YES;
+    [[GameLayer sharedInstance] addSpriteToLayer: (TouchagaSprite *)warpOutCircle];
+}
+
 
 -(CGRect)getTouchBox
 {
@@ -89,7 +123,7 @@ enum {
     [self moveTo:CGPointMake(touchPoint.x, touchPoint.y)];
 
     if ([self isTouchInShootButton:touchPoint]) {
-        self.warpPlayerOut = YES;
+        [self warpOut];
         [self onExit]; // only way i would find to force the touch to get dropped
         [self onEnter];
     }
@@ -97,7 +131,7 @@ enum {
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    self.warpPlayerOut = YES;
+    [self warpOut];
 }
 
 -(BOOL) isInvincible
@@ -105,18 +139,19 @@ enum {
     return invincible;
 }
 
--(void) warpOut
-{
-    warpPlayerOut = NO;
-    isWarpedOut = YES;
-}
-
 -(void) warpIn: (CGPoint) point
 {
     if ( ! [self isTouchInShootButton:point]) {
         isWarpedOut = NO;
         [self moveTo:CGPointMake(point.x, point.y)];
+        [self removeWarps];
     }
+}
+
+-(void) removeWarps
+{
+    [[GameLayer sharedInstance] removeWarpOutCircle:warpOutCircle];
+    [[GameLayer sharedInstance] removeInactiveLayer:inactiveLayer];
 }
 
 -(void) addScore: (int) addScore
@@ -131,6 +166,9 @@ enum {
     lives -= 1;
     if (lives == 0)
         isGameOver = YES;
+
+    [self removeWarps];
+    [self deactivate];
 }
 
 -(BOOL) isOutOfWarpEnergy

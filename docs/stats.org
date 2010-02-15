@@ -117,4 +117,5 @@
 ** TODO need to upgrade cocos2d
 ** TODO need to make maingameloop and player interfaces more intuitive
    CLOCK: [2010-02-14 Sun 22:02]
+** TODO make sure all is documented
 * add key so no longer need to type password to checkin

@@ -12,7 +12,6 @@
 #import "Player.h"
 #import "TouchagaSprite.h"
 #import "PlayerBullet.h"
-#import "WarpOutCircle.h"
 #import "WarpEnergy.h"
 #import "Background.h"
 #import "Level.h"
@@ -25,7 +24,6 @@
 
 #import "cocos2d.h"
 
-#define HIGHEST_Z_VALUE 4
 
 @interface MainGameLoop()
 
@@ -40,21 +38,6 @@
 -(void) shootBullet;
 
 /** 
- * Warps the player out, adds the warp out circle to the game layer.
- */
--(void) warpPlayerOut;
-
-/** 
- * Drains the player warp out energy if warped out.
- */
--(void) drainPlayerWarpEnergy;
-
-/** 
- * Warps the player back in.
- */
--(void) warpPlayerIn;
-
-/** 
  * Checks to see if the player is shooting.
  * @return YES if the player is shooting.
  */
@@ -65,11 +48,6 @@
  */
 -(void) drawWarpMeter;
 
-/** 
- * The player died, make him lose a life and put the inactive player layer back up.
- */
--(void) playerDied;
-
 @end
 
 @implementation MainGameLoop
@@ -78,8 +56,6 @@
 @synthesize player;
 @synthesize shootButtonLayer;
 @synthesize playerBullets;
-@synthesize warpOutCircle;
-@synthesize playerInactiveLayer;
 @synthesize background;
 @synthesize level;
 @synthesize time;
@@ -96,12 +72,7 @@
 
         player = [[Player alloc] init];
         [gameLayer addSpriteToLayer:player];
-
-        playerInactiveLayer =  [[PlayerInactiveLayer alloc] initWithPlayer: player];
-        [playerInactiveLayer setIsActive:YES];
-        [gameLayer addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
-
-        warpOutCircle = [[WarpOutCircle alloc] initWithPlayer:player];
+        [player deactivate];
 
         background = [[Background alloc] init];
         [gameLayer addSpriteToLayer:background];
@@ -120,9 +91,7 @@
     [player release];
     [shootButtonLayer release];
     [playerBullets release];
-    [playerInactiveLayer release];
     [background release];
-    [warpOutCircle release];
     [level release];
     [patternableObjects release];
 
@@ -146,26 +115,12 @@
 
     [self updatePlayerBullets];
 
-    if ([player warpPlayerOut]) {
-        NSLog(@"warp player out is true");
-        [self warpPlayerOut];
-    }
-
     if ([player isWarpedOut]) {
-        [self drainPlayerWarpEnergy];
-        [warpOutCircle updateScaleFactor];
-    }
-
-    if ([warpOutCircle isActive] && [warpOutCircle isPlayerWarpingIn])
-        [self warpPlayerIn];
-
-    if ([playerInactiveLayer isActive] && [playerInactiveLayer isPlayerWarpingIn]) {
-        [self warpPlayerIn];
-        NSLog(@"warping in pal");
+        [player playerDrainEnergy];
     }
 
     if ([player isOutOfWarpEnergy]) {
-        [self playerDied];
+        [player loseLife];
     }
 
     [self checkForCollusions];
@@ -179,15 +134,6 @@
 }
 
 // PRIVATE
--(void) playerDied
-{
-    NSLog(@"died.");
-    [self warpPlayerIn];
-    [player loseLife];
-    [player warpOut];
-    [playerInactiveLayer startWarpOut];
-    [[GameLayer sharedInstance] addChild:(Layer *)playerInactiveLayer z:HIGHEST_Z_VALUE];
-}
 
 -(BOOL) isShooting
 {
@@ -220,31 +166,6 @@
     }
     [playerBullets removeObjectsInArray:removeBullets];
     [removeBullets release];
-}
-
--(void) warpPlayerOut
-{
-    [warpOutCircle startWarpOut:player.position];
-    [player warpOut];
-    [gameLayer addSpriteToLayer: (TouchagaSprite *)warpOutCircle];
-}
-
--(void) drainPlayerWarpEnergy
-{
-    if ([warpOutCircle isActive] || [playerInactiveLayer isActive])
-        [[player warpEnergy] removeEnergy: 1];
-}
-
--(void) warpPlayerIn
-{
-    if ([warpOutCircle isActive]) {
-        [gameLayer removeWarpOutCircle:warpOutCircle];
-        [warpOutCircle setIsActive:NO];
-    }
-    if ([playerInactiveLayer isActive]) {
-        [gameLayer removeChild:playerInactiveLayer cleanup:YES];
-        [playerInactiveLayer setIsActive:NO];
-    }
 }
 
 -(void) draw
@@ -286,8 +207,7 @@
     Enemy *patternableObject;
     for (patternableObject in patternableObjects) {
         if (CGRectIntersectsRect([patternableObject makeRect], [player makeRect]) && ! [player isWarpedOut]) {
-            [self playerDied];
-            [player endTouch];
+            [player loseLife];
         }
     }
 

@@ -11,6 +11,7 @@
 @class TouchagaSprite;
 @class PlayerBullet;
 @class WarpOutCircle;
+@class PlayerInactiveLayer;
 
 /**
  * This layer contains all the objects in the main game.
@@ -42,6 +43,11 @@
  * @param The WarpOutCircle to remove from the game layer.
  */
 -(void) removeWarpOutCircle: (WarpOutCircle *) warpOutCircle;
+
+/** TODO document */
+-(BOOL) isInactiveLayerOn;
+-(void) addInactiveLayer: (PlayerInactiveLayer *) inactiveLayer;
+-(void) removeInactiveLayer: (PlayerInactiveLayer *) inactiveLayer;
 
 @end
 

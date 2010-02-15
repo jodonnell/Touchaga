@@ -12,31 +12,24 @@
 @implementation PlayerInactiveLayer
 
 @synthesize player;
-@synthesize isPlayerWarpingIn;
-@synthesize isActive;
 
 -(id) initWithPlayer:(Player *) thePlayer;
 {
     if( (self=[super initWithColor:ccc4(64,64,64,128)] )) {
         self.isTouchEnabled = YES;
         self.player = thePlayer;
-        self.isPlayerWarpingIn = NO;
-        self.isActive = NO;
     }
     return self;
 }
 
--(void) dealloc
+-(void) removePlayer
 {
     [player release];
-
-    [super dealloc];
 }
 
--(void) startWarpOut
+-(void) dealloc
 {
-    isActive = YES;
-    isPlayerWarpingIn = NO;
+    [super dealloc];
 }
 
 - (BOOL)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -47,7 +40,6 @@
          CGPoint convertedPoint = [[Director sharedDirector] convertCoordinate:location];
 
          [player warpIn:convertedPoint];
-         isPlayerWarpingIn = YES;
      }
      return kEventIgnored; // we want the player touch method to pick this up now
 }

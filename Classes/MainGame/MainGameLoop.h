@@ -27,8 +27,6 @@
     Player *player;
     ShootButtonLayer *shootButtonLayer;
     NSMutableArray *playerBullets;
-    WarpOutCircle *warpOutCircle;
-    PlayerInactiveLayer *playerInactiveLayer;
     Background *background;
     Level *level;
     int time;
@@ -46,12 +44,6 @@
 
 /** The layer with the shoot button on it. */
 @property (retain, nonatomic) ShootButtonLayer *shootButtonLayer;
-
-/** The warp layer. Will be nil, unless on screen. */
-@property (retain, nonatomic) WarpOutCircle *warpOutCircle;
-
-/** The inactive layer. A player can touch anywhere to warp in. Will be nil, unless on screen. */
-@property (retain, nonatomic) PlayerInactiveLayer *playerInactiveLayer;
 
 /** The background. */
 @property (retain, nonatomic) Background *background;

@@ -11,8 +11,13 @@
 #import "TouchagaSprite.h"
 #import "SpriteManager.h"
 #import "WarpOutCircle.h"
+#import "PlayerInactiveLayer.h"
 
 @implementation GameLayer
+
+#define INACTIVE_LAYER_TAG 100
+#define HIGHEST_Z_VALUE 4
+
 
 +(GameLayer *)sharedInstance
 {
@@ -68,7 +73,26 @@
 -(void) removeWarpOutCircle: (WarpOutCircle *) warpOutCircle
 {
     AtlasSpriteManager *mgr = (AtlasSpriteManager *)[self getChildByTag:[[warpOutCircle spriteManager] tag]];
-    [mgr removeChild:(TouchagaSprite *)warpOutCircle cleanup:YES];
+    if (mgr)
+        [mgr removeChild:(TouchagaSprite *)warpOutCircle cleanup:YES];
+}
+
+-(void) removeInactiveLayer: (PlayerInactiveLayer *) inactiveLayer
+{
+    if ([self getChildByTag:INACTIVE_LAYER_TAG])
+        [self removeChild:(Layer *)inactiveLayer cleanup:YES];
+}
+
+-(void) addInactiveLayer: (PlayerInactiveLayer *) inactiveLayer
+{
+    [[GameLayer sharedInstance] addChild:(Layer *)inactiveLayer z:HIGHEST_Z_VALUE tag:INACTIVE_LAYER_TAG];
+}
+
+-(BOOL) isInactiveLayerOn
+{
+    if ([self getChildByTag:INACTIVE_LAYER_TAG])
+        return YES;
+    return NO;
 }
 
 @end

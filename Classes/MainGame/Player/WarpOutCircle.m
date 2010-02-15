@@ -10,6 +10,7 @@
 #import "WarpEnergy.h"
 #import "SpriteManager.h"
 #import "Globals.h"
+#import "GameLayer.h"
 
 @interface WarpOutCircle()
 /**
@@ -36,35 +37,32 @@
 @implementation WarpOutCircle
 
 @synthesize player;
-@synthesize isPlayerWarpingIn;
-@synthesize isActive;
 
 -(id) initWithPlayer:(Player *) thePlayer;
 {
     [self setSpriteManager: [[WarpOutSpriteManager alloc] init]];
     self = [self initWithRect:spriteManager.imageRect spriteManager:spriteManager.manager];
     [self setPlayer: thePlayer];
-    self.isPlayerWarpingIn = NO;
 
     self.scale = [self convertEnergyToScaleFactor];
     self.opacity = 120;
-    self.isActive = NO;
 
     return self;
 }
 
--(void) dealloc
+-(void) removePlayer
 {
     [player release];
+}
 
+-(void) dealloc
+{
     [super dealloc];
 }
 
 -(void)startWarpOut:(CGPoint) warpInPoint
 {
     [self moveTo: warpInPoint];
-    isActive = YES;
-    isPlayerWarpingIn = NO;
 }
 
 -(float)convertEnergyToScaleFactor
@@ -115,7 +113,6 @@
 
      if ([self isTouchInWarpCircle:touchPoint] && ! [self isWarpingIntoShootButton:touchPoint]) {
          [player warpIn:touchPoint];
-         isPlayerWarpingIn = YES;
      }
      return NO;
 }

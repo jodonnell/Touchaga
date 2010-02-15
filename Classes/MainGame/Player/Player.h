@@ -11,6 +11,8 @@
 
 @class WarpEnergy;
 @class PlayerBullet;
+@class WarpOutCircle;
+@class PlayerInactiveLayer;
 
 /**
  * The player sprite.  Implements the TargetedTouchDelegate protocol, the player is moved by touching
@@ -27,12 +29,17 @@
     int lives;
     int score;
     BOOL invincible;
-    BOOL warpPlayerOut;
     BOOL isWarpedOut;
     BOOL isGameOver;
     int bulletCoolDown;
     BOOL canShoot;
+    WarpOutCircle *warpOutCircle;
+    PlayerInactiveLayer *inactiveLayer;
 }
+
+/** TODO document. */
+@property (retain, nonatomic) PlayerInactiveLayer *inactiveLayer;
+@property (retain, nonatomic) WarpOutCircle *warpOutCircle;
 
 /** An energy object that represents the players pool of warp energy. */
 @property (retain, nonatomic) WarpEnergy *warpEnergy;
@@ -46,9 +53,6 @@
 /** A BOOL, when YES the player is invincible. */
 @property (nonatomic) BOOL invincible;
 
-/** A BOOL, when YES the player needs to transition to the warped out state. */
-@property (nonatomic) BOOL warpPlayerOut;
-
 /** A BOOL, when YES the player is warped out. */
 @property (nonatomic) BOOL isWarpedOut;
 
@@ -60,6 +64,11 @@
 
 /** A BOOL, when YES the player can shoot. */
 @property (nonatomic) BOOL canShoot;
+
+/** TODO needs doc */
+-(void) playerDrainEnergy;
+-(void) deactivate;
+-(void) removeWarps;
 
 /**
  * Constructor
