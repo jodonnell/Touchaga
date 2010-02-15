@@ -26,4 +26,10 @@
  */
 -(void) moveTo: (CGPoint) point;
 
+/**
+ * Makes a rect that fits the sprite object.
+ * @return The rect that fits the sprite object.
+ */
+-(CGRect) makeRect;
+
 @end
