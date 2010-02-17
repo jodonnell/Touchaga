@@ -19,14 +19,21 @@
 {
     if( (self=[super init] )) {
         SQLite3DataAccess *da = [SQLite3DataAccess sharedInstance];
-        levelEvents = [da getLevel:level];
+        [self setLevelEvents: [da getLevel:level]];
     }
     return self;
 }
 
+-(void) dealloc
+{
+    [levelEvents release];
+
+    [super dealloc];
+}
+
 -(NSMutableArray *) getEventsWithTime:(int) time
 {
-    NSMutableArray *events = [[NSMutableArray alloc] init];
+    NSMutableArray *events = [NSMutableArray array];
 
     LevelCreateEvent *levelEvent;
     for (levelEvent in levelEvents) 

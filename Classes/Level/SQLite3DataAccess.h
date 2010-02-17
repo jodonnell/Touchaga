@@ -10,6 +10,9 @@
 #import <sqlite3.h>
 
 /**
+ * Loads all the game information from a sqlite database.
+ * If you need to change the backend, the methods were intentionally
+ * left generic and could be made into an interface.
  * NOTE: Probably should have a caching proxy in front of this
  * NOTE: currently always recreates db
  */
@@ -36,11 +39,6 @@
 +(SQLite3DataAccess *) sharedInstance;
 
 /**
- * Overwrites the database on the user space.
- */
--(void) checkAndCreateDatabase;
-
-/**
  * Gets all the level create events for a level given an id.
  * @return An array containing all the levels level create events (LevelCreateEvent).
  */
@@ -50,7 +48,7 @@
  * Returns path id and actions id for a pattern.
  * @return An array in the slot is the path id, in the second the actions id.
  */
--(NSArray *) getPattern:(int) patternId;
+-(NSMutableArray *) getPattern:(int) patternId;
 
 /**
  * Gets a path given a path id.

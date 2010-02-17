@@ -30,12 +30,12 @@
 {
     if( (self=[super init] )) {
         SQLite3DataAccess *da = [SQLite3DataAccess sharedInstance];
-        NSArray *pathAndActionIds = [da getPattern:patternId];
+        NSMutableArray *pathAndActionIds = [da getPattern:patternId];
         int pathId = [[pathAndActionIds objectAtIndex:0] intValue];
         int actionsId = [[pathAndActionIds objectAtIndex:1] intValue];
 
-        path = [[Path alloc] initWithId:pathId];
-        actions = [self loadActionPointsWithId:actionsId];
+        [self setPath: [[Path alloc] initWithId:pathId]];
+        [self setActions: [da getActionPoints:actionsId]];
     }
 
     return self;
@@ -47,12 +47,6 @@
     [actions release];
 
     [super dealloc];
-}
-
--(NSMutableDictionary *) loadActionPointsWithId:(int) actionsId
-{
-    SQLite3DataAccess *da = [SQLite3DataAccess sharedInstance];
-    return [da getActionPoints:actionsId];
 }
 
 -(BOOL) isPatternOverAtTime:(int) relativeTime

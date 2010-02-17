@@ -22,4 +22,10 @@
     return self;
 }
 
+// to send a tracking shot this needs player coords info.
+-(void) primaryShoot
+{
+
+}
+
 @end

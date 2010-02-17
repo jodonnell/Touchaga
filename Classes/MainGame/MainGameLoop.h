@@ -61,16 +61,33 @@
  */
 -(void) update: (ccTime) dt;
 
-
 /** 
- * Executes all create events in the given array
+ * Executes all create events in the given array, this will create any scripted objects.
  */
 -(void) executeCreateEvents;
 
+/** 
+ * Updates all scripted objects, running them both on their path, and executing action points.
+ */
 -(void) updateScriptedObjects;
+
+/** 
+ * Checks scripted objects for collisions.
+ */
 -(void) checkForCollusions;
 
+/** 
+ * Checks if there is a collision between a scripted object and the player.
+ * Will call lose life on player if there is a collision.
+ * @param scriptedObject The scripted object to check.
+ */
 -(void) checkForPlayerCollusion:(ScriptedObject *)scriptedObject;
+
+/** 
+ * Checks scripted object for collisions with player bullets.
+ * @param scriptedObject The scripted object to check.
+ * @return YES if there is a collision.
+ */
 -(BOOL) checkForBulletCollusion:(ScriptedObject *)scriptedObject;
 
 @end

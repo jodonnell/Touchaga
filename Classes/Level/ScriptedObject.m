@@ -10,6 +10,20 @@
 #import "Pattern.h"
 #import "ActionPoint.h"
 
+@interface ScriptedObject()
+
+/**
+ * Gets the amount of time the pattern has been running
+ * @param currentTime The current time since the level started.
+ * @return The amount of time the pattern has been running.
+ */
+-(int) getRelativeTime:(int) currentTime;
+
+@end
+
+
+
+
 @implementation ScriptedObject
 
 @synthesize pattern;
@@ -18,9 +32,17 @@
 -(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern andRect:(CGRect) rect andManager:(AtlasSpriteManager *) manager
 {
     self = [self initWithRect:rect spriteManager:manager];
-    pattern = inPattern;
+    [self setPattern: inPattern];
+
     startTime = inStartTime;
     return self;
+}
+
+-(void) dealloc
+{
+    [pattern release];
+
+    [super dealloc];    
 }
 
 -(int) getRelativeTime:(int) currentTime

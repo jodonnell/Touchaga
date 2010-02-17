@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * 
+ * Loads all the level events for a given level.
  */
 @interface Level : NSObject {
     NSMutableArray *levelEvents;

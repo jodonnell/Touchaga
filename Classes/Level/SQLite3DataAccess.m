@@ -11,6 +11,18 @@
 #import "ActionPoint.h"
 #import "cocos2d.h"
 
+@interface SQLite3DataAccess()
+
+/**
+ * Overwrites the database on the user space.
+ */
+-(void) checkAndCreateDatabase;
+
+@end
+
+
+
+
 @implementation SQLite3DataAccess
 
 @synthesize databaseName;
@@ -57,8 +69,6 @@
     [super dealloc];    
 }
 
-
-
 -(void) checkAndCreateDatabase
 {
     // Check if the SQL database has already been saved to the users phone, if not then copy it over
@@ -71,7 +81,6 @@
     // Check if the database has already been created in the users filesystem
     success = [fileManager fileExistsAtPath:databasePath];
 
-
     // Get the path to the database in the application package
     NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
 
@@ -80,13 +89,11 @@
 
     // Copy the database from the package to the users filesystem
     [fileManager copyItemAtPath:databasePathFromApp toPath:databasePath error:nil];
-
-    [fileManager release];
 }
 
 -(NSMutableArray *) getLevel:(int) level
 {
-    NSMutableArray *levelEvents = [[NSMutableArray alloc] init];
+    NSMutableArray *levelEvents = [NSMutableArray array];
 
     const char *sqlStatement = "select time, pattern, object_types.object_type from levels, object_types where level = ? and levels.object_type == object_types.id";
     sqlite3_stmt *compiledStatement;
@@ -103,8 +110,8 @@
             [levelEvent setTime:time];
             [levelEvent setPatternId:pattern];
             [levelEvent setObjectType:objectType];
-
             [levelEvents addObject:levelEvent];
+            [levelEvent release];
         }
     }
     sqlite3_finalize(compiledStatement);
@@ -112,9 +119,9 @@
     return levelEvents;
 }
 
--(NSArray *) getPattern:(int) patternId
+-(NSMutableArray *) getPattern:(int) patternId
 {
-    NSArray *pathAndActionIds = nil;
+    NSMutableArray *pathAndActionIds = [NSMutableArray array];
     const char *sqlStatement = "select path_id, actions_id from pattern where id = ?";
     sqlite3_stmt *compiledStatement;
     if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
@@ -126,7 +133,8 @@
 
         NSNumber *pathId = [NSNumber numberWithInt:sqlite3_column_int(compiledStatement, 0)];
         NSNumber *actionsId = [NSNumber numberWithInt:sqlite3_column_int(compiledStatement, 1)];
-        pathAndActionIds = [[NSArray alloc] initWithObjects:pathId, actionsId, nil];
+        [pathAndActionIds addObject:pathId];
+        [pathAndActionIds addObject:actionsId];
     }
     sqlite3_finalize(compiledStatement);
 
@@ -135,7 +143,7 @@
 
 -(NSMutableDictionary *) getPath:(int) pathId
 {
-    NSMutableDictionary *path = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *path = [NSMutableDictionary dictionary];
     const char *sqlStatement = "select time, x, y from paths, points where paths.id = ? and paths.point_id == points.id";
     sqlite3_stmt *compiledStatement;
     if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
@@ -155,7 +163,7 @@
 
 -(NSMutableDictionary *) getActionPoints:(int) actionId
 {
-    NSMutableDictionary *actions = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *actions = [NSMutableDictionary dictionary];
     const char *sqlStatement = "select time, action_name from actions, action where actions.id = ? and actions.action == action.id";
     sqlite3_stmt *compiledStatement;
     if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
@@ -167,6 +175,7 @@
             NSString *actionName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
             ActionPoint *ap = [[ActionPoint alloc] initWithAction:(NSString *)actionName];
             [actions setObject:ap forKey: time];
+            [ap release];
         }
     }
     sqlite3_finalize(compiledStatement);

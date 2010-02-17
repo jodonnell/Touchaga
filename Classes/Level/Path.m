@@ -10,6 +10,17 @@
 #import "cocos2d.h"
 #import "SQLite3DataAccess.h"
 
+@interface Path()
+
+/**
+ * Checks to see if the point is off screen.
+ * @param The point to check against.
+ */
+-(BOOL) isOffScreen:(CGPoint) point;
+
+@end
+
+
 @implementation Path
 
 @synthesize path;
@@ -26,7 +37,7 @@
 -(id)initWithId:(int) pathId
 {
     if( (self=[super init] )) {
-        path = [[SQLite3DataAccess sharedInstance] getPath:pathId];
+        [self setPath: [[SQLite3DataAccess sharedInstance] getPath:pathId]];
     }
 
     return self;
@@ -41,9 +52,26 @@
 
 -(BOOL) isValid
 {
-//     if ([self isOnScreenBorder [path objectAtIndex:0]] && [self isOnScreenBorder [path objectAtIndex:[path count] - 1]])
-//         return YES;
-//     return NO;
+    CGPoint first_point = [[path objectForKey: [NSNumber numberWithInt:0]] CGPointValue];
+    CGPoint last_point = [[path objectForKey: [NSNumber numberWithInt:[path count] - 1]] CGPointValue];
+    if ([self isOffScreen:first_point] && [self isOffScreen: last_point])
+        return YES;
+    return NO;
+}
+
+-(BOOL) isOffScreen:(CGPoint) point
+{
+    CGSize s = [[Director sharedDirector] winSize];
+
+    if (s.height < point.y)
+        return YES;
+    if (0 > point.y)
+        return YES;
+    if (s.width < point.x)
+        return YES;
+    if (0 > point.x)
+        return YES;
+    return NO;
 }
 
 -(void) addPoint:(CGPoint) point atTime:(int) time

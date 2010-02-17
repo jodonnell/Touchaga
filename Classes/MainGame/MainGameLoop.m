@@ -77,7 +77,8 @@
         background = [[Background alloc] init];
         [gameLayer addSpriteToLayer:background];
 
-        level = [[Level alloc] initWithLevel:@"level1"];
+        level = [[Level alloc] initWithLevel:1];
+        time = 0;
 
         [self schedule:@selector(update:)];
     }
@@ -178,8 +179,8 @@
     LevelCreateEvent *currentEvent;
     for (currentEvent in currentEvents) {
         Pattern *pattern = [[Pattern alloc] initWithId:[currentEvent patternId]];
-
         ScriptedObject *scriptedObject = [ScriptedObjectFactory initWithType:[currentEvent objectType] andPattern:pattern andStartTime:time];
+        [pattern release];
         [scriptedObjects addObject:scriptedObject];
     }
 }
@@ -198,6 +199,7 @@
         }
     }
     [scriptedObjects removeObjectsInArray:removeEnemies];
+    [removeEnemies release];
 }
 
 -(void) checkForCollusions
@@ -211,6 +213,7 @@
             [removeEnemies addObject:scriptedObject];
     }
     [scriptedObjects removeObjectsInArray:removeEnemies];
+    [removeEnemies release];
 }
 
 -(void) checkForPlayerCollusion:(ScriptedObject *)scriptedObject

@@ -37,13 +37,6 @@
 -(id)initWithStartTime:(int) inStartTime andPattern:(Pattern *) inPattern andRect:(CGRect) rect andManager:(AtlasSpriteManager *) manager;
 
 /**
- * Gets the amount of time the pattern has been running
- * @param currentTime The current time since the level started.
- * @return The amount of time the pattern has been running.
- */
--(int) getRelativeTime:(int) currentTime;
-
-/**
  * Moves the enemy to where it should be on a path at the current time.
  * @param currentTime The current time since the level started.
  */
