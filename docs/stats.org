@@ -136,9 +136,12 @@
 *** TODO Implement simple shot type
     CLOCK: [2010-02-15 Mon 19:16]--[2010-02-15 Mon 20:27] =>  1:11
 *** TODO Make the ActionObject a command object that is passed to the enemy to execute
+    CLOCK: [2010-02-17 Wed 01:11]--[2010-02-17 Wed 01:59] =>  0:48
+*** TODO Make enemies have hit points
+*** TODO Make bullets remove themselves on collusion
 ** Iteration 3 - 
 *** Redesign highest level interface, put them in subsystems
-    CLOCK: [2010-02-15 Mon 20:27]
+    CLOCK: [2010-02-15 Mon 20:27]--[2010-02-15 Mon 21:04] =>  0:37
 ** Optimizitations
 *** add caching proxy to sql backend
 ** Considerations

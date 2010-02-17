@@ -197,6 +197,8 @@
             [removeEnemies addObject:scriptedObject];
             [gameLayer removeScriptedObject:scriptedObject];
         }
+
+        [scriptedObject doActionPointsAtTime:time];
     }
     [scriptedObjects removeObjectsInArray:removeEnemies];
     [removeEnemies release];

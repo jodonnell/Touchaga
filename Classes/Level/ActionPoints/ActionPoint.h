@@ -11,6 +11,7 @@
 /**
  * An action is a non movement action at a given time for a given pattern.
  * A pattern can have many actions throughout it's life.
+ * An ActionPoint uses the Command design pattern.
  * Constraint: Only one action at any given time.
  */
 @interface ActionPoint : NSObject {
@@ -24,6 +25,12 @@
  * Loads an action given an action point id.
  */
 -(id)initWithAction:(NSString *) inActionPoint;
+
+
+/**
+ * Abstract method for the Command Pattern, does whatever action is appropriate for the action.
+ */
+-(void) execute;
 
 /**
  * @return YES if this action is a primary shot.

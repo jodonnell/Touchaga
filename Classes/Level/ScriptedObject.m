@@ -59,13 +59,8 @@
 -(void)doActionPointsAtTime:(int) currentTime
 {
     int relativeTime = [self getRelativeTime:currentTime];
-    NSMutableArray *actions = [pattern getActionPointsAtTime:relativeTime];
-
-    ActionPoint *action;
-    for (action in actions) {
-        if ([action isActionPointPrimaryShoot])
-            [self primaryShoot];
-    }
+    ActionPoint *action = [pattern getActionPointAtTime:relativeTime];
+    [action execute];
 }
 
 -(void) primaryShoot

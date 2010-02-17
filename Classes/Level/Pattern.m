@@ -59,7 +59,7 @@
    return [path getPosAtTime:relativeTime];
 }
 
--(NSMutableArray *) getActionPointsAtTime:(int) relativeTime
+-(ActionPoint *) getActionPointAtTime:(int) relativeTime
 {
     return [actions objectForKey: [NSNumber numberWithInt:relativeTime]];
 }

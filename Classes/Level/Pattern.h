@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class Path;
+@class ActionPoint;
 
 /**
  * The Pattern object represents an enemy or object who follows some scripted action and
@@ -44,9 +45,9 @@
 
 /**
  * @param relativeTime The amount of time the action is through.
- * @return Returns an NSMutableArray that contains all actions at a given time.
+ * @return Returns an ActionPoint.
  */
--(NSMutableArray *) getActionPointsAtTime:(int) relativeTime;
+-(ActionPoint *) getActionPointAtTime:(int) relativeTime;
 
 /**
  * @param time The time you are checking to see if the pattern is over at.

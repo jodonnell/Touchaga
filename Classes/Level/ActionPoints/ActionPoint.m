@@ -17,7 +17,7 @@ NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot";
 -(id)initWithAction:(NSString *) inActionPoint
 {
     if( (self=[super init] )) {
-        action = inActionPoint;
+        [self setAction: inActionPoint];
     }
 
     return self;
@@ -25,7 +25,13 @@ NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot";
 
 -(void) dealloc
 {
+    [action release];
+
     [super dealloc];
+}
+
+-(void) execute
+{
 }
 
 -(BOOL) isActionPointPrimaryShoot
