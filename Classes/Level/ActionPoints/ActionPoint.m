@@ -12,12 +12,16 @@ NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot";
 
 @implementation ActionPoint
 
-@synthesize action;
+@synthesize args;
 
--(id)initWithAction:(NSString *) inActionPoint
+-(id)initWithArgs:(NSMutableArray *) arguments andArgConverter:argConverter;
 {
     if( (self=[super init] )) {
-        [self setAction: inActionPoint];
+        NSArray *argTypes = [self getArgTypes];
+        for (int i = 0; [args count]; i++) {
+            if ([[argTypes objectAtIndex:i] isEqualToString:@"int")
+                [args addObject: [argConverter genNumFromField:[args objectAtIndex:i] type:[argTypes objectAtIndex:i]];
+        }
     }
 
     return self;
@@ -30,7 +34,7 @@ NSString * const ACTION_PRIMARY_SHOOT = @"primaryShoot";
     [super dealloc];
 }
 
--(void) execute
+-(void) execute:(ScriptedObject *) scriptedObject
 {
 }
 

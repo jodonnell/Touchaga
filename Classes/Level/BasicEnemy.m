@@ -19,6 +19,7 @@
     self = [self initWithStartTime:inStartTime andPattern: inPattern andRect:spriteManager.imageRect andManager:spriteManager.manager];
     GameLayer *gameLayer = [GameLayer sharedInstance];
     [gameLayer addSpriteToLayer:self];
+    [self setHp:3];
     return self;
 }
 

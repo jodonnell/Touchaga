@@ -23,4 +23,9 @@
 
 }
 
+-(void) getArgTypes 
+{
+    return [NSArray arrayWithObjects:@"int", "int", nil];
+}
+
 @end

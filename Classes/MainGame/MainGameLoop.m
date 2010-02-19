@@ -231,8 +231,15 @@
     for (playerBullet in playerBullets) 
     {
         if (CGRectIntersectsRect([scriptedObject makeRect], [playerBullet makeRect])) {
-            [gameLayer removeScriptedObject:scriptedObject];
-            return YES;
+            [scriptedObject getHit];
+
+            [gameLayer removePlayerBullet:playerBullet];
+            [playerBullets removeObject:playerBullet];
+            if ([scriptedObject isDead]) {
+                [gameLayer removeScriptedObject:scriptedObject];
+                return YES;
+            }
+            return NO;
         }
     }
     return NO;

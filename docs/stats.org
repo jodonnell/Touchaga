@@ -127,20 +127,28 @@
     :END:
 *** DONE make sure all is documented
     CLOCK: [2010-02-15 Mon 15:46]--[2010-02-15 Mon 16:32] =>  0:46
-*** TODO Figure out better directory structure
 *** DONE Bug when you fly into the shoot button
     CLOCK: [2010-02-15 Mon 18:08]--[2010-02-15 Mon 18:18] =>  0:10
 *** DONE Make sure privacy levels of different methods are correct.
     CLOCK: [2010-02-15 Mon 18:00]--[2010-02-15 Mon 18:06] =>  0:06
 
+** Iteration 3 - Make simple level
+   I need to see if the core game is any fun to play before continuing down this path
+*** TODO Add Mark's enemies and add their animations
+*** DONE Make bullets remove themselves on collusion
+    CLOCK: [2010-02-18 Thu 20:11]--[2010-02-18 Thu 20:14] =>  0:03
+*** DONE Make enemies have hit points
+    CLOCK: [2010-02-18 Thu 20:14]--[2010-02-18 Thu 20:28] =>  0:14
+*** TODO Make the ActionObject a command object that is passed to the enemy to execute
+    :CLOCK:
+    CLOCK: [2010-02-19 Fri 00:46]--[2010-02-19 Fri 00:58] =>  0:12
+    CLOCK: [2010-02-18 Thu 20:38]--[2010-02-18 Thu 22:10] =>  1:32
+    CLOCK: [2010-02-17 Wed 01:11]--[2010-02-17 Wed 01:59] =>  0:48
+    :END:
 *** TODO Implement simple shot type
     CLOCK: [2010-02-15 Mon 19:16]--[2010-02-15 Mon 20:27] =>  1:11
-*** TODO Make the ActionObject a command object that is passed to the enemy to execute
-    CLOCK: [2010-02-17 Wed 01:11]--[2010-02-17 Wed 01:59] =>  0:48
-*** TODO Make enemies have hit points
-*** TODO Make bullets remove themselves on collusion
-** Iteration 3 - 
-*** Redesign highest level interface, put them in subsystems
+*** TODO Figure out better directory structure
+*** TODO Redesign highest level interface, put them in subsystems
     CLOCK: [2010-02-15 Mon 20:27]--[2010-02-15 Mon 21:04] =>  0:37
 ** Optimizitations
 *** add caching proxy to sql backend

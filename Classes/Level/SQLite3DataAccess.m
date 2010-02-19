@@ -164,7 +164,7 @@
 -(NSMutableDictionary *) getActionPoints:(int) actionId
 {
     NSMutableDictionary *actions = [NSMutableDictionary dictionary];
-    const char *sqlStatement = "select time, action_name from actions, action where actions.id = ? and actions.action == action.id";
+    const char *sqlStatement = "select time, action_name, args from actions, action where actions.id = ? and actions.action == action.id";
     sqlite3_stmt *compiledStatement;
     if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
         if (sqlite3_bind_int(compiledStatement, 1, actionId) != SQLITE_OK)
@@ -173,9 +173,15 @@
         while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
             NSNumber *time = [NSNumber numberWithInt:sqlite3_column_int(compiledStatement, 0)];
             NSString *actionName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
-            ActionPoint *ap = [[ActionPoint alloc] initWithAction:(NSString *)actionName];
+            NSNumber *args = [NSNumber numberWithInt:sqlite3_column_int(compiledStatement, 2)];
+
+            NSMutableArray *argsArray = [self getArgsForActions];
+
+            SQLArgConverter *argConverter = [[SQLArgConverter alloc] init];
+
+            ActionPoint *ap = [ActionPointSimpleParametizedFactory initWithType:actionName];
+            [ap getArgTypes]
             [actions setObject:ap forKey: time];
-            [ap release];
         }
     }
     sqlite3_finalize(compiledStatement);

@@ -15,11 +15,11 @@
  * Constraint: Only one action at any given time.
  */
 @interface ActionPoint : NSObject {
-    NSString *action;
+    NSMutableArray *args;
 }
 
-/** The string that contains what the action is. */
-@property (retain, nonatomic) NSString *action;
+/** An array of arguments. */
+@property (retain, nonatomic) NSMutableArray *args;
 
 /**
  * Loads an action given an action point id.
