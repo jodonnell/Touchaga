@@ -4,10 +4,6 @@
    I am mainly looking to make this a quality project with a small emphasis on schedule and zero in cost (since the only cost is my time).
    I want to eliminate scope creep so by defining my product well from the beginning, I can limit the ability to change
 ** Requirements
-**** Level editor
-***** RISK - the user interface is very unknown
-****** Build prototype to get a feel for it and quickly determine UI constrictions before actual construction
-**** Create an estimate
 ** Design
 ** Construction
 **** Break estimates into smaller chunk
