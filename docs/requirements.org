@@ -37,15 +37,20 @@
 ****** Love
 ******* This will be determined by feeding, petting, not doing mean things
 ***** Food
+****** You can pull food out of the [[items menu][items menu]] and drag it on the screen.
+******* Where your finger releases the screen is where the food will be dropped.
 ****** Hamsters will have a hunger meter.
 ******* Hamsters are attracted to food, the amount of attraction is affected by this meter.
 ******* Different foods will fill this meter to different degrees.
 ******* Hamsters will [[Death][die]] if this meter runs out.
+***** Toys
+****** You can place a hampster wheel which the hampster will run on.
 ***** Menus
-****** Items
+****** Items <<items menu>>
 ******* From this menu you can select food or entertainment to place on the screen
 ****** Stats
 ******* From this menu, you can look at the hamster's name and its various stats
+
 ***** Death <<Death>>
 ****** When the hamster dies it will create a tombstone that will fade eventually.
 ****** Other hamsters will give your hamster a funeral and mourn.
