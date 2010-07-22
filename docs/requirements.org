@@ -30,6 +30,8 @@
 ****** If you put your finger directly on a hamster it pins them where they are until you remove your finger
 ***** Tilt
 ****** If you tilt the screen all the hamsters will go tumbling down the plane
+***** Pinch
+****** If you pinch your fingers together over a hamster it will pick them up until one of your fingers moves away from the other
 **** Hamsters
 ***** Creation
 ****** When you get a new hamster you can name them.
